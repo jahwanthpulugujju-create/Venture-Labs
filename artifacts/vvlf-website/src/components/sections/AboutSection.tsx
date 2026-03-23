@@ -25,8 +25,8 @@ export function AboutSection() {
             <div className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -z-10" />
               <img 
-                src={`${import.meta.env.BASE_URL}images/sdg-grid.png`} 
-                alt="SDG Goals" 
+                src={`${import.meta.env.BASE_URL}images/startup-networking.jpg`} 
+                alt="VVLF Startup Ecosystem" 
                 className="w-full rounded-3xl shadow-xl object-cover aspect-square"
               />
             </div>

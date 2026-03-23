@@ -6,25 +6,25 @@ export function ProgramsSection() {
     {
       title: "Failathon",
       desc: "We hosted a Failathon for 1st and 2nd year students at BVRIT, centered on the motto 'Come, let's Fail, and Learn.' Emphasized experiential learning and creative problem-solving using ideation tools to reframe failure as a vital part of innovation.",
-      img: "failathon.png",
+      img: "failathon.jpg",
       layout: "left"
     },
     {
       title: "PIVOT Makeathon",
       desc: "24 hours, countless ideas, one epic journey! PIVOT was a Makeathon for 2nd and 3rd year students — a whirlwind of creativity, innovation, and teamwork. From brainstorming to breakthroughs, students showed incredible resilience.",
-      img: "pivot.png",
+      img: "pivot.jpg",
       layout: "right"
     },
     {
       title: "Project SAARTHIS",
       desc: "A year-long student innovation journey by VVLF, BVRIT, and Kaiteki Innovations to co-create accessible, inclusive solutions for persons with disabilities.",
-      img: "saarthis.png",
+      img: "saarthis.jpg",
       layout: "left"
     },
     {
       title: "EPICS Cohort",
       desc: "True innovation stems from direct engagement with real-world challenges. At the EPICS Cohort Event at BVRIT, VVLF mentored 49 multidisciplinary student teams developing tangible solutions for pressing community needs.",
-      img: "epics.png",
+      img: "epics-cohort.jpg",
       layout: "right"
     }
   ];
