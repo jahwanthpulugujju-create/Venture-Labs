@@ -6,15 +6,15 @@ import { Textarea } from "@/components/ui/textarea";
 
 export function CommunitySection() {
   const board = [
-    { name: "Shri R. Rajagopal", title: "Vice Chairman" },
-    { name: "Shri K. Aditya Vissam", title: "Secretary" },
-    { name: "Dr. K. Lakshmi Prasad", title: "Director" },
-    { name: "Dr. Sanjay Dubey", title: "Principal" }
+    { name: "Shri R. Rajagopal", title: "Vice Chairman", photo: "team-rajagopal.png" },
+    { name: "Shri K. Aditya Vissam", title: "Secretary", photo: "team-aditya.png" },
+    { name: "Dr. K. Lakshmi Prasad", title: "Director", photo: "team-lakshmi.png" },
+    { name: "Dr. Sanjay Dubey", title: "Principal", photo: "team-sanjay.png" }
   ];
 
   const team = [
-    { name: "Dr. M. K. Kaushik", title: "Director" },
-    { name: "Rohith Sirpa", title: "Manager" }
+    { name: "Dr. M. K. Kaushik", title: "Director", photo: "team-kaushik.png" },
+    { name: "Rohith Sirpa", title: "Manager", photo: "team-rohith.png" }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -41,9 +41,9 @@ export function CommunitySection() {
                   <div className="text-center group">
                     <div className="w-40 h-40 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white shadow-xl shadow-slate-200/50">
                       <img 
-                        src={`${import.meta.env.BASE_URL}images/team-avatar.png`} 
+                        src={`${import.meta.env.BASE_URL}images/${member.photo}`}
                         alt={member.name} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
                     <h5 className="text-lg font-bold text-navy">{member.name}</h5>
@@ -62,9 +62,9 @@ export function CommunitySection() {
                   <div className="text-center group w-64">
                     <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white shadow-xl shadow-slate-200/50">
                       <img 
-                        src={`${import.meta.env.BASE_URL}images/team-avatar.png`} 
+                        src={`${import.meta.env.BASE_URL}images/${member.photo}`}
                         alt={member.name} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-navy/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <a href="#" className="w-10 h-10 rounded-full bg-white text-[#0A66C2] flex items-center justify-center hover:scale-110 transition-transform">
