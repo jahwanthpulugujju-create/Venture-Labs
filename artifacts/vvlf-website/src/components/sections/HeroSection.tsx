@@ -30,13 +30,14 @@ export function HeroSection() {
           
           <FadeIn delay={0.2}>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-6 tracking-tight">
-              Got an idea that can <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">change lives?</span>
+              We help student innovators<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">build real startups.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.3}>
-            <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
-              Join Vishnu Venture Labs Foundation to turn impactful ideas into scalable ventures. We provide the infrastructure, mentorship, and funding to build the future.
+            <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-xl leading-relaxed">
+              Vishnu Venture Labs Foundation — the incubation center of BVRIT — gives you the mentorship, infrastructure, and funding to go from idea to incorporated venture.
             </p>
           </FadeIn>
 
