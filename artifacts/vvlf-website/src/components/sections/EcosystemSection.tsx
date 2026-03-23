@@ -15,13 +15,48 @@ export function EcosystemSection() {
   ];
 
   const startups = [
-    { name: "Innovable Solutions", desc: "Inclusive learning tools for children with disabilities (SDG 4)", color: "bg-blue-500" },
-    { name: "MXC Ignite", desc: "Student-led ecosystem connecting students with founders", color: "bg-indigo-500" },
-    { name: "Nirvaha Wellness", desc: "Wellness-tech blending ancient wisdom with AI", color: "bg-emerald-500" },
-    { name: "OLynk.AI", desc: "AI-powered virtual COO for Indian D2C brands", color: "bg-sky-500" },
-    { name: "SALO", desc: "Digital platform for booking salon and spa services", color: "bg-rose-500" },
-    { name: "Stud Entertainments", desc: "Filmmaking and tech startup delivering CinemaTech", color: "bg-orange-500" },
-    { name: "VIINDE Instruments", desc: "Smart dental solutions for practitioners", color: "bg-teal-500" }
+    {
+      name: "Innovable Solutions",
+      desc: "Inclusive learning tools for children with disabilities (SDG 4)",
+      logo: "startup-innovable.png",
+      logoBg: "bg-white"
+    },
+    {
+      name: "MXC Ignite",
+      desc: "Student-led ecosystem connecting students with founders",
+      logo: "startup-mxc.png",
+      logoBg: "bg-white"
+    },
+    {
+      name: "Nirvaha Wellness",
+      desc: "Wellness-tech blending ancient wisdom with AI",
+      logo: "startup-nirvaha.png",
+      logoBg: "bg-[#0d2b2e]"
+    },
+    {
+      name: "OLynk.AI",
+      desc: "AI-powered virtual COO for Indian D2C brands",
+      logo: "startup-olynk.png",
+      logoBg: "bg-[#f5f0eb]"
+    },
+    {
+      name: "SALO",
+      desc: "Digital platform for booking salon and spa services",
+      logo: "startup-salo.png",
+      logoBg: "bg-black"
+    },
+    {
+      name: "Stud Entertainments",
+      desc: "Filmmaking and tech startup delivering CinemaTech solutions",
+      logo: "startup-studento.png",
+      logoBg: "bg-white"
+    },
+    {
+      name: "VIINDE Instruments",
+      desc: "Smart dental solutions for practitioners",
+      logo: "startup-viinde.png",
+      logoBg: "bg-white"
+    }
   ];
 
   return (
@@ -51,7 +86,7 @@ export function EcosystemSection() {
         </div>
       </section>
 
-      <section id="startups" className="py-24 bg-background">
+      <section id="startups" className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -65,24 +100,32 @@ export function EcosystemSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {startups.map((startup, i) => (
-              <FadeIn key={startup.name} delay={i * 0.1}>
-                <div className="bg-white rounded-3xl p-8 shadow-lg shadow-slate-200/50 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all h-full flex flex-col">
-                  <div className="flex justify-between items-start mb-6">
-                    <div className={`w-16 h-16 rounded-2xl ${startup.color} flex items-center justify-center text-white font-display font-bold text-2xl shadow-lg`}>
-                      {startup.name.substring(0, 2).toUpperCase()}
-                    </div>
-                    <a href="#" className="text-slate-400 hover:text-[#0A66C2] transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
+              <FadeIn key={startup.name} delay={i * 0.08}>
+                <div className="bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden group">
+                  {/* Logo area */}
+                  <div className={`w-full h-44 ${startup.logoBg} flex items-center justify-center p-6 border-b border-slate-100`}>
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/${startup.logo}`}
+                      alt={startup.name}
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                  
-                  <h4 className="text-xl font-bold text-navy mb-3">{startup.name}</h4>
-                  <p className="text-slate-600 mb-8 flex-grow">{startup.desc}</p>
-                  
-                  <div className="pt-6 border-t border-slate-100">
-                    <a href="#" className="inline-flex items-center text-sm font-semibold text-primary hover:text-navy transition-colors">
-                      Know More <ExternalLink className="ml-2 w-4 h-4" />
-                    </a>
+
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="text-lg font-bold text-navy leading-snug">{startup.name}</h4>
+                      <a href="#" className="text-slate-300 hover:text-[#0A66C2] transition-colors shrink-0 ml-2">
+                        <Linkedin className="w-4 h-4" />
+                      </a>
+                    </div>
+                    <p className="text-sm text-slate-500 flex-1 mb-4">{startup.desc}</p>
+
+                    <div className="pt-4 border-t border-slate-100">
+                      <a href="#" className="inline-flex items-center text-sm font-semibold text-primary hover:text-navy transition-colors group">
+                        Know More <ExternalLink className="ml-1.5 w-3.5 h-3.5" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </FadeIn>

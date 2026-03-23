@@ -7,13 +7,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white font-display font-bold text-2xl shadow-lg">
-                V
+            <div className="flex items-start">
+              <div className="rounded-xl bg-white p-2 shadow-sm">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/vvlf-logo.png`}
+                  alt="Vishnu Venture Labs Foundation"
+                  className="h-10 w-auto object-contain"
+                />
               </div>
-              <span className="font-display font-bold text-2xl tracking-tight">
-                VVLF
-              </span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
               Vishnu Venture Labs Foundation. Turning impactful ideas into scalable ventures. Empowering early-stage startups with world-class infrastructure.
