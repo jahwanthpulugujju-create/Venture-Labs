@@ -3,14 +3,54 @@ import { ArrowRight } from "lucide-react";
 
 export function TimelineSection() {
   const events = [
-    { date: "AUG 4, 2025", title: "Milestone at Vishnu Venture Labs", desc: "Startups from COHORT 1.0 have officially been incorporated, turning bold ideas into ventures!" },
-    { date: "JUL 24, 2025", title: "Fostering Grassroots Innovation", desc: "Supporting the Innovators' Introductory Meet for innovators from Medak district." },
-    { date: "JUL 10, 2025", title: "Project SAARTHIS: Be the Change", desc: "Empowering students to lead inclusive innovation and drive improvements on campus." },
-    { date: "JUL 8, 2025", title: "Business Launch Workshop", desc: "A hands-on workshop to guide future founders in validating ideas, financial planning, marketing, and scaling." },
-    { date: "MAY 1, 2025", title: "When Purpose Meets Innovation — EPICS Cohort", desc: "VVLF cohosted student innovation for community impact, guiding 49 multidisciplinary teams." },
-    { date: "FEB 28, 2025", title: "Pre-Incubation Cohort 1.0 Launch", desc: "Join our Pre-Incubation Cohort to access expert mentorship, resources, and a thriving startup ecosystem." },
-    { date: "FEB 13, 2025", title: "Innovation as a Career", desc: "A successful session on Entrepreneurship & Innovation as a Career Opportunity." },
-    { date: "JAN 12, 2025", title: "Official VVLF Logo Launch", desc: "Unveiling our new logo, symbolizing commitment to fostering innovation, entrepreneurship, and technological excellence." }
+    {
+      date: "AUG 4, 2025",
+      title: "Milestone at Vishnu Venture Labs",
+      desc: "Startups from COHORT 1.0 have officially been incorporated, turning bold ideas into ventures!",
+      img: "cohort-milestone.jpg"
+    },
+    {
+      date: "JUL 24, 2025",
+      title: "Fostering Grassroots Innovation",
+      desc: "Supporting the Innovators' Introductory Meet for innovators from Medak district.",
+      img: "grassroots-meet.jpg"
+    },
+    {
+      date: "JUL 10, 2025",
+      title: "Project SAARTHIS: Be the Change",
+      desc: "Empowering students to lead inclusive innovation and drive improvements on campus.",
+      img: "saarthis-session.jpg"
+    },
+    {
+      date: "JUL 8, 2025",
+      title: "Business Launch Workshop",
+      desc: "A hands-on workshop to guide future founders in validating ideas, financial planning, marketing, and scaling.",
+      img: "business-launch-workshop.jpg"
+    },
+    {
+      date: "MAY 1, 2025",
+      title: "When Purpose Meets Innovation — EPICS Cohort",
+      desc: "VVLF cohosted student innovation for community impact, guiding 49 multidisciplinary teams.",
+      img: "epics-cohort.jpg"
+    },
+    {
+      date: "FEB 28, 2025",
+      title: "Pre-Incubation Cohort 1.0 Launch",
+      desc: "Join our Pre-Incubation Cohort to access expert mentorship, resources, and a thriving startup ecosystem.",
+      img: "cohort-launch.jpg"
+    },
+    {
+      date: "FEB 13, 2025",
+      title: "Innovation as a Career",
+      desc: "A successful session on Entrepreneurship & Innovation as a Career Opportunity.",
+      img: "innovation-career.jpg"
+    },
+    {
+      date: "JAN 12, 2025",
+      title: "Official VVLF Logo Launch",
+      desc: "Unveiling our new logo, symbolizing commitment to fostering innovation, entrepreneurship, and technological excellence.",
+      img: "logo-launch.png"
+    }
   ];
 
   return (
@@ -43,16 +83,16 @@ export function TimelineSection() {
                         <h4 className="text-2xl font-bold text-navy mb-3">{event.title}</h4>
                         <p className="text-slate-600 mb-6">{event.desc}</p>
                         
-                        {/* Placeholder image */}
-                        <div className="w-full h-48 bg-slate-200 rounded-xl mb-6 overflow-hidden">
+                        {/* Real event image */}
+                        <div className="w-full h-48 rounded-xl mb-6 overflow-hidden shadow-sm">
                           <img 
-                            src={`${import.meta.env.BASE_URL}images/event-placeholder.png`} 
-                            alt="Event placeholder" 
+                            src={`${import.meta.env.BASE_URL}images/${event.img}`}
+                            alt={event.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
 
-                        <a href="#" className="inline-flex items-center text-primary font-semibold hover:text-navy transition-colors">
+                        <a href="#" className={`inline-flex items-center text-primary font-semibold hover:text-navy transition-colors ${isEven ? 'md:justify-end' : ''}`}>
                           View Details <ArrowRight className="ml-2 w-4 h-4" />
                         </a>
                       </div>

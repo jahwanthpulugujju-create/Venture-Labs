@@ -9,9 +9,9 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={`${import.meta.env.BASE_URL}images/hero-bg.png`} 
-          alt="Abstract background" 
-          className="w-full h-full object-cover opacity-60 mix-blend-screen"
+          src={`${import.meta.env.BASE_URL}images/failathon.jpg`} 
+          alt="VVLF innovators" 
+          className="w-full h-full object-cover opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/80 to-navy" />
       </div>
