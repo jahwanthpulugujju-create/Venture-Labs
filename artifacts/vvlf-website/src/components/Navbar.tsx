@@ -36,17 +36,13 @@ export function Navbar() {
         <div className="flex justify-between items-center">
 
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group shrink-0">
-            <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shadow-primary/30 group-hover:scale-105 transition-transform">
-              V
-            </div>
-            <div className="hidden sm:block">
-              <div className={`font-display font-bold text-base leading-none tracking-tight ${isScrolled ? "text-navy" : "text-white"}`}>
-                Vishnu Venture Labs
-              </div>
-              <div className={`text-xs font-medium tracking-wider uppercase ${isScrolled ? "text-primary" : "text-primary/80"}`}>
-                Foundation
-              </div>
+          <a href="#home" className="flex items-center shrink-0 group">
+            <div className={`rounded-xl p-1.5 transition-all group-hover:scale-105 ${isScrolled ? "bg-white shadow-sm" : "bg-white/10 backdrop-blur-sm"}`}>
+              <img
+                src={`${import.meta.env.BASE_URL}images/vvlf-logo.png`}
+                alt="Vishnu Venture Labs Foundation"
+                className="h-9 w-auto object-contain"
+              />
             </div>
           </a>
 
