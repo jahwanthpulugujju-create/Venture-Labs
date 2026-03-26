@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Instagram, Linkedin, Facebook, Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
@@ -20,10 +21,10 @@ export function Footer() {
               Vishnu Venture Labs Foundation. Turning impactful ideas into scalable ventures. Empowering early-stage startups with world-class infrastructure.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="https://www.instagram.com/vishnuventurelabsfoundation/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="https://www.linkedin.com/company/vishnu-venture-labs-foundation/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
@@ -36,11 +37,11 @@ export function Footer() {
           <div>
             <h4 className="font-display font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-4 text-sm text-slate-400">
-              <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#programs" className="hover:text-primary transition-colors">Programs</a></li>
-              <li><a href="#facilities" className="hover:text-primary transition-colors">Facilities</a></li>
-              <li><a href="#startups" className="hover:text-primary transition-colors">Startups</a></li>
-              <li><a href="#team" className="hover:text-primary transition-colors">Team</a></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/programs" className="hover:text-primary transition-colors">Programs</Link></li>
+              <li><Link href="/startups" className="hover:text-primary transition-colors">Startups</Link></li>
+              <li><Link href="/events" className="hover:text-primary transition-colors">Events</Link></li>
+              <li><Link href="/team" className="hover:text-primary transition-colors">Team</Link></li>
             </ul>
           </div>
 
@@ -48,11 +49,11 @@ export function Footer() {
           <div>
             <h4 className="font-display font-bold text-lg mb-6">Our Programs</h4>
             <ul className="space-y-4 text-sm text-slate-400">
-              <li><a href="#programs" className="hover:text-primary transition-colors">Pre-Incubation Cohort</a></li>
-              <li><a href="#programs" className="hover:text-primary transition-colors">Failathon</a></li>
-              <li><a href="#programs" className="hover:text-primary transition-colors">PIVOT Makeathon</a></li>
-              <li><a href="#programs" className="hover:text-primary transition-colors">Project SAARTHIS</a></li>
-              <li><a href="#programs" className="hover:text-primary transition-colors">EPICS Cohort</a></li>
+              <li><Link href="/programs" className="hover:text-primary transition-colors">Pre-Incubation Cohort</Link></li>
+              <li><Link href="/programs" className="hover:text-primary transition-colors">Failathon</Link></li>
+              <li><Link href="/programs" className="hover:text-primary transition-colors">PIVOT Makeathon</Link></li>
+              <li><Link href="/programs" className="hover:text-primary transition-colors">Project SAARTHIS</Link></li>
+              <li><Link href="/programs" className="hover:text-primary transition-colors">EPICS Cohort</Link></li>
             </ul>
           </div>
 
