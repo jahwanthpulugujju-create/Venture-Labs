@@ -53,16 +53,22 @@ export function Navbar() {
 
         {/* ── Logo ── */}
         <Link href="/" className="flex items-center gap-3 shrink-0 group">
-          <div
-            className={`rounded-xl p-1.5 transition-all group-hover:scale-105 ${
-              transparent ? "bg-white/10 backdrop-blur-sm" : "bg-white shadow-sm border border-slate-100"
-            }`}
-          >
-            <img
-              src={`${import.meta.env.BASE_URL}images/vvlf-logo.png`}
-              alt="Vishnu Venture Labs Foundation"
-              className="h-9 w-auto object-contain"
-            />
+          <div className="group-hover:scale-105 transition-all duration-300">
+            {transparent ? (
+              <img
+                src={`${import.meta.env.BASE_URL}images/vvlf-logo-transparent.png`}
+                alt="Vishnu Venture Labs Foundation"
+                className="h-11 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
+              />
+            ) : (
+              <div className="rounded-xl p-1.5 bg-white shadow-sm border border-slate-100">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/vvlf-logo.png`}
+                  alt="Vishnu Venture Labs Foundation"
+                  className="h-9 w-auto object-contain"
+                />
+              </div>
+            )}
           </div>
         </Link>
 
