@@ -33,6 +33,7 @@ export function AboutSection() {
               <img 
                 src={`${import.meta.env.BASE_URL}images/startup-networking.jpg`} 
                 alt="VVLF Startup Ecosystem" 
+                loading="lazy"
                 className="w-full rounded-3xl shadow-xl object-cover aspect-square"
               />
             </div>

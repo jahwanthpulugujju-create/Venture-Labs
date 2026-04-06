@@ -123,25 +123,25 @@ export function ProgramsSection() {
       {/* Innovation Flow Banner */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <FadeIn>
-          <div className="bg-navy rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
+          <div className="bg-[#0B0F19] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative border border-white/10">
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 80% at 0% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)" }} />
             <div className="relative z-10 text-center md:text-left">
-              <p className="text-primary font-bold text-sm uppercase tracking-widest mb-2">Your Innovation Journey</p>
+              <p className="text-[#2563EB] font-bold text-xs uppercase tracking-widest mb-2">Your Innovation Journey</p>
               <h3 className="text-2xl md:text-3xl font-display font-bold text-white">Idea → Prototype → Startup → Scale</h3>
             </div>
             <div className="relative z-10 flex items-center gap-3 text-white shrink-0">
-              <div className="text-center px-5 py-3 rounded-2xl bg-white/10 border border-white/20">
+              <div className="text-center px-5 py-3 rounded-2xl bg-white/5 border border-white/10">
                 <Lightbulb className="w-6 h-6 mx-auto mb-1 text-yellow-400" />
                 <p className="text-xs font-semibold">Ideate</p>
               </div>
-              <ArrowRight className="w-4 h-4 text-white/40 shrink-0" />
-              <div className="text-center px-5 py-3 rounded-2xl bg-white/10 border border-white/20">
+              <ArrowRight className="w-4 h-4 text-white/30 shrink-0" />
+              <div className="text-center px-5 py-3 rounded-2xl bg-white/5 border border-white/10">
                 <Hammer className="w-6 h-6 mx-auto mb-1 text-blue-400" />
                 <p className="text-xs font-semibold">Build</p>
               </div>
-              <ArrowRight className="w-4 h-4 text-white/40 shrink-0" />
-              <div className="text-center px-5 py-3 rounded-2xl bg-primary/20 border border-primary/40">
-                <TrendingUp className="w-6 h-6 mx-auto mb-1 text-primary" />
+              <ArrowRight className="w-4 h-4 text-white/30 shrink-0" />
+              <div className="text-center px-5 py-3 rounded-2xl bg-[#2563EB]/20 border border-[#2563EB]/40">
+                <TrendingUp className="w-6 h-6 mx-auto mb-1 text-[#2563EB]" />
                 <p className="text-xs font-semibold">Scale</p>
               </div>
             </div>
@@ -165,6 +165,7 @@ export function ProgramsSection() {
                         <img
                           src={`${import.meta.env.BASE_URL}images/${program.img}`}
                           alt={program.title}
+                          loading="lazy"
                           className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                         <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
@@ -255,8 +256,9 @@ export function ProgramsSection() {
       </div>
 
       {/* Pre-Incubation Highlight */}
-      <div id="pre-incubation" className="bg-navy py-20 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+      <div id="pre-incubation" className="bg-[#0B0F19] py-20 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 100%, rgba(37,99,235,0.1) 0%, transparent 70%)" }} />
+        <div className="absolute inset-0 pointer-events-none opacity-[0.025]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <div className="text-center max-w-3xl mx-auto mb-12">
@@ -299,6 +301,7 @@ export function ProgramsSection() {
                     <img
                       src={`${import.meta.env.BASE_URL}images/${startup.logo}`}
                       alt={startup.name}
+                      loading="lazy"
                       className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

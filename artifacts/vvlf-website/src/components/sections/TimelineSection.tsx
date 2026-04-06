@@ -187,6 +187,7 @@ export function TimelineSection() {
                             <img
                               src={`${import.meta.env.BASE_URL}images/${event.img}`}
                               alt={event.title}
+                              loading="lazy"
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                           </div>
