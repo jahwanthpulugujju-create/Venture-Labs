@@ -80,10 +80,10 @@ const programs = [
 ];
 
 const preIncubationStartups = [
-  { name: "OLynk.AI", category: "SaaS", color: "bg-blue-500" },
-  { name: "MXC", category: "Edu-Tech", color: "bg-indigo-500" },
-  { name: "Stud Entertainments", category: "Entertainment", color: "bg-rose-500" },
-  { name: "Nirvaha Wellness", category: "Wellness", color: "bg-emerald-500" },
+  { name: "OLynk.AI", category: "SaaS", logo: "startup-olynk.png", logoBg: "bg-[#f5f0eb]" },
+  { name: "MXC Ignite", category: "Edu-Tech", logo: "startup-mxc.png", logoBg: "bg-white" },
+  { name: "Stud Entertainments", category: "Entertainment", logo: "startup-studento.png", logoBg: "bg-white" },
+  { name: "Nirvaha Wellness", category: "Wellness", logo: "startup-nirvaha.png", logoBg: "bg-[#0d2b2e]" },
 ];
 
 function ScarcityBanner() {
@@ -295,8 +295,12 @@ export function ProgramsSection() {
             {preIncubationStartups.map((startup, i) => (
               <FadeIn key={startup.name} delay={i * 0.1}>
                 <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all cursor-pointer group">
-                  <div className={`w-12 h-12 rounded-xl ${startup.color} flex items-center justify-center text-white font-bold text-xl mb-4 shadow-lg`}>
-                    {startup.name.charAt(0)}
+                  <div className={`w-20 h-16 rounded-xl ${startup.logoBg} flex items-center justify-center mb-4 shadow-lg p-2`}>
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/${startup.logo}`}
+                      alt={startup.name}
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                   <h4 className="text-lg font-bold text-white mb-1">{startup.name}</h4>
                   <p className="text-slate-400 text-sm mb-4">{startup.category}</p>

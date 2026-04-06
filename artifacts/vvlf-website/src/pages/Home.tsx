@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { LogoStrip } from "@/components/LogoStrip";
 import { FadeIn } from "@/components/FadeIn";
 import { ArrowRight, Cpu, Microchip, UserCheck, Leaf, Building2, Users, FileCheck, Landmark, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -63,6 +64,7 @@ export default function Home() {
     <Layout>
       {/* Hero */}
       <HeroSection />
+      <LogoStrip />
 
       {/* About Teaser */}
       <section className="py-24 bg-white">
