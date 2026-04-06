@@ -1,5 +1,9 @@
 import { FadeIn } from "@/components/FadeIn";
 import { Cpu, Microchip, UserCheck, Leaf, Target, Lightbulb, CheckCircle2 } from "lucide-react";
+import bvritLogo from "@assets/bvrit-logo_1775501124732.png";
+import kaitekiLogo from "@assets/kaiteki-logo_1775501124734.png";
+import tgicLogo from "@assets/TGIC-new-logo_1775501124735.png";
+import tgtfLogo from "@assets/tgtf-logo-_1775501124736.png";
 
 export function AboutSection() {
   const thrustAreas = [
@@ -10,9 +14,34 @@ export function AboutSection() {
   ];
 
   const partners = [
-    { name: "BVRIT", desc: "Academic parent institution and campus host", initial: "B", color: "bg-blue-100 text-blue-600" },
-    { name: "Kaiteki Innovations", desc: "Industry partner for deep tech and assistive tech", initial: "K", color: "bg-purple-100 text-purple-600" },
-    { name: "TGIC", desc: "Government partner — Telangana Innovation Council", initial: "T", color: "bg-emerald-100 text-emerald-600" }
+    {
+      name: "BVRIT",
+      fullName: "BV Raju Institute of Technology",
+      desc: "Academic parent institution and campus host",
+      logo: bvritLogo,
+      logoBg: "bg-white",
+    },
+    {
+      name: "Kaiteki Innovations",
+      fullName: "Kaiteki Innovations",
+      desc: "Industry partner for deep tech and assistive tech",
+      logo: kaitekiLogo,
+      logoBg: "bg-white",
+    },
+    {
+      name: "TGIC",
+      fullName: "Telangana Government Innovation Council",
+      desc: "Government partner enabling startup access across Telangana",
+      logo: tgicLogo,
+      logoBg: "bg-white",
+    },
+    {
+      name: "TGTF",
+      fullName: "The Good Talk Factory Foundation",
+      desc: "Communication and storytelling partner for our founders",
+      logo: tgtfLogo,
+      logoBg: "bg-white",
+    },
   ];
 
   const missionPoints = [
@@ -43,11 +72,11 @@ export function AboutSection() {
             <div className="space-y-8">
               <div>
                 <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">About VVLF</p>
-                <h3 className="text-4xl font-display font-bold text-[#0B0F19] leading-[1.1] mb-5">
-                  Empowering Innovators for Global Impact
-                </h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
-                  Vishnu Venture Labs Foundation is the incubation center of BV Raju Institute of Technology — a not-for-profit Section 8 Company that turns student ideas into scalable, incorporated ventures.
+                <h2 className="text-4xl font-display font-bold text-[#0B0F19] leading-tight mb-5">
+                  Building the Next Generation of Founders
+                </h2>
+                <p className="text-slate-600 leading-relaxed">
+                  Vishnu Venture Labs Foundation is a not-for-profit innovation ecosystem at BVRIT, helping student founders validate, build, and launch ventures — with real mentorship, infrastructure, and industry access.
                 </p>
               </div>
 
@@ -55,9 +84,9 @@ export function AboutSection() {
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-9 h-9 rounded-xl bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] shrink-0">
-                      <Target className="w-4.5 h-4.5" />
+                      <Target className="w-4 h-4" />
                     </div>
-                    <h4 className="text-base font-bold text-[#0B0F19]">Our Vision</h4>
+                    <h3 className="text-base font-bold text-[#0B0F19]">Our Vision</h3>
                   </div>
                   <p className="text-slate-600 text-sm leading-relaxed">A world-class, purpose-driven innovation ecosystem that nurtures inclusive, sustainable, and deep tech ventures — contributing to economic growth and UN SDGs.</p>
                 </div>
@@ -65,9 +94,9 @@ export function AboutSection() {
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-9 h-9 rounded-xl bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] shrink-0">
-                      <Lightbulb className="w-4.5 h-4.5" />
+                      <Lightbulb className="w-4 h-4" />
                     </div>
-                    <h4 className="text-base font-bold text-[#0B0F19]">Our Mission</h4>
+                    <h3 className="text-base font-bold text-[#0B0F19]">Our Mission</h3>
                   </div>
                   <ul className="space-y-2">
                     {missionPoints.map((point) => (
@@ -87,19 +116,24 @@ export function AboutSection() {
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Ecosystem Partners</p>
-            <h3 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Built on Strong Partnerships</h3>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Built on Strong Partnerships</h2>
             <p className="text-slate-500 mt-3">Backed by academia, industry, and government — so our founders have every door open.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-32">
             {partners.map((partner, i) => (
               <FadeIn key={partner.name} delay={i * 0.1}>
-                <div className="group bg-white rounded-2xl p-7 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#2563EB]/20 transition-all duration-300 flex flex-col items-center text-center cursor-pointer">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center font-display font-bold text-2xl mb-5 ${partner.color} group-hover:scale-110 transition-transform`}>
-                    {partner.initial}
+                <div className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#2563EB]/20 transition-all duration-300 flex flex-col items-center text-center h-full">
+                  <div className={`w-full h-24 rounded-xl flex items-center justify-center mb-5 ${partner.logoBg} border border-slate-100 p-4`}>
+                    <img
+                      src={partner.logo}
+                      alt={partner.fullName}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                  <h4 className="text-lg font-bold text-[#0B0F19] mb-1">{partner.name}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">{partner.desc}</p>
+                  <h3 className="text-base font-bold text-[#0B0F19] mb-1">{partner.fullName}</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">{partner.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -110,7 +144,7 @@ export function AboutSection() {
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Key Thrust Areas</p>
-            <h3 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Domains We Focus On</h3>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Domains We Focus On</h2>
             <p className="text-slate-500 mt-3">Strategically chosen areas where student innovation can create real-world impact.</p>
           </div>
 
@@ -121,7 +155,7 @@ export function AboutSection() {
                   <div className={`w-11 h-11 rounded-xl border flex items-center justify-center mb-5 ${area.bg}`}>
                     <area.icon className={`w-5 h-5 ${area.color}`} />
                   </div>
-                  <h4 className="text-base font-bold text-[#0B0F19] mb-2">{area.title}</h4>
+                  <h3 className="text-base font-bold text-[#0B0F19] mb-2">{area.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed">{area.desc}</p>
                 </div>
               </FadeIn>
