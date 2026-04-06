@@ -101,12 +101,12 @@ const testimonials = [
 ];
 
 const pillars = [
-  { icon: Users, title: "Mentorship", desc: "Weekly 1:1s with industry veterans, domain experts, and serial founders." },
-  { icon: MessageSquare, title: "Product Guidance", desc: "Structured critiques, user testing sessions, and live product reviews to sharpen your MVP." },
-  { icon: TrendingUp, title: "Community", desc: "A curated founder network — peer accountability, founder dinners, and alumni access." },
-  { icon: Landmark, title: "Funding Access", desc: "Warm intros to seed funds, angels, and government grant programs across India." },
-  { icon: FileCheck, title: "Infrastructure", desc: "Dedicated desks, high-speed internet, maker lab, and server infrastructure on campus." },
-  { icon: ShieldCheck, title: "Legal & IP Support", desc: "Company incorporation, trademark filings, and legal guidance from vetted professionals." },
+  { icon: Users, title: "Mentorship", desc: "Weekly 1:1s with industry veterans, domain experts, and serial founders.", example: "50+ startups mentored to date" },
+  { icon: MessageSquare, title: "Product Guidance", desc: "Structured critiques, user testing sessions, and live product reviews to sharpen your MVP.", example: "Real users, real feedback, real stakes" },
+  { icon: TrendingUp, title: "Community", desc: "A curated founder network — peer accountability, founder dinners, and alumni access.", example: "200+ innovators in the ecosystem" },
+  { icon: Landmark, title: "Funding Access", desc: "Warm intros to seed funds, angels, and government grant programs across India.", example: "₹2Cr+ in funding enabled" },
+  { icon: FileCheck, title: "Infrastructure", desc: "Dedicated desks, high-speed internet, maker lab, and server infrastructure on campus.", example: "Available day one, no waiting" },
+  { icon: ShieldCheck, title: "Legal & IP Support", desc: "Company incorporation, trademark filings, and legal guidance from vetted professionals.", example: "4 ventures incorporated in Cohort 1.0" },
 ];
 
 // ─── COMPONENT ─────────────────────────────────────────────────────
@@ -391,12 +391,18 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {pillars.map((p, i) => (
               <FadeIn key={p.title} delay={i * 0.05}>
-                <div className="group p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-xl hover:border-primary/15 hover:-translate-y-1 transition-all duration-300 cursor-default h-full">
+                <div className="group p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-xl hover:border-primary/15 hover:-translate-y-1 transition-all duration-300 cursor-default h-full flex flex-col">
                   <div className="w-10 h-10 rounded-xl bg-primary/8 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                     <p.icon className="w-5 h-5" />
                   </div>
                   <h4 className="text-sm font-bold text-[#080c14] mb-2 leading-snug">{p.title}</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed">{p.desc}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed flex-1">{p.desc}</p>
+                  <div className="mt-4 pt-3 border-t border-slate-100 overflow-hidden max-h-0 group-hover:max-h-10 transition-all duration-300">
+                    <p className="text-xs font-semibold text-primary flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0" />
+                      {p.example}
+                    </p>
+                  </div>
                 </div>
               </FadeIn>
             ))}

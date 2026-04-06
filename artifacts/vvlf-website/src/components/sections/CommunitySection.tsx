@@ -42,7 +42,8 @@ export function CommunitySection() {
                     <div className="w-40 h-40 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white shadow-xl shadow-slate-200/50">
                       <img 
                         src={`${import.meta.env.BASE_URL}images/${member.photo}`}
-                        alt={member.name} 
+                        alt={member.name}
+                        loading="lazy"
                         className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
@@ -63,7 +64,8 @@ export function CommunitySection() {
                     <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white shadow-xl shadow-slate-200/50">
                       <img 
                         src={`${import.meta.env.BASE_URL}images/${member.photo}`}
-                        alt={member.name} 
+                        alt={member.name}
+                        loading="lazy"
                         className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-navy/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">

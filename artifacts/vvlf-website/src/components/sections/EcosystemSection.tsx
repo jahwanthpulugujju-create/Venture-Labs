@@ -343,6 +343,7 @@ export function EcosystemSection() {
                       <img
                         src={`${import.meta.env.BASE_URL}images/${startup.logo}`}
                         alt={startup.name}
+                        loading="lazy"
                         className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-[#0B0F19]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
