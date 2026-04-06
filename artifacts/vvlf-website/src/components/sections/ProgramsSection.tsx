@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Lightbulb, Hammer, TrendingUp, Users, Clock, CheckCircle2, Bell, Flame, Timer } from "lucide-react";
+import { ArrowRight, Lightbulb, Hammer, TrendingUp, Users, Clock, CheckCircle2, Bell, Flame, Timer, UserCheck, CalendarDays, ArrowUpRight } from "lucide-react";
 
 const programs = [
   {
@@ -11,8 +11,11 @@ const programs = [
     tag: "Ideation",
     tagColor: "bg-blue-100 text-blue-700",
     img: "failathon.jpg",
-    what: "A one-day innovation event centered on the motto 'Come, let's Fail, and Learn.' Students use ideation tools to explore problems and reframe failure as a catalyst for growth.",
+    imgAlt: "Students at Failathon ideation session exploring problem statements",
+    what: "A one-day innovation event built around 'Come, let's Fail, and Learn.' Students use design thinking tools to explore real problems and reframe failure as the foundation for growth.",
     who: "1st & 2nd Year Students at BVRIT",
+    commitment: "1 day · No prior experience needed",
+    outcome: "Walk away with a validated problem statement and a team — ready for your next build.",
     benefits: [
       "Ideation & design thinking skills",
       "Exposure to real problem statements",
@@ -29,8 +32,11 @@ const programs = [
     tag: "Building",
     tagColor: "bg-orange-100 text-orange-700",
     img: "pivot.jpg",
-    what: "A high-energy 24-hour Makeathon where student teams go from brainstorming to working prototypes. Emphasizes resilience, rapid iteration, and creative problem-solving.",
+    imgAlt: "Teams at PIVOT Makeathon racing to build working prototypes in 24 hours",
+    what: "A high-energy 24-hour Makeathon where teams go from raw ideas to working prototypes. Emphasizes resilience, rapid iteration, and creative problem-solving under pressure.",
     who: "2nd & 3rd Year Students",
+    commitment: "24 hours · Team of 2–4 required",
+    outcome: "Leave with a working prototype, a pitch deck, and a clear path toward your MVP.",
     benefits: [
       "Prototype development skills",
       "Pitching & storytelling",
@@ -47,8 +53,11 @@ const programs = [
     tag: "Social Impact",
     tagColor: "bg-emerald-100 text-emerald-700",
     img: "saarthis.jpg",
-    what: "A year-long innovation journey by VVLF, BVRIT, and Kaiteki Innovations to co-create accessible, inclusive solutions for persons with disabilities.",
-    who: "All Years — focused on Assistive Technology",
+    imgAlt: "SAARTHIS participants co-designing assistive technology with persons with disabilities",
+    what: "A year-long innovation initiative by VVLF, BVRIT, and Kaiteki Innovations to co-create accessible, inclusive solutions for persons with disabilities — with real users in the loop.",
+    who: "All Years — Assistive Technology focus",
+    commitment: "Year-long · Part-time, flexible schedule",
+    outcome: "Co-author a real assistive product and build an inclusive innovation portfolio that stands out to employers and investors.",
     benefits: [
       "Human-centered design exposure",
       "Inclusive innovation skills",
@@ -65,8 +74,11 @@ const programs = [
     tag: "Community",
     tagColor: "bg-purple-100 text-purple-700",
     img: "epics-cohort.jpg",
-    what: "VVLF mentored 49 multidisciplinary student teams developing tangible solutions for pressing community needs. True innovation stems from direct engagement with real-world challenges.",
-    who: "Multidisciplinary teams across all years",
+    imgAlt: "EPICS Cohort teams presenting community-driven solutions to mentors",
+    what: "VVLF mentored 49 multidisciplinary student teams solving tangible community challenges. Real innovation means leaving your classroom and engaging directly with the world.",
+    who: "Multidisciplinary teams, all years",
+    commitment: "8 weeks · 5–8 hrs per week",
+    outcome: "Complete a real community-impact project and earn a verified portfolio entry, mentor endorsement, and cohort certificate.",
     benefits: [
       "Real-world problem solving",
       "Mentorship from industry experts",
@@ -88,21 +100,28 @@ const preIncubationStartups = [
 
 function ScarcityBanner() {
   return (
-    <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div className="flex items-center gap-3">
-        <div className="w-9 h-9 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
-          <Flame className="w-5 h-5 text-amber-600" />
+    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 sm:p-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+        <div className="flex items-start gap-4">
+          <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
+            <Flame className="w-5 h-5 text-amber-600" />
+          </div>
+          <div>
+            <p className="font-bold text-amber-900 text-sm mb-0.5">Pre-Incubation Cohort 2.0 — Applications Now Open</p>
+            <p className="text-amber-700 text-xs leading-relaxed">
+              Limited to <strong>20 teams</strong> · Priority review for early applicants · Shortlisted within <strong>5 business days</strong>
+            </p>
+            <p className="text-amber-600 text-xs mt-1">
+              Accepted teams get immediate access to mentors, infrastructure, and the VVLF founder network.
+            </p>
+          </div>
         </div>
-        <div>
-          <p className="font-bold text-amber-900 text-sm">Pre-Incubation Cohort 2.0 — Applications Now Open</p>
-          <p className="text-amber-700 text-xs">Limited seats. Priority given to early applicants. Applications close soon.</p>
-        </div>
+        <Link href="/contact" className="shrink-0 w-full sm:w-auto">
+          <Button size="sm" className="bg-amber-500 hover:bg-amber-600 text-white rounded-full px-6 shadow-md font-semibold w-full sm:w-auto">
+            Apply Now →
+          </Button>
+        </Link>
       </div>
-      <Link href="/contact" className="shrink-0">
-        <Button size="sm" className="bg-amber-500 hover:bg-amber-600 text-white rounded-full px-6 shadow-md font-semibold whitespace-nowrap">
-          Apply Now →
-        </Button>
-      </Link>
     </div>
   );
 }
@@ -129,7 +148,7 @@ export function ProgramsSection() {
               <p className="text-[#2563EB] font-bold text-xs uppercase tracking-widest mb-2">Your Innovation Journey</p>
               <h3 className="text-2xl md:text-3xl font-display font-bold text-white">Idea → Prototype → Startup → Scale</h3>
             </div>
-            <div className="relative z-10 flex items-center gap-3 text-white shrink-0">
+            <div className="relative z-10 flex items-center gap-3 text-white shrink-0 flex-wrap justify-center">
               <div className="text-center px-5 py-3 rounded-2xl bg-white/5 border border-white/10">
                 <Lightbulb className="w-6 h-6 mx-auto mb-1 text-yellow-400" />
                 <p className="text-xs font-semibold">Ideate</p>
@@ -151,20 +170,21 @@ export function ProgramsSection() {
 
       {/* Program Cards */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="space-y-24">
+        <div className="space-y-28">
           {programs.map((program, i) => {
             const isLeft = i % 2 === 0;
             return (
               <div key={program.id} id={program.id}>
                 <FadeIn direction={isLeft ? "right" : "left"}>
                   <div className={`flex flex-col lg:flex-row gap-12 items-center ${isLeft ? "" : "lg:flex-row-reverse"}`}>
+
                     {/* Image */}
                     <div className="w-full lg:w-1/2">
                       <div className="relative group rounded-3xl overflow-hidden shadow-2xl">
-                        <div className="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors z-10" />
+                        <div className="absolute inset-0 bg-[#0B0F19]/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                         <img
                           src={`${import.meta.env.BASE_URL}images/${program.img}`}
-                          alt={program.title}
+                          alt={program.imgAlt}
                           loading="lazy"
                           className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
                         />
@@ -186,63 +206,83 @@ export function ProgramsSection() {
                     </div>
 
                     {/* Content */}
-                    <div className="w-full lg:w-1/2 space-y-6">
+                    <div className="w-full lg:w-1/2 space-y-5">
                       <div>
-                        <h4 className="text-3xl font-display font-bold text-navy mb-4">{program.title}</h4>
+                        <h2 className="text-3xl font-display font-bold text-[#0B0F19] mb-4">{program.title}</h2>
 
-                        <div className="space-y-5">
-                          <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100">
-                            <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center gap-1.5">
-                              <span className="w-4 h-px bg-slate-300 inline-block" /> What is this?
-                            </p>
-                            <p className="text-slate-600 leading-relaxed text-sm">{program.what}</p>
-                          </div>
+                        {/* What is this */}
+                        <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 mb-4">
+                          <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">What is this?</p>
+                          <p className="text-slate-600 leading-relaxed text-sm">{program.what}</p>
+                        </div>
 
-                          <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-primary/5 rounded-2xl p-4 border border-primary/10">
-                              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">Who is it for?</p>
-                              <p className="text-navy font-semibold text-sm leading-snug">{program.who}</p>
+                        {/* Eligibility row — 3 cells */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                          <div className="bg-[#2563EB]/5 rounded-2xl p-4 border border-[#2563EB]/15 flex flex-col gap-1">
+                            <div className="flex items-center gap-1.5 mb-1">
+                              <UserCheck className="w-3.5 h-3.5 text-[#2563EB]" />
+                              <p className="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Who</p>
                             </div>
-                            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
-                              <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Timeline</p>
-                              <p className="text-navy font-semibold text-sm leading-snug">{program.timeline}</p>
+                            <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.who}</p>
+                          </div>
+                          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col gap-1">
+                            <div className="flex items-center gap-1.5 mb-1">
+                              <CalendarDays className="w-3.5 h-3.5 text-slate-400" />
+                              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Timeline</p>
                             </div>
+                            <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.timeline}</p>
                           </div>
+                          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col gap-1">
+                            <div className="flex items-center gap-1.5 mb-1">
+                              <Clock className="w-3.5 h-3.5 text-slate-400" />
+                              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Commitment</p>
+                            </div>
+                            <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.commitment}</p>
+                          </div>
+                        </div>
 
-                          <div>
-                            <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-1.5">
-                              <span className="w-4 h-px bg-slate-300 inline-block" /> What you get
-                            </p>
-                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              {program.benefits.map((b) => (
-                                <li key={b} className="flex items-center gap-2 text-slate-600 text-sm">
-                                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                                  {b}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                        {/* What you get */}
+                        <div className="mb-4">
+                          <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">What you get</p>
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {program.benefits.map((b) => (
+                              <li key={b} className="flex items-center gap-2 text-slate-600 text-sm">
+                                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                                {b}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Outcome callout */}
+                        <div className="bg-[#22C55E]/8 border border-[#22C55E]/20 rounded-2xl px-5 py-4 flex items-start gap-3">
+                          <ArrowUpRight className="w-4 h-4 text-[#22C55E] shrink-0 mt-0.5" />
+                          <p className="text-sm text-slate-700 leading-relaxed">
+                            <span className="font-semibold text-[#0B0F19]">What's next: </span>
+                            {program.outcome}
+                          </p>
                         </div>
                       </div>
 
                       {/* CTAs */}
                       <div className="flex flex-wrap gap-3">
                         <Link href="/contact">
-                          <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-7 shadow-lg shadow-primary/20 group">
+                          <Button className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white rounded-full px-7 shadow-lg shadow-[#2563EB]/20 group">
                             Apply for {program.title}
                             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </Button>
                         </Link>
                         <button
                           onClick={() => setNotifyOpen(notifyOpen === program.id ? null : program.id)}
-                          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-slate-200 text-slate-600 text-sm font-semibold hover:border-primary hover:text-primary transition-colors"
+                          aria-label={`Get notified when ${program.title} applications open`}
+                          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-slate-200 text-slate-600 text-sm font-semibold hover:border-[#2563EB] hover:text-[#2563EB] transition-colors focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40"
                         >
                           <Bell className="w-4 h-4" />
                           Notify Me
                         </button>
                       </div>
                       {notifyOpen === program.id && (
-                        <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 text-sm text-primary font-medium">
+                        <div className="bg-[#2563EB]/5 border border-[#2563EB]/20 rounded-2xl p-4 text-sm text-[#2563EB] font-medium">
                           ✓ You'll be notified when {program.title} applications open. Add vvlf@bvrit.ac.in to your contacts.
                         </div>
                       )}
@@ -262,30 +302,40 @@ export function ProgramsSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-primary font-semibold text-sm mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2563EB]/20 border border-[#2563EB]/30 text-[#2563EB] font-semibold text-sm mb-6">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2563EB] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2563EB]" />
                 </span>
                 Flagship Program · Applications Open
               </span>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Pre-Incubation Cohort 2.0</h3>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Pre-Incubation Cohort 2.0</h2>
               <p className="text-lg text-slate-300 mb-3">
-                Following the successful Cohort 1.0 which produced 4 incorporated ventures, we're launching Cohort 2.0 with expanded support and mentorship.
+                Cohort 1.0 produced 4 incorporated ventures. Cohort 2.0 launches with expanded mentorship, structured funding access, and a larger seat count.
               </p>
-              <p className="text-amber-400 font-semibold text-sm mb-8 flex items-center justify-center gap-2">
-                <Timer className="w-4 h-4" />
-                Limited seats available — Applications closing soon
-              </p>
+
+              {/* 3 urgency pills */}
+              <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+                <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-semibold">
+                  <Timer className="w-3.5 h-3.5" /> Limited to 20 teams
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-semibold">
+                  <Clock className="w-3.5 h-3.5" /> Shortlisted within 5 days
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/20 text-[#22C55E] text-xs font-semibold">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> Immediate mentor access on acceptance
+                </span>
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 shadow-lg shadow-primary/30 group">
+                  <Button size="lg" className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white rounded-full px-8 shadow-lg shadow-[#2563EB]/30 group">
                     Apply for Cohort 2.0
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link href="/startups">
-                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-navy rounded-full transition-all">
+                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-[#0B0F19] rounded-full transition-all">
                     See Cohort 1.0 Startups
                   </Button>
                 </Link>
@@ -296,7 +346,7 @@ export function ProgramsSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {preIncubationStartups.map((startup, i) => (
               <FadeIn key={startup.name} delay={i * 0.1}>
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all cursor-pointer group">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/[0.15] transition-all cursor-pointer group">
                   <div className={`w-20 h-16 rounded-xl ${startup.logoBg} flex items-center justify-center mb-4 shadow-lg p-2`}>
                     <img
                       src={`${import.meta.env.BASE_URL}images/${startup.logo}`}
@@ -305,10 +355,10 @@ export function ProgramsSection() {
                       className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h4 className="text-lg font-bold text-white mb-1">{startup.name}</h4>
+                  <h3 className="text-lg font-bold text-white mb-1">{startup.name}</h3>
                   <p className="text-slate-400 text-sm mb-4">{startup.category}</p>
-                  <span className="text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
+                  <span className="text-xs font-semibold text-[#22C55E] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] inline-block" />
                     Incorporated
                   </span>
                 </div>
