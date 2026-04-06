@@ -64,16 +64,37 @@ export function ContactSection() {
 
         {/* Apply CTA Strip */}
         <FadeIn>
-          <div className="bg-gradient-to-r from-navy via-navy to-primary/80 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
-            <div className="relative z-10">
-              <p className="text-primary font-bold text-sm uppercase tracking-widest mb-1">Applications Open</p>
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-white">Ready to build your startup at VVLF?</h3>
-              <p className="text-slate-300 mt-1">Apply for our Pre-Incubation Cohort 2.0 — limited seats available.</p>
+          <div className="bg-[#0B0F19] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden relative border border-white/10">
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse 80% 80% at 100% 50%, rgba(37,99,235,0.12) 0%, transparent 70%)" }}
+            />
+            <div className="relative z-10 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]" />
+                </span>
+                <p className="text-[#22C55E] font-bold text-xs uppercase tracking-widest">Cohort 2.0 — Applications Open</p>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-display font-bold text-white">Ready to Build Your Startup?</h3>
+              <p className="text-white/50 text-sm leading-relaxed max-w-md">
+                Join the next cohort and start building today. Open to students and early-stage founders.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-1">
+                <div className="flex items-center gap-2 text-white/40 text-xs font-semibold">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#22C55E]" />
+                  Response within 48 hours
+                </div>
+                <div className="flex items-center gap-2 text-white/40 text-xs font-semibold">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#22C55E]" />
+                  200+ founders already applied
+                </div>
+              </div>
             </div>
             <button
               onClick={() => handleChange("subject", "Apply for Incubation")}
-              className="relative z-10 shrink-0 inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-primary/30 hover:-translate-y-0.5 transition-all text-sm"
+              className="relative z-10 shrink-0 inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-bold px-8 py-4 rounded-full shadow-[0_0_32px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 transition-all text-sm whitespace-nowrap"
             >
               Apply for Incubation
               <ArrowRight className="w-4 h-4" />
@@ -87,8 +108,8 @@ export function ContactSection() {
           {/* Form */}
           <FadeIn direction="right">
             <div>
-              <h3 className="text-2xl font-display font-bold text-navy mb-2">Send Us a Message</h3>
-              <p className="text-slate-500 mb-8">Fill in the form and we'll get back to you within 24 hours.</p>
+              <h3 className="text-2xl font-display font-bold text-[#0B0F19] mb-2">Send Us a Message</h3>
+              <p className="text-slate-500 mb-8">We reply to every message within 48 hours — usually much faster.</p>
 
               {formState === "success" ? (
                 <div className="bg-emerald-50 border border-emerald-200 rounded-3xl p-10 flex flex-col items-center text-center">

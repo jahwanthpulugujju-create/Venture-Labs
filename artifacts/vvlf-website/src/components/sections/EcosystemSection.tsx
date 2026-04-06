@@ -1,19 +1,61 @@
 import { useState, useRef, useEffect } from "react";
 import { FadeIn } from "@/components/FadeIn";
-import { Building2, Users, FileCheck, Landmark, Network, Laptop, Server, Hammer, Linkedin, SlidersHorizontal, TrendingUp, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import {
+  Building2, Users, FileCheck, Landmark, Network,
+  Laptop, Server, Hammer, Linkedin, SlidersHorizontal,
+  TrendingUp, ExternalLink, BookOpen, Cpu, Handshake, Sprout
+} from "lucide-react";
 
-const facilities = [
-  { icon: Building2, title: "Co-Working Space", desc: "State-of-the-art office infrastructure." },
-  { icon: Users, title: "Mentorship", desc: "Access to industry veterans and experts." },
-  { icon: FileCheck, title: "IP Support", desc: "Guidance on patents and trademarks." },
-  { icon: Landmark, title: "Funding", desc: "Seed fund connections and pitch prep." },
-  { icon: Network, title: "Networking Events", desc: "Exclusive investor and founder meetups." },
-  { icon: Laptop, title: "Software Tools", desc: "Free credits for AWS, GitHub, etc." },
-  { icon: Server, title: "Tech Infrastructure", desc: "High-speed internet and servers." },
-  { icon: Hammer, title: "Maker Lab", desc: "Hardware prototyping and 3D printing." },
+// ── 4-group ecosystem structure ──────────────────────────────────────
+const ecosystemGroups = [
+  {
+    id: "build",
+    icon: Building2,
+    title: "Build",
+    color: "text-blue-400",
+    iconBg: "bg-blue-500/10 border-blue-500/20",
+    items: [
+      { icon: Building2, title: "Co-Working Space", desc: "Dedicated desks, meeting rooms, and high-speed internet on campus." },
+      { icon: Server, title: "Technical Infrastructure", desc: "Servers, cloud credits, and a fully equipped maker lab for hardware teams." },
+      { icon: Hammer, title: "Maker Lab", desc: "3D printers, prototyping tools, and hardware workshop for deep tech builds." },
+    ],
+  },
+  {
+    id: "learn",
+    icon: BookOpen,
+    title: "Learn",
+    color: "text-yellow-400",
+    iconBg: "bg-yellow-500/10 border-yellow-500/20",
+    items: [
+      { icon: Laptop, title: "Workshops & Bootcamps", desc: "Hands-on sessions on product, growth, design, and fundraising." },
+      { icon: Users, title: "Mentorship", desc: "Weekly 1:1s with domain experts, industry veterans, and serial founders." },
+    ],
+  },
+  {
+    id: "connect",
+    icon: Handshake,
+    title: "Connect",
+    color: "text-emerald-400",
+    iconBg: "bg-emerald-500/10 border-emerald-500/20",
+    items: [
+      { icon: Network, title: "Networking Events", desc: "Exclusive investor meetups, founder dinners, and industry summits." },
+      { icon: Cpu, title: "Ecosystem Access", desc: "Links to government programs, accelerators, and partner organizations." },
+    ],
+  },
+  {
+    id: "grow",
+    icon: Sprout,
+    title: "Grow",
+    color: "text-purple-400",
+    iconBg: "bg-purple-500/10 border-purple-500/20",
+    items: [
+      { icon: Landmark, title: "Funding Access", desc: "Warm intros to seed funds, angels, and government grant programs." },
+      { icon: FileCheck, title: "IP & Legal Support", desc: "Company incorporation, trademark filings, and legal guidance." },
+    ],
+  },
 ];
 
+// ── Startups data ────────────────────────────────────────────────────
 const allStartups = [
   {
     name: "Innovable Solutions",
@@ -175,8 +217,8 @@ function StickyFilters({
               onClick={() => setActiveStage(s)}
               className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border ${
                 activeStage === s
-                  ? "bg-navy text-white border-navy shadow-md scale-105"
-                  : "bg-white text-slate-600 border-slate-200 hover:border-navy/40 hover:text-navy hover:scale-105"
+                  ? "bg-[#0B0F19] text-white border-[#0B0F19] shadow-md scale-105"
+                  : "bg-white text-slate-600 border-slate-200 hover:border-[#0B0F19]/40 hover:text-[#0B0F19] hover:scale-105"
               }`}
             >
               {s}
@@ -204,26 +246,51 @@ export function EcosystemSection() {
 
   return (
     <>
-      {/* Facilities */}
-      <section id="facilities" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── Ecosystem Groups ── */}
+      <section id="facilities" className="py-24 bg-[#0B0F19] relative overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(37,99,235,0.07) 0%, transparent 70%)" }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="text-primary font-bold tracking-wider text-sm uppercase mb-2">Our Facilities</h2>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-navy">World-Class Infrastructure</h3>
-              <p className="text-slate-500 mt-3">Everything a startup needs — from desk space to servers to expert mentors.</p>
+            <div className="max-w-2xl mb-16">
+              <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">What We Offer</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-[1.1] mb-4">
+                Everything You Need to Build and Scale
+              </h2>
+              <p className="text-white/40 text-lg leading-relaxed">
+                Four pillars that give student founders an unfair advantage — from day one to incorporation.
+              </p>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {facilities.map((fac, i) => (
-              <FadeIn key={fac.title} delay={i * 0.05}>
-                <div className="p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-xl hover:border-primary/20 hover:-translate-y-1.5 transition-all duration-300 group cursor-default">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                    <fac.icon className="w-6 h-6" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {ecosystemGroups.map((group, gi) => (
+              <FadeIn key={group.id} delay={gi * 0.08}>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-7 h-full hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300">
+                  {/* Group header */}
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 ${group.iconBg}`}>
+                      <group.icon className={`w-5 h-5 ${group.color}`} />
+                    </div>
+                    <h3 className={`text-xl font-display font-bold ${group.color}`}>{group.title}</h3>
                   </div>
-                  <h4 className="text-lg font-bold text-navy mb-2">{fac.title}</h4>
-                  <p className="text-sm text-slate-500">{fac.desc}</p>
+
+                  {/* Items */}
+                  <div className="space-y-4">
+                    {group.items.map((item) => (
+                      <div key={item.title} className="flex gap-4">
+                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center shrink-0 mt-0.5">
+                          <item.icon className="w-4 h-4 text-white/40" />
+                        </div>
+                        <div>
+                          <p className="text-white font-semibold text-sm leading-snug mb-0.5">{item.title}</p>
+                          <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </FadeIn>
             ))}
@@ -231,14 +298,18 @@ export function EcosystemSection() {
         </div>
       </section>
 
-      {/* Startup Portfolio */}
+      {/* ── Startup Portfolio ── */}
       <section id="startups" className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="mb-6">
-              <h2 className="text-primary font-bold tracking-wider text-sm uppercase mb-2">Portfolio Startups</h2>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-navy">Ventures We Are Proud Of</h3>
-              <p className="text-slate-500 mt-2">From student ideas to incorporated companies — these are the startups born at VVLF.</p>
+              <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Portfolio</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#0B0F19] leading-[1.1]">
+                Startups Built by Our Founders
+              </h2>
+              <p className="text-slate-500 mt-3 text-lg max-w-xl">
+                From student ideas to incorporated companies — these are the ventures born at VVLF.
+              </p>
             </div>
           </FadeIn>
 
@@ -256,7 +327,7 @@ export function EcosystemSection() {
                 <p className="text-lg font-semibold">No startups match this filter.</p>
                 <button
                   onClick={() => { setActiveSector("All"); setActiveStage("All Stages"); }}
-                  className="mt-4 text-primary font-semibold hover:underline text-sm"
+                  className="mt-4 text-[#2563EB] font-semibold hover:underline text-sm"
                 >
                   Clear filters
                 </button>
@@ -274,8 +345,7 @@ export function EcosystemSection() {
                         alt={startup.name}
                         className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
                       />
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-navy/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                      <div className="absolute inset-0 bg-[#0B0F19]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
                         <a
                           href={startup.linkedin}
                           onClick={(e) => e.stopPropagation()}
@@ -286,7 +356,7 @@ export function EcosystemSection() {
                         <a
                           href="#"
                           onClick={(e) => e.stopPropagation()}
-                          className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-navy hover:scale-110 transition-transform"
+                          className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B0F19] hover:scale-110 transition-transform"
                         >
                           <ExternalLink className="w-4 h-4" />
                         </a>
@@ -304,15 +374,15 @@ export function EcosystemSection() {
                         </span>
                       </div>
 
-                      <h4 className="text-lg font-bold text-navy leading-snug mb-1">{startup.name}</h4>
+                      <h4 className="text-lg font-bold text-[#0B0F19] leading-snug mb-1">{startup.name}</h4>
                       <p className="text-sm text-slate-500 flex-1 mb-4">{startup.desc}</p>
 
                       <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                         <div>
-                          <p className="text-xs text-slate-400 mb-0.5">Founder</p>
-                          <p className="text-xs font-semibold text-navy">{startup.founder}</p>
+                          <p className="text-xs text-slate-400 mb-0.5">Team</p>
+                          <p className="text-xs font-semibold text-[#0B0F19]">{startup.founder}</p>
                         </div>
-                        <div className="flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 px-3 py-1.5 rounded-full">
+                        <div className="flex items-center gap-1.5 text-xs font-semibold text-[#2563EB] bg-[#2563EB]/10 px-3 py-1.5 rounded-full">
                           <TrendingUp className="w-3 h-3" />
                           {startup.traction}
                         </div>

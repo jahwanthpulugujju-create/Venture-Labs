@@ -6,7 +6,7 @@ import {
   ArrowRight, ArrowUpRight,
   Lightbulb, Hammer, Rocket, TrendingUp,
   Users, FileCheck, Landmark, MessageSquare,
-  Cpu, Target, ShieldCheck, Presentation,
+  Target, ShieldCheck,
   Quote
 } from "lucide-react";
 
@@ -101,14 +101,12 @@ const testimonials = [
 ];
 
 const pillars = [
-  { icon: Users, title: "Expert Mentorship", desc: "Weekly 1:1s with industry veterans, domain experts, and serial founders who've built before." },
-  { icon: MessageSquare, title: "Product Feedback", desc: "Structured critiques, user testing sessions, and live product reviews to sharpen your MVP." },
-  { icon: Cpu, title: "Technical Guidance", desc: "Access to senior engineers, cloud credits, and a fully equipped maker lab for hardware startups." },
-  { icon: Landmark, title: "Funding Access", desc: "Warm introductions to seed funds, angels, and government grant programs across India." },
-  { icon: Presentation, title: "Pitch Preparation", desc: "Investor-facing pitch decks, mock sessions, and feedback from people who've raised real capital." },
+  { icon: Users, title: "Mentorship", desc: "Weekly 1:1s with industry veterans, domain experts, and serial founders." },
+  { icon: MessageSquare, title: "Product Guidance", desc: "Structured critiques, user testing sessions, and live product reviews to sharpen your MVP." },
+  { icon: TrendingUp, title: "Community", desc: "A curated founder network — peer accountability, founder dinners, and alumni access." },
+  { icon: Landmark, title: "Funding Access", desc: "Warm intros to seed funds, angels, and government grant programs across India." },
+  { icon: FileCheck, title: "Infrastructure", desc: "Dedicated desks, high-speed internet, maker lab, and server infrastructure on campus." },
   { icon: ShieldCheck, title: "Legal & IP Support", desc: "Company incorporation, trademark filings, and legal guidance from vetted professionals." },
-  { icon: FileCheck, title: "Co-Working Space", desc: "Dedicated desks, high-speed internet, meeting rooms, and server infrastructure on campus." },
-  { icon: TrendingUp, title: "Community & Network", desc: "A curated founder community — peer accountability, founder dinners, and alumni networks." },
 ];
 
 // ─── COMPONENT ─────────────────────────────────────────────────────
@@ -379,20 +377,18 @@ export default function Home() {
       <section className="py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
-              <div>
-                <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">What We Provide</p>
-                <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
-                  Everything You Need to Build a Startup
-                </h2>
-              </div>
-              <p className="text-slate-500 text-lg leading-relaxed">
-                VVLF removes every excuse not to build. From legal support to investor intros, we give you the unfair advantage that most student founders never get.
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">What You Get</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
+                Everything You Need to Build a Startup
+              </h2>
+              <p className="text-slate-500 text-lg leading-relaxed mt-4">
+                VVLF removes every excuse not to build. We give student founders the unfair advantage they deserve.
               </p>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {pillars.map((p, i) => (
               <FadeIn key={p.title} delay={i * 0.05}>
                 <div className="group p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-xl hover:border-primary/15 hover:-translate-y-1 transition-all duration-300 cursor-default h-full">

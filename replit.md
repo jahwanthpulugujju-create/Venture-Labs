@@ -95,3 +95,21 @@ Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHea
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.
+
+### `artifacts/vvlf-website` (`@workspace/vvlf-website`)
+
+React + Vite + Tailwind website for Vishnu Venture Labs Foundation. Key design decisions:
+
+**Design System:**
+- Background: `#0B0F19` (dark navy) for dark sections
+- Primary: `#2563EB` (blue)
+- Accent/Success: `#22C55E` (green)
+- Typography: Space Grotesk (display/headings) + DM Sans (body)
+- Card style: `rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur` on dark, `rounded-2xl border border-slate-100 bg-white` on light
+- All page headers use `PageHero` component for consistency
+
+**Pages:** `/` (Home), `/about`, `/programs`, `/startups`, `/events`, `/team`, `/contact`
+
+**Section Components:** HeroSection, EcosystemSection (4-group: Build/Learn/Connect/Grow), TimelineSection, ContactSection, TeamSection, AboutSection, ProgramsSection
+
+**Routing:** wouter (lightweight)
