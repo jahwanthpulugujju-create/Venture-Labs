@@ -64,13 +64,13 @@ export function TeamSection() {
               <FadeIn key={member.name} delay={i * 0.1}>
                 <div className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col">
 
-                  {/* Photo — square, full-width, no circle crop */}
-                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-100 shrink-0">
+                  {/* Photo — square, full-width, no cropping */}
+                  <div className="relative w-full aspect-square overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200 shrink-0">
                     <img
                       src={`${import.meta.env.BASE_URL}images/${member.photo}`}
                       alt={`Portrait of ${member.name}, ${member.title}, VVLF`}
                       loading="lazy"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     {/* LinkedIn hover overlay */}
                     <div className="absolute inset-0 bg-[#0B0F19]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -114,13 +114,13 @@ export function TeamSection() {
               <FadeIn key={member.name} delay={i * 0.1}>
                 <div className="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col">
 
-                  {/* Photo — portrait ratio, full-width */}
-                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-100 shrink-0">
+                  {/* Photo — square, full-width, no cropping */}
+                  <div className="relative w-full aspect-square overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200 shrink-0">
                     <img
                       src={`${import.meta.env.BASE_URL}images/${member.photo}`}
                       alt={`Portrait of ${member.name}, ${member.title}, VVLF`}
                       loading="lazy"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
 
