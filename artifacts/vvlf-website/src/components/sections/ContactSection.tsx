@@ -1,9 +1,98 @@
 import { useState } from "react";
 import { FadeIn } from "@/components/FadeIn";
-import { Linkedin, Instagram, MapPin, Phone, Mail, CheckCircle2, Loader2, AlertCircle, ArrowRight, Clock, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+import { Linkedin, Instagram, MapPin, Phone, Mail, CheckCircle2, Loader2, AlertCircle, ArrowRight, Clock, ExternalLink, Send, CalendarCheck, FileText, Handshake, PartyPopper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+
+const applicationSteps = [
+  {
+    icon: Send,
+    title: "Submit Your Application",
+    desc: "Fill out the form below — tell us about your idea, your team, and why now.",
+    time: "Today",
+    color: "bg-[#2563EB]",
+    light: "bg-[#2563EB]/10 border-[#2563EB]/20 text-[#2563EB]",
+  },
+  {
+    icon: FileText,
+    title: "Application Review",
+    desc: "Our team reads every application carefully. No automated rejections.",
+    time: "Within 48 hours",
+    color: "bg-amber-500",
+    light: "bg-amber-50 border-amber-200 text-amber-700",
+  },
+  {
+    icon: CalendarCheck,
+    title: "30-Minute Discovery Call",
+    desc: "We schedule a quick call — tell us more about your vision, no pitch needed.",
+    time: "Within 1 week",
+    color: "bg-purple-500",
+    light: "bg-purple-50 border-purple-200 text-purple-700",
+  },
+  {
+    icon: Handshake,
+    title: "Decision & Offer Letter",
+    desc: "Selected teams receive a formal offer with full program details and next steps.",
+    time: "Within 2 weeks",
+    color: "bg-emerald-500",
+    light: "bg-emerald-50 border-emerald-200 text-emerald-700",
+  },
+  {
+    icon: PartyPopper,
+    title: "Welcome to VVLF",
+    desc: "Day 1 — workspace access, mentor introductions, and your cohort kickoff.",
+    time: "Week 3",
+    color: "bg-[#22C55E]",
+    light: "bg-emerald-50 border-emerald-200 text-emerald-700",
+  },
+];
+
+function WhatHappensNext() {
+  return (
+    <div className="bg-slate-50 rounded-3xl border border-slate-100 p-8 md:p-10">
+      <div className="mb-8">
+        <p className="text-[#2563EB] font-bold text-xs uppercase tracking-widest mb-2">The Process</p>
+        <h3 className="text-2xl font-display font-bold text-[#0B0F19]">What happens after you apply?</h3>
+        <p className="text-slate-500 text-sm mt-1">No black box. Here's exactly what to expect.</p>
+      </div>
+
+      <div className="relative">
+        {/* Vertical line */}
+        <div className="absolute left-5 top-5 bottom-5 w-px bg-slate-200" aria-hidden="true" />
+
+        <div className="space-y-6">
+          {applicationSteps.map((step, i) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: i * 0.1, ease: "easeOut" }}
+              className="flex gap-5 relative"
+            >
+              {/* Icon dot */}
+              <div className={`w-10 h-10 rounded-full ${step.color} flex items-center justify-center shrink-0 relative z-10 shadow-md`}>
+                <step.icon className="w-4.5 h-4.5 text-white w-4 h-4" />
+              </div>
+
+              <div className="flex-1 pb-1">
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <p className="font-bold text-[#0B0F19] text-sm">{step.title}</p>
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${step.light}`}>
+                    {step.time}
+                  </span>
+                </div>
+                <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 type FormState = "idle" | "loading" | "success" | "error";
 interface FormData {
@@ -107,6 +196,11 @@ export function ContactSection() {
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </button>
           </div>
+        </FadeIn>
+
+        {/* What happens next timeline */}
+        <FadeIn>
+          <WhatHappensNext />
         </FadeIn>
 
         {/* Form + Info */}
