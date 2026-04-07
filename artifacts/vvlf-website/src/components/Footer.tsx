@@ -25,15 +25,19 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top strip — CTA */}
-        <div className="border-b border-white/[0.06] py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="border-b border-white/[0.08] py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <p className="text-white/30 text-xs font-bold uppercase tracking-widest mb-1">Cohort 2.0 Open</p>
+            <p className="text-white/50 text-xs font-bold uppercase tracking-widest mb-1">Cohort 2.0 Open</p>
             <p className="text-white font-bold text-xl">Ready to build your startup at VVLF?</p>
+            <p className="text-white/50 text-sm mt-1">Turning student ideas into scalable ventures since 2024.</p>
           </div>
           <Link href="/contact">
-            <button className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-bold px-7 py-3.5 rounded-full text-sm shadow-[0_0_24px_rgba(37,99,235,0.3)] hover:-translate-y-0.5 transition-all whitespace-nowrap">
+            <button
+              className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-bold px-7 py-3.5 rounded-full text-sm shadow-[0_0_24px_rgba(37,99,235,0.3)] hover:-translate-y-0.5 transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-white/30"
+              aria-label="Apply Now — go to contact page"
+            >
               Apply Now
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
             </button>
           </Link>
         </div>
@@ -46,12 +50,13 @@ export function Footer() {
             <div className="rounded-xl bg-white p-2 w-fit shadow-sm">
               <img
                 src={`${import.meta.env.BASE_URL}images/vvlf-logo.png`}
-                alt="Vishnu Venture Labs Foundation"
+                alt="Vishnu Venture Labs Foundation logo"
                 className="h-9 w-auto object-contain"
               />
             </div>
-            <p className="text-white/35 text-sm leading-relaxed max-w-xs">
-              Incubation center of BV Raju Institute of Technology. Turning student ideas into scalable ventures since 2024.
+            <p className="text-white/55 text-sm leading-relaxed max-w-xs">
+              Incubation center of BV Raju Institute of Technology.<br />
+              Building the next generation of student founders.
             </p>
             <div className="flex gap-3">
               <a
@@ -59,7 +64,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="VVLF on Instagram"
-                className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all focus:outline-none focus:ring-2 focus:ring-white/30"
+                className="w-9 h-9 rounded-full bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/55 hover:text-white hover:border-white/40 hover:bg-white/10 transition-all focus:outline-none focus:ring-2 focus:ring-white/30"
               >
                 <Instagram className="w-4 h-4" aria-hidden="true" />
               </a>
@@ -68,14 +73,14 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="VVLF on LinkedIn"
-                className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all focus:outline-none focus:ring-2 focus:ring-white/30"
+                className="w-9 h-9 rounded-full bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/55 hover:text-white hover:border-white/40 hover:bg-white/10 transition-all focus:outline-none focus:ring-2 focus:ring-white/30"
               >
                 <Linkedin className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
                 href="mailto:vvlf@bvrit.ac.in"
                 aria-label="Email VVLF at vvlf@bvrit.ac.in"
-                className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all focus:outline-none focus:ring-2 focus:ring-white/30"
+                className="w-9 h-9 rounded-full bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/55 hover:text-white hover:border-white/40 hover:bg-white/10 transition-all focus:outline-none focus:ring-2 focus:ring-white/30"
               >
                 <Mail className="w-4 h-4" aria-hidden="true" />
               </a>
@@ -83,46 +88,61 @@ export function Footer() {
           </div>
 
           {/* Explore */}
-          <div>
-            <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.18em] mb-5">Explore</p>
+          <nav aria-label="Explore site pages">
+            <p className="text-white/55 text-[10px] font-bold uppercase tracking-[0.18em] mb-5">Explore</p>
             <ul className="space-y-3">
               {links.explore.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-white/50 text-sm hover:text-white transition-colors">
+                  <Link
+                    href={l.href}
+                    className="text-white/65 text-sm hover:text-white transition-colors focus:outline-none focus:underline focus:text-white"
+                  >
                     {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Programs */}
-          <div>
-            <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.18em] mb-5">Programs</p>
+          <nav aria-label="VVLF programs">
+            <p className="text-white/55 text-[10px] font-bold uppercase tracking-[0.18em] mb-5">Programs</p>
             <ul className="space-y-3">
               {links.programs.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-white/50 text-sm hover:text-white transition-colors">
+                  <Link
+                    href={l.href}
+                    className="text-white/65 text-sm hover:text-white transition-colors focus:outline-none focus:underline focus:text-white"
+                  >
                     {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Contact */}
           <div>
-            <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.18em] mb-5">Contact</p>
+            <p className="text-white/55 text-[10px] font-bold uppercase tracking-[0.18em] mb-5">Contact</p>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
-                <span className="text-white/40 text-sm leading-relaxed">
-                  Vishnupur, Narsapur, Suryapaget — 502313
-                </span>
+                <MapPin className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" aria-hidden="true" />
+                <a
+                  href="https://maps.app.goo.gl/ytbUqKu2xX9ecpjU7"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Open VVLF location in Google Maps"
+                  className="text-white/65 text-sm leading-relaxed hover:text-white transition-colors focus:outline-none focus:underline"
+                >
+                  Vishnupur, Narsapur,<br />Suryapaget — 502313
+                </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#2563EB] shrink-0" />
-                <a href="mailto:vvlf@bvrit.ac.in" className="text-white/40 text-sm hover:text-white transition-colors">
+                <Mail className="w-4 h-4 text-[#2563EB] shrink-0" aria-hidden="true" />
+                <a
+                  href="mailto:vvlf@bvrit.ac.in"
+                  className="text-white/65 text-sm hover:text-white transition-colors focus:outline-none focus:underline"
+                >
                   vvlf@bvrit.ac.in
                 </a>
               </li>
@@ -131,13 +151,14 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/[0.06] py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/20 text-xs">
+        <div className="border-t border-white/[0.08] py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-white/40 text-xs">
             © 2025 Vishnu Venture Labs Foundation · Section 8 Company · All rights reserved.
           </p>
-          <div className="flex gap-5 text-xs text-white/20">
-            <a href="#" className="hover:text-white/50 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Terms</a>
+          <div className="flex gap-5 text-xs text-white/40">
+            <a href="#" className="hover:text-white/70 transition-colors focus:outline-none focus:text-white/70 focus:underline">Privacy Policy</a>
+            <a href="#" className="hover:text-white/70 transition-colors focus:outline-none focus:text-white/70 focus:underline">Terms</a>
+            <a href="#" className="hover:text-white/70 transition-colors focus:outline-none focus:text-white/70 focus:underline">Accessibility</a>
           </div>
         </div>
       </div>
