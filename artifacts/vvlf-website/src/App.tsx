@@ -1,7 +1,9 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { AnimatePresence } from "framer-motion";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { PageTransition } from "@/components/PageTransition";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
@@ -13,18 +15,38 @@ import Contact from "@/pages/Contact";
 
 const queryClient = new QueryClient();
 
-function Router() {
+function AnimatedRoutes() {
+  const [location] = useLocation();
+
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/programs" component={Programs} />
-      <Route path="/startups" component={Startups} />
-      <Route path="/events" component={Events} />
-      <Route path="/team" component={Team} />
-      <Route path="/contact" component={Contact} />
-      <Route component={NotFound} />
-    </Switch>
+    <AnimatePresence mode="wait">
+      <Switch key={location}>
+        <Route path="/">
+          <PageTransition><Home /></PageTransition>
+        </Route>
+        <Route path="/about">
+          <PageTransition><About /></PageTransition>
+        </Route>
+        <Route path="/programs">
+          <PageTransition><Programs /></PageTransition>
+        </Route>
+        <Route path="/startups">
+          <PageTransition><Startups /></PageTransition>
+        </Route>
+        <Route path="/events">
+          <PageTransition><Events /></PageTransition>
+        </Route>
+        <Route path="/team">
+          <PageTransition><Team /></PageTransition>
+        </Route>
+        <Route path="/contact">
+          <PageTransition><Contact /></PageTransition>
+        </Route>
+        <Route>
+          <PageTransition><NotFound /></PageTransition>
+        </Route>
+      </Switch>
+    </AnimatePresence>
   );
 }
 
@@ -33,7 +55,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
+          <AnimatedRoutes />
         </WouterRouter>
         <Toaster />
       </TooltipProvider>
