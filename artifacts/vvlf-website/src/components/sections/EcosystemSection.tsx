@@ -3,7 +3,7 @@ import { FadeIn } from "@/components/FadeIn";
 import {
   Building2, Users, FileCheck, Landmark, Network,
   Laptop, Server, Hammer, Linkedin, SlidersHorizontal,
-  TrendingUp, ExternalLink, BookOpen, Cpu, Handshake, Sprout
+  TrendingUp, ExternalLink, BookOpen, Cpu, Handshake, Sprout, X, Star
 } from "lucide-react";
 
 // ── 4-group ecosystem structure ──────────────────────────────────────
@@ -68,6 +68,7 @@ const allStartups = [
     founder: "BVRIT Student Team",
     traction: "200+ users · Active",
     linkedin: "#",
+    featured: true,
   },
   {
     name: "MXC Ignite",
@@ -80,6 +81,7 @@ const allStartups = [
     founder: "BVRIT Student Team",
     traction: "Community Growing",
     linkedin: "#",
+    featured: false,
   },
   {
     name: "Nirvaha Wellness",
@@ -92,6 +94,7 @@ const allStartups = [
     founder: "BVRIT Student Team",
     traction: "Beta launched",
     linkedin: "#",
+    featured: true,
   },
   {
     name: "OLynk.AI",
@@ -104,6 +107,7 @@ const allStartups = [
     founder: "BVRIT Student Team",
     traction: "3 paying clients",
     linkedin: "#",
+    featured: true,
   },
   {
     name: "SALO",
@@ -116,6 +120,7 @@ const allStartups = [
     founder: "BVRIT Student Team",
     traction: "MVP in progress",
     linkedin: "#",
+    featured: false,
   },
   {
     name: "Stud Entertainments",
@@ -128,6 +133,7 @@ const allStartups = [
     founder: "BVRIT Student Team",
     traction: "2 productions delivered",
     linkedin: "#",
+    featured: false,
   },
   {
     name: "VIINDE Instruments",
@@ -140,6 +146,7 @@ const allStartups = [
     founder: "BVRIT Student Team",
     traction: "Prototype ready",
     linkedin: "#",
+    featured: false,
   },
 ];
 
@@ -169,6 +176,7 @@ function StickyFilters({
 }) {
   const [stuck, setStuck] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const filtersActive = activeSector !== "All" || activeStage !== "All Stages";
 
   useEffect(() => {
     const sentinel = document.createElement("div");
@@ -186,20 +194,27 @@ function StickyFilters({
         stuck ? "bg-white/95 backdrop-blur-md shadow-xl border border-slate-100 px-6 py-4" : "py-2"
       }`}
     >
+      {/* aria-live region for screen readers */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {count} venture{count !== 1 ? "s" : ""} shown
+      </div>
+
       <div className="flex flex-wrap gap-3 items-center">
-        <div className="flex items-center gap-2 text-slate-500 text-sm font-bold shrink-0">
+        <div className="flex items-center gap-2 text-slate-500 text-sm font-bold shrink-0" aria-hidden="true">
           <SlidersHorizontal className="w-4 h-4" />
           Sector:
         </div>
-        <div className="flex flex-wrap gap-2">
+
+        <div role="group" aria-label="Filter by sector" className="flex flex-wrap gap-2">
           {sectors.map((s) => (
             <button
               key={s}
               onClick={() => setActiveSector(s)}
-              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border ${
+              aria-pressed={activeSector === s}
+              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 ${
                 activeSector === s
-                  ? "bg-primary text-white border-primary shadow-md shadow-primary/20 scale-105"
-                  : "bg-white text-slate-600 border-slate-200 hover:border-primary/40 hover:text-primary hover:scale-105"
+                  ? "bg-[#2563EB] text-white border-[#2563EB] shadow-md shadow-[#2563EB]/20 scale-105"
+                  : "bg-white text-slate-600 border-slate-200 hover:border-[#2563EB]/40 hover:text-[#2563EB] hover:scale-105"
               }`}
             >
               {s}
@@ -207,15 +222,16 @@ function StickyFilters({
           ))}
         </div>
 
-        <div className="w-px h-5 bg-slate-200 hidden sm:block" />
+        <div className="w-px h-5 bg-slate-200 hidden sm:block" aria-hidden="true" />
 
-        <div className="flex items-center gap-2 text-slate-500 text-sm font-bold shrink-0">Stage:</div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex items-center gap-2 text-slate-500 text-sm font-bold shrink-0" aria-hidden="true">Stage:</div>
+        <div role="group" aria-label="Filter by stage" className="flex flex-wrap gap-2">
           {stages.map((s) => (
             <button
               key={s}
               onClick={() => setActiveStage(s)}
-              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border ${
+              aria-pressed={activeStage === s}
+              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border focus:outline-none focus:ring-2 focus:ring-[#0B0F19]/30 ${
                 activeStage === s
                   ? "bg-[#0B0F19] text-white border-[#0B0F19] shadow-md scale-105"
                   : "bg-white text-slate-600 border-slate-200 hover:border-[#0B0F19]/40 hover:text-[#0B0F19] hover:scale-105"
@@ -226,11 +242,88 @@ function StickyFilters({
           ))}
         </div>
 
-        <span className="ml-auto text-sm text-slate-400 font-medium shrink-0">
-          {count} venture{count !== 1 ? "s" : ""}
-        </span>
+        <div className="ml-auto flex items-center gap-3 shrink-0">
+          {filtersActive && (
+            <button
+              onClick={() => { setActiveSector("All"); setActiveStage("All Stages"); }}
+              className="inline-flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-[#2563EB] transition-colors focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 rounded-full px-2 py-1"
+              aria-label="Clear all filters"
+            >
+              <X className="w-3 h-3" />
+              Clear
+            </button>
+          )}
+          <span className="text-sm text-slate-400 font-medium" aria-hidden="true">
+            {count} venture{count !== 1 ? "s" : ""}
+          </span>
+        </div>
       </div>
     </div>
+  );
+}
+
+function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number }) {
+  return (
+    <FadeIn key={startup.name} delay={i * 0.06}>
+      <div className="bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col overflow-hidden group">
+        {/* Logo */}
+        <div className={`w-full h-44 ${startup.logoBg} flex items-center justify-center p-6 border-b border-slate-100 relative overflow-hidden`}>
+          <img
+            src={`${import.meta.env.BASE_URL}images/${startup.logo}`}
+            alt={`${startup.name} logo`}
+            loading="lazy"
+            className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
+          />
+          <div
+            className="absolute inset-0 bg-[#0B0F19]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3"
+            aria-hidden="true"
+          >
+            <a
+              href={startup.linkedin}
+              onClick={(e) => e.stopPropagation()}
+              aria-label={`${startup.name} on LinkedIn`}
+              className="w-10 h-10 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:scale-110 transition-transform"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="#"
+              onClick={(e) => e.stopPropagation()}
+              aria-label={`${startup.name} website`}
+              className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B0F19] hover:scale-110 transition-transform"
+            >
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6 flex flex-col flex-1">
+          <div className="flex flex-wrap gap-2 mb-3">
+            <span className={`px-2.5 py-1 text-xs font-bold rounded-full ${sectorColors[startup.sector] || "bg-slate-100 text-slate-600"}`}>
+              {startup.sector}
+            </span>
+            <span className={`px-2.5 py-1 text-xs font-bold rounded-full ${startup.stage === "Incubated" ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-600"}`}>
+              {startup.stage}
+            </span>
+          </div>
+
+          <h3 className="text-lg font-bold text-[#0B0F19] leading-snug mb-1">{startup.name}</h3>
+          <p className="text-sm text-slate-500 flex-1 mb-4">{startup.desc}</p>
+
+          <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <p className="text-xs text-slate-400 mb-0.5">Team</p>
+              <p className="text-xs font-semibold text-[#0B0F19]">{startup.founder}</p>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-[#2563EB] bg-[#2563EB]/10 px-3 py-1.5 rounded-full">
+              <TrendingUp className="w-3 h-3" aria-hidden="true" />
+              {startup.traction}
+            </div>
+          </div>
+        </div>
+      </div>
+    </FadeIn>
   );
 }
 
@@ -238,6 +331,9 @@ export function EcosystemSection() {
   const [activeSector, setActiveSector] = useState("All");
   const [activeStage, setActiveStage] = useState("All Stages");
 
+  const filtersActive = activeSector !== "All" || activeStage !== "All Stages";
+
+  const featured = allStartups.filter((s) => s.featured);
   const filtered = allStartups.filter((s) => {
     const sectorMatch = activeSector === "All" || s.sector === activeSector;
     const stageMatch = activeStage === "All Stages" || s.stage === activeStage;
@@ -247,17 +343,18 @@ export function EcosystemSection() {
   return (
     <>
       {/* ── Ecosystem Groups ── */}
-      <section id="facilities" className="py-24 bg-[#0B0F19] relative overflow-hidden">
+      <section id="facilities" aria-labelledby="ecosystem-heading" className="py-24 bg-[#0B0F19] relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(37,99,235,0.07) 0%, transparent 70%)" }}
+          aria-hidden="true"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl mb-16">
               <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">What We Offer</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-[1.1] mb-4">
-                Everything You Need to Build and Scale
+              <h2 id="ecosystem-heading" className="text-4xl md:text-5xl font-display font-bold text-white leading-[1.1] mb-4">
+                Everything Founders Need at Each Stage
               </h2>
               <p className="text-white/40 text-lg leading-relaxed">
                 Four pillars that give student founders an unfair advantage — from day one to incorporation.
@@ -271,26 +368,26 @@ export function EcosystemSection() {
                 <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-7 h-full hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300">
                   {/* Group header */}
                   <div className="flex items-center gap-3 mb-6">
-                    <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 ${group.iconBg}`}>
+                    <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 ${group.iconBg}`} aria-hidden="true">
                       <group.icon className={`w-5 h-5 ${group.color}`} />
                     </div>
                     <h3 className={`text-xl font-display font-bold ${group.color}`}>{group.title}</h3>
                   </div>
 
                   {/* Items */}
-                  <div className="space-y-4">
+                  <ul className="space-y-4">
                     {group.items.map((item) => (
-                      <div key={item.title} className="flex gap-4">
-                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center shrink-0 mt-0.5">
+                      <li key={item.title} className="flex gap-4">
+                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
                           <item.icon className="w-4 h-4 text-white/40" />
                         </div>
                         <div>
                           <p className="text-white font-semibold text-sm leading-snug mb-0.5">{item.title}</p>
                           <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
                         </div>
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </FadeIn>
             ))}
@@ -299,12 +396,12 @@ export function EcosystemSection() {
       </section>
 
       {/* ── Startup Portfolio ── */}
-      <section id="startups" className="py-24 bg-slate-50">
+      <section id="startups" aria-labelledby="portfolio-heading" className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="mb-6">
               <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Portfolio</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#0B0F19] leading-[1.1]">
+              <h2 id="portfolio-heading" className="text-4xl md:text-5xl font-display font-bold text-[#0B0F19] leading-[1.1]">
                 Startups Built by Our Founders
               </h2>
               <p className="text-slate-500 mt-3 text-lg max-w-xl">
@@ -312,6 +409,92 @@ export function EcosystemSection() {
               </p>
             </div>
           </FadeIn>
+
+          {/* Featured ventures row — shown only when no filters are active */}
+          {!filtersActive && (
+            <FadeIn>
+              <div className="mb-12">
+                <div className="flex items-center gap-2 mb-5">
+                  <Star className="w-4 h-4 text-amber-500" aria-hidden="true" />
+                  <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Featured Ventures</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {featured.map((startup, i) => (
+                    <div key={startup.name} className="bg-white rounded-3xl shadow-sm border border-amber-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col overflow-hidden group relative">
+                      {/* Featured badge */}
+                      <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+                        <Star className="w-2.5 h-2.5" aria-hidden="true" />
+                        Featured
+                      </div>
+
+                      {/* Logo */}
+                      <div className={`w-full h-44 ${startup.logoBg} flex items-center justify-center p-6 border-b border-slate-100 relative overflow-hidden`}>
+                        <img
+                          src={`${import.meta.env.BASE_URL}images/${startup.logo}`}
+                          alt={`${startup.name} logo`}
+                          loading="lazy"
+                          className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div
+                          className="absolute inset-0 bg-[#0B0F19]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3"
+                          aria-hidden="true"
+                        >
+                          <a
+                            href={startup.linkedin}
+                            onClick={(e) => e.stopPropagation()}
+                            aria-label={`${startup.name} on LinkedIn`}
+                            className="w-10 h-10 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:scale-110 transition-transform"
+                          >
+                            <Linkedin className="w-5 h-5" />
+                          </a>
+                          <a
+                            href="#"
+                            onClick={(e) => e.stopPropagation()}
+                            aria-label={`${startup.name} website`}
+                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B0F19] hover:scale-110 transition-transform"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </div>
+
+                      <div className="p-6 flex flex-col flex-1">
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          <span className={`px-2.5 py-1 text-xs font-bold rounded-full ${sectorColors[startup.sector] || "bg-slate-100 text-slate-600"}`}>
+                            {startup.sector}
+                          </span>
+                          <span className={`px-2.5 py-1 text-xs font-bold rounded-full ${startup.stage === "Incubated" ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-600"}`}>
+                            {startup.stage}
+                          </span>
+                        </div>
+
+                        <h3 className="text-lg font-bold text-[#0B0F19] leading-snug mb-1">{startup.name}</h3>
+                        <p className="text-sm text-slate-500 flex-1 mb-4">{startup.desc}</p>
+
+                        <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                          <div>
+                            <p className="text-xs text-slate-400 mb-0.5">Team</p>
+                            <p className="text-xs font-semibold text-[#0B0F19]">{startup.founder}</p>
+                          </div>
+                          <div className="flex items-center gap-1.5 text-xs font-semibold text-[#2563EB] bg-[#2563EB]/10 px-3 py-1.5 rounded-full">
+                            <TrendingUp className="w-3 h-3" aria-hidden="true" />
+                            {startup.traction}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Divider before full grid */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px flex-1 bg-slate-200" />
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">All Ventures</p>
+                <div className="h-px flex-1 bg-slate-200" />
+              </div>
+            </FadeIn>
+          )}
 
           <StickyFilters
             activeSector={activeSector}
@@ -327,70 +510,16 @@ export function EcosystemSection() {
                 <p className="text-lg font-semibold">No startups match this filter.</p>
                 <button
                   onClick={() => { setActiveSector("All"); setActiveStage("All Stages"); }}
-                  className="mt-4 text-[#2563EB] font-semibold hover:underline text-sm"
+                  className="mt-4 text-[#2563EB] font-semibold hover:underline text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 rounded"
                 >
-                  Clear filters
+                  Clear all filters
                 </button>
               </div>
             </FadeIn>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filtered.map((startup, i) => (
-                <FadeIn key={startup.name} delay={i * 0.06}>
-                  <div className="bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col overflow-hidden group cursor-pointer">
-                    {/* Logo */}
-                    <div className={`w-full h-44 ${startup.logoBg} flex items-center justify-center p-6 border-b border-slate-100 relative overflow-hidden`}>
-                      <img
-                        src={`${import.meta.env.BASE_URL}images/${startup.logo}`}
-                        alt={startup.name}
-                        loading="lazy"
-                        className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-[#0B0F19]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                        <a
-                          href={startup.linkedin}
-                          onClick={(e) => e.stopPropagation()}
-                          className="w-10 h-10 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:scale-110 transition-transform"
-                        >
-                          <Linkedin className="w-5 h-5" />
-                        </a>
-                        <a
-                          href="#"
-                          onClick={(e) => e.stopPropagation()}
-                          className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B0F19] hover:scale-110 transition-transform"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6 flex flex-col flex-1">
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        <span className={`px-2.5 py-1 text-xs font-bold rounded-full ${sectorColors[startup.sector] || "bg-slate-100 text-slate-600"}`}>
-                          {startup.sector}
-                        </span>
-                        <span className={`px-2.5 py-1 text-xs font-bold rounded-full ${startup.stage === "Incubated" ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-600"}`}>
-                          {startup.stage}
-                        </span>
-                      </div>
-
-                      <h4 className="text-lg font-bold text-[#0B0F19] leading-snug mb-1">{startup.name}</h4>
-                      <p className="text-sm text-slate-500 flex-1 mb-4">{startup.desc}</p>
-
-                      <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                        <div>
-                          <p className="text-xs text-slate-400 mb-0.5">Team</p>
-                          <p className="text-xs font-semibold text-[#0B0F19]">{startup.founder}</p>
-                        </div>
-                        <div className="flex items-center gap-1.5 text-xs font-semibold text-[#2563EB] bg-[#2563EB]/10 px-3 py-1.5 rounded-full">
-                          <TrendingUp className="w-3 h-3" />
-                          {startup.traction}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </FadeIn>
+                <StartupCard key={startup.name} startup={startup} i={i} />
               ))}
             </div>
           )}
