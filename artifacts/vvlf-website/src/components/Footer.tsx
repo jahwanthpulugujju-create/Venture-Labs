@@ -152,9 +152,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/[0.08] py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/40 text-xs">
-            © 2025 Vishnu Venture Labs Foundation · Section 8 Company · All rights reserved.
-          </p>
+          <p className="text-white/40 text-xs">© 2026 Vishnu Venture Labs Foundation · Section 8 Company · All rights reserved.</p>
           <div className="flex gap-5 text-xs text-white/40">
             <a href="#" className="hover:text-white/70 transition-colors focus:outline-none focus:text-white/70 focus:underline">Privacy Policy</a>
             <a href="#" className="hover:text-white/70 transition-colors focus:outline-none focus:text-white/70 focus:underline">Terms</a>
