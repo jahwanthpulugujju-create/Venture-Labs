@@ -39,9 +39,9 @@ const mentors = [
 ];
 
 const advisors = [
-  { name: "BVRIT Academic Council", title: "Academic Advisory Board", initials: "AC", color: "bg-slate-100 text-slate-700" },
-  { name: "Kaiteki Innovations", title: "Industry Partner · Innovation", initials: "KI", color: "bg-indigo-100 text-indigo-700" },
-  { name: "TGIC", title: "Government Partner · Innovation Council", initials: "TG", color: "bg-amber-100 text-amber-700" },
+  { name: "BVRIT Academic Council", title: "Academic Advisory Board", logo: "/images/partner-bvrit.png" },
+  { name: "Kaiteki Innovations", title: "Industry Partner · Innovation", logo: "/images/partner-kaiteki.png" },
+  { name: "TGIC", title: "Government Partner · Innovation Council", logo: "/images/partner-tgic.png" },
 ];
 
 export function TeamSection() {
@@ -210,8 +210,8 @@ export function TeamSection() {
             {advisors.map((a, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div className="group bg-white rounded-2xl p-8 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl mb-4 ${a.color} group-hover:scale-110 transition-transform`} aria-hidden="true">
-                    {a.initials}
+                  <div className="w-28 h-16 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                    <img src={a.logo} alt={a.name} className="max-w-full max-h-full object-contain" />
                   </div>
                   <h3 className="font-bold text-[#0B0F19] text-base mb-1">{a.name}</h3>
                   <p className="text-slate-500 text-xs">{a.title}</p>
