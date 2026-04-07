@@ -1,4 +1,5 @@
 import { FadeIn } from "@/components/FadeIn";
+import { motion } from "framer-motion";
 import { Linkedin, Award, Star } from "lucide-react";
 
 const board = [
@@ -30,12 +31,12 @@ const team = [
 ];
 
 const mentors = [
-  { name: "Industry Mentor", title: "Domain Expert · Deep Tech", initials: "DT", color: "bg-blue-100 text-blue-700", expertise: ["AI/ML", "Robotics"] },
-  { name: "Industry Mentor", title: "Domain Expert · FinTech", initials: "FT", color: "bg-emerald-100 text-emerald-700", expertise: ["Finance", "Payments"] },
-  { name: "Industry Mentor", title: "Domain Expert · HealthTech", initials: "HT", color: "bg-rose-100 text-rose-700", expertise: ["MedTech", "Biotech"] },
-  { name: "Industry Mentor", title: "Domain Expert · EdTech", initials: "ET", color: "bg-purple-100 text-purple-700", expertise: ["EdTech", "Learning"] },
-  { name: "Industry Mentor", title: "Domain Expert · SaaS", initials: "SA", color: "bg-orange-100 text-orange-700", expertise: ["SaaS", "B2B"] },
-  { name: "Industry Mentor", title: "Domain Expert · Sustainability", initials: "GR", color: "bg-teal-100 text-teal-700", expertise: ["CleanTech", "ESG"] },
+  { name: "Industry Mentor", title: "Domain Expert · Deep Tech", initials: "DT", color: "bg-blue-100 text-blue-700", borderHover: "hover:border-blue-300", expertise: ["AI/ML", "Robotics"] },
+  { name: "Industry Mentor", title: "Domain Expert · FinTech", initials: "FT", color: "bg-emerald-100 text-emerald-700", borderHover: "hover:border-emerald-300", expertise: ["Finance", "Payments"] },
+  { name: "Industry Mentor", title: "Domain Expert · HealthTech", initials: "HT", color: "bg-rose-100 text-rose-700", borderHover: "hover:border-rose-300", expertise: ["MedTech", "Biotech"] },
+  { name: "Industry Mentor", title: "Domain Expert · EdTech", initials: "ET", color: "bg-purple-100 text-purple-700", borderHover: "hover:border-purple-300", expertise: ["EdTech", "Learning"] },
+  { name: "Industry Mentor", title: "Domain Expert · SaaS", initials: "SA", color: "bg-orange-100 text-orange-700", borderHover: "hover:border-orange-300", expertise: ["SaaS", "B2B"] },
+  { name: "Industry Mentor", title: "Domain Expert · Sustainability", initials: "GR", color: "bg-teal-100 text-teal-700", borderHover: "hover:border-teal-300", expertise: ["CleanTech", "ESG"] },
 ];
 
 const advisors = [
@@ -58,43 +59,49 @@ export function TeamSection() {
               <p className="text-slate-500 mt-3">Visionaries guiding VVLF's mission and strategy.</p>
             </div>
           </FadeIn>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {board.map((member, i) => (
               <FadeIn key={member.name} delay={i * 0.1}>
-                <div className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col">
-
-                  {/* Photo — square, full-width, no cropping */}
-                  <div className="relative w-full aspect-square overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200 shrink-0">
+                <motion.div
+                  whileHover={{ y: -6 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#2563EB]/20 transition-shadow duration-300 cursor-default"
+                >
+                  {/* Photo */}
+                  <div className="w-full aspect-square bg-slate-100 overflow-hidden">
                     <img
                       src={`${import.meta.env.BASE_URL}images/${member.photo}`}
-                      alt={`Portrait of ${member.name}, ${member.title}, VVLF`}
+                      alt={member.name}
                       loading="lazy"
-                      className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
-                    {/* LinkedIn hover overlay */}
-                    <div className="absolute inset-0 bg-[#0B0F19]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <a
-                        href={member.linkedin}
-                        aria-label={`${member.name} on LinkedIn`}
-                        className="w-10 h-10 rounded-full bg-[#0A66C2] text-white flex items-center justify-center hover:scale-110 transition-transform"
-                      >
-                        <Linkedin className="w-4 h-4" aria-hidden="true" />
-                      </a>
-                    </div>
+                  </div>
+
+                  {/* LinkedIn overlay */}
+                  <div className="absolute inset-0 bg-[#0B0F19]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <a
+                      href={member.linkedin}
+                      aria-label={`${member.name} on LinkedIn`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="w-11 h-11 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:scale-110 transition-transform"
+                    >
+                      <Linkedin className="w-5 h-5" />
+                    </a>
                   </div>
 
                   {/* Info */}
-                  <div className="p-5 flex flex-col flex-1">
-                    <h3 className="text-base font-bold text-[#0B0F19] leading-snug">{member.name}</h3>
-                    <p className="text-[#2563EB] font-semibold text-sm mb-3">{member.title}</p>
-                    <div className="flex flex-wrap gap-1.5">
+                  <div className="p-4">
+                    <h3 className="font-bold text-[#0B0F19] text-sm leading-tight mb-0.5">{member.name}</h3>
+                    <p className="text-[#2563EB] text-xs font-semibold mb-2">{member.title}</p>
+                    <div className="flex flex-wrap gap-1">
                       {member.expertise.map((tag) => (
-                        <span key={tag} className="px-2.5 py-0.5 bg-slate-100 text-slate-500 text-xs rounded-full font-medium">{tag}</span>
+                        <span key={tag} className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 text-[10px] font-semibold">
+                          {tag}
+                        </span>
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>
@@ -106,55 +113,62 @@ export function TeamSection() {
             <div className="text-center max-w-2xl mx-auto mb-16">
               <p className="text-[#2563EB] font-bold tracking-wider text-sm uppercase mb-2">Core Team</p>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">The People Driving VVLF</h2>
+              <p className="text-slate-500 mt-3">Day-to-day builders of the ecosystem.</p>
             </div>
           </FadeIn>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {team.map((member, i) => (
               <FadeIn key={member.name} delay={i * 0.1}>
-                <div className="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col">
-
-                  {/* Photo — square, full-width, no cropping */}
-                  <div className="relative w-full aspect-square overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200 shrink-0">
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-default"
+                >
+                  {/* Photo — tall */}
+                  <div className="w-full h-72 bg-slate-100 overflow-hidden relative">
                     <img
                       src={`${import.meta.env.BASE_URL}images/${member.photo}`}
-                      alt={`Portrait of ${member.name}, ${member.title}, VVLF`}
+                      alt={member.name}
                       loading="lazy"
-                      className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     />
+                    {/* LinkedIn overlay */}
+                    <div className="absolute inset-0 bg-[#0B0F19]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <a
+                        href={member.linkedin}
+                        aria-label={`${member.name} on LinkedIn`}
+                        className="inline-flex items-center gap-2 bg-[#0A66C2] text-white font-semibold px-5 py-2.5 rounded-full text-sm hover:scale-105 transition-transform"
+                      >
+                        <Linkedin className="w-4 h-4" /> View LinkedIn
+                      </a>
+                    </div>
                   </div>
 
-                  {/* Info */}
-                  <div className="p-7 flex flex-col flex-1">
-                    <h3 className="text-xl font-bold text-[#0B0F19]">{member.name}</h3>
-                    <p className="text-[#2563EB] font-semibold text-sm mb-4">{member.title}</p>
+                  <div className="p-6">
+                    <h3 className="text-xl font-display font-bold text-[#0B0F19] mb-0.5">{member.name}</h3>
+                    <p className="text-[#2563EB] font-semibold text-sm mb-3">{member.title}</p>
                     <p className="text-slate-500 text-sm leading-relaxed mb-4">{member.bio}</p>
 
-                    {/* Achievements */}
+                    {/* Achievement badges */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {member.achievements.map((a) => (
-                        <span key={a} className="flex items-center gap-1 px-3 py-1 bg-amber-50 border border-amber-200 text-amber-700 text-xs rounded-full font-semibold">
-                          <Award className="w-3 h-3" aria-hidden="true" /> {a}
+                        <span key={a} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2563EB]/8 border border-[#2563EB]/15 text-[#2563EB] text-xs font-semibold">
+                          <Award className="w-3 h-3" />
+                          {a}
                         </span>
                       ))}
                     </div>
 
-                    {/* Expertise */}
-                    <div className="flex flex-wrap gap-2 mb-5">
+                    {/* Expertise tags */}
+                    <div className="flex flex-wrap gap-1.5">
                       {member.expertise.map((tag) => (
-                        <span key={tag} className="px-3 py-1 bg-[#2563EB]/10 text-[#2563EB] text-xs rounded-full font-semibold">{tag}</span>
+                        <span key={tag} className="px-2.5 py-1 rounded-full bg-slate-100 text-slate-500 text-xs font-semibold">
+                          {tag}
+                        </span>
                       ))}
                     </div>
-
-                    <a
-                      href={member.linkedin}
-                      aria-label={`${member.name} on LinkedIn`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] text-white text-sm font-semibold rounded-full hover:bg-[#0A66C2]/90 transition-colors self-start focus:outline-none focus:ring-2 focus:ring-[#0A66C2]/40"
-                    >
-                      <Linkedin className="w-4 h-4" aria-hidden="true" /> View LinkedIn
-                    </a>
                   </div>
-                </div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>
@@ -169,31 +183,50 @@ export function TeamSection() {
               <p className="text-slate-500 mt-3">Domain experts guiding our startups across every sector — available through each cohort program.</p>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mentors.map((mentor, i) => (
-              <FadeIn key={i} delay={i * 0.07}>
-                <div className="group bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center gap-5">
-                  <div className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg shrink-0 ${mentor.color} group-hover:scale-110 transition-transform`} aria-hidden="true">
-                    {mentor.initials}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-1.5 mb-0.5">
-                      <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400 shrink-0" aria-hidden="true" />
-                      <h3 className="font-bold text-[#0B0F19] text-sm truncate">{mentor.name}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {mentors.map((m, i) => (
+              <FadeIn key={i} delay={i * 0.08}>
+                <motion.div
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className={`group bg-white rounded-2xl p-5 border border-slate-100 hover:shadow-lg transition-all duration-300 cursor-default ${m.borderHover}`}
+                >
+                  <div className="flex items-center gap-4">
+                    <motion.div
+                      whileHover={{ rotate: 8, scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                      className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shrink-0 ${m.color}`}
+                      aria-hidden="true"
+                    >
+                      {m.initials}
+                    </motion.div>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <Star className="w-3 h-3 text-amber-400" />
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-amber-600">Industry Mentor</p>
+                      </div>
+                      <p className="text-sm font-bold text-[#0B0F19] truncate">{m.name}</p>
+                      <p className="text-slate-500 text-xs">{m.title}</p>
                     </div>
-                    <p className="text-slate-500 text-xs mb-2">{mentor.title}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {mentor.expertise.map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 bg-slate-100 text-slate-500 text-xs rounded-full font-medium">{tag}</span>
-                      ))}
-                    </div>
                   </div>
-                </div>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {m.expertise.map((tag) => (
+                      <span
+                        key={tag}
+                        className={`px-2.5 py-1 rounded-full text-xs font-semibold transition-colors duration-200 ${m.color} opacity-80 group-hover:opacity-100`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>
           <FadeIn>
-            <p className="text-center text-slate-400 text-sm mt-8">+ more domain experts across Deep Tech, Semiconductors, and Assistive Technology</p>
+            <p className="text-center text-slate-400 text-sm mt-8">
+              + more domain experts across Deep Tech, Semiconductors, and Assistive Technology
+            </p>
           </FadeIn>
         </div>
 
@@ -209,13 +242,21 @@ export function TeamSection() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {advisors.map((a, i) => (
               <FadeIn key={i} delay={i * 0.1}>
-                <div className="group bg-white rounded-2xl p-8 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
-                  <div className="w-28 h-16 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                    <img src={a.logo} alt={a.name} className="max-w-full max-h-full object-contain" />
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="group bg-white rounded-2xl p-8 border border-slate-100 hover:shadow-xl hover:border-[#2563EB]/20 transition-shadow duration-300 flex flex-col items-center text-center cursor-default"
+                >
+                  <div className="w-28 h-16 flex items-center justify-center mb-4">
+                    <img
+                      src={a.logo}
+                      alt={a.name}
+                      className="max-w-full max-h-full object-contain transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
+                    />
                   </div>
                   <h3 className="font-bold text-[#0B0F19] text-base mb-1">{a.name}</h3>
                   <p className="text-slate-500 text-xs">{a.title}</p>
-                </div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>

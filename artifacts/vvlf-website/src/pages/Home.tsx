@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { FadeIn } from "@/components/FadeIn";
+import { motion } from "framer-motion";
 import {
   ArrowRight, ArrowUpRight,
   Lightbulb, Hammer, Rocket, TrendingUp,
@@ -339,8 +340,18 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {testimonials.map((t, i) => (
               <FadeIn key={i} delay={i * 0.1}>
-                <div className="group flex flex-col h-full bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
-                  <Quote className="w-8 h-8 text-primary/15 mb-5 shrink-0" />
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="group flex flex-col h-full bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:border-primary/15 transition-shadow duration-300 cursor-default"
+                >
+                  <motion.div
+                    whileHover={{ rotate: -8, scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="w-fit mb-5"
+                  >
+                    <Quote className="w-8 h-8 text-primary/20" />
+                  </motion.div>
                   <p className="text-[#080c14] text-base leading-[1.7] flex-1 mb-8 font-medium">
                     "{t.quote}"
                   </p>
@@ -366,7 +377,7 @@ export default function Home() {
                       <p className="text-slate-400 text-xs mt-0.5">{t.role}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>
