@@ -355,8 +355,13 @@ function StickyFilters({
 
 function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number }) {
   return (
-    <FadeIn key={startup.name} delay={i * 0.06}>
-      <div className="bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col overflow-hidden group">
+    <FadeIn key={startup.name} delay={i * 0.08}>
+      <motion.div
+        whileHover={{ scale: 1.03, y: -8 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: "spring", stiffness: 280, damping: 20 }}
+        className="bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-[0_20px_40px_rgba(0,0,0,0.10),0_0_20px_rgba(37,99,235,0.10)] h-full flex flex-col overflow-hidden group cursor-default"
+      >
         {/* Logo */}
         <div className={`w-full h-44 ${startup.logoBg} flex items-center justify-center p-6 border-b border-slate-100 relative overflow-hidden`}>
           <img
@@ -413,7 +418,7 @@ function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </FadeIn>
   );
 }
