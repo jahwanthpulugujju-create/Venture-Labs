@@ -58,23 +58,26 @@ export function Footer() {
                 href="https://www.instagram.com/vishnuventurelabsfoundation/"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all"
+                aria-label="VVLF on Instagram"
+                className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all focus:outline-none focus:ring-2 focus:ring-white/30"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
                 href="https://www.linkedin.com/company/vishnu-venture-labs-foundation/"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all"
+                aria-label="VVLF on LinkedIn"
+                className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all focus:outline-none focus:ring-2 focus:ring-white/30"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
                 href="mailto:vvlf@bvrit.ac.in"
-                className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all"
+                aria-label="Email VVLF at vvlf@bvrit.ac.in"
+                className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all focus:outline-none focus:ring-2 focus:ring-white/30"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4" aria-hidden="true" />
               </a>
             </div>
           </div>
