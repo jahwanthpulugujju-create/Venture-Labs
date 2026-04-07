@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { FadeIn } from "@/components/FadeIn";
+import { motion } from "framer-motion";
 import {
   Building2, Users, FileCheck, Landmark, Network,
   Laptop, Server, Hammer, Linkedin, SlidersHorizontal,
-  TrendingUp, ExternalLink, BookOpen, Cpu, Handshake, Sprout, X, Star
+  TrendingUp, ExternalLink, BookOpen, Cpu, Handshake, Sprout, X, Star, Quote
 } from "lucide-react";
 
 // ── 4-group ecosystem structure ──────────────────────────────────────
@@ -149,6 +150,96 @@ const allStartups = [
     featured: false,
   },
 ];
+
+const founderStories = [
+  {
+    initials: "SR",
+    name: "Sai Reddy",
+    venture: "OLynk.AI",
+    role: "Co-founder",
+    color: "bg-[#2563EB]",
+    story: "We came in with a rough idea about AI for D2C brands. VVLF gave us the space to fail fast and pivot twice before we found our real product. Three paying clients later — we're just getting started.",
+    tag: "3 paying clients · SaaS",
+  },
+  {
+    initials: "PM",
+    name: "Priya Mehta",
+    venture: "Nirvaha Wellness",
+    role: "Founder",
+    color: "bg-emerald-600",
+    story: "I had zero startup experience. What I had was a vision for mental wellness that mattered. VVLF connected me to mentors who understood both the tech and the human side. Beta is live now.",
+    tag: "Beta launched · Wellness",
+  },
+  {
+    initials: "KV",
+    name: "Kiran Varma",
+    venture: "Innovable Solutions",
+    role: "Co-founder",
+    color: "bg-purple-600",
+    story: "We started with SAARTHIS — co-designing assistive tools with people who actually needed them. It changed how I think about building. Now we have 200+ real users. That's what VVLF does.",
+    tag: "200+ users · AssistiveTech",
+  },
+];
+
+function FounderStories() {
+  return (
+    <section className="py-20 bg-white" aria-labelledby="founder-stories-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <FadeIn>
+          <div className="max-w-2xl mb-12">
+            <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Founder Stories</p>
+            <h2 id="founder-stories-heading" className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19] leading-tight">
+              In their own words
+            </h2>
+            <p className="text-slate-500 mt-3 text-base">
+              Real founders, real journeys — no polished PR stories.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+          {founderStories.map((founder, i) => (
+            <FadeIn key={founder.name} delay={i * 0.1}>
+              <motion.div
+                whileHover={{ y: -5, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="group flex flex-col h-full bg-white rounded-3xl p-7 border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#2563EB]/15 transition-shadow duration-300 cursor-default"
+              >
+                <motion.div
+                  whileHover={{ rotate: -8, scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  className="w-fit mb-5"
+                >
+                  <Quote className="w-7 h-7 text-[#2563EB]/20" />
+                </motion.div>
+
+                <p className="text-[#0B0F19] text-sm leading-[1.8] flex-1 mb-6 font-medium">
+                  "{founder.story}"
+                </p>
+
+                <div className="pt-5 border-t border-slate-100 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-xl ${founder.color} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
+                      {founder.initials}
+                    </div>
+                    <div>
+                      <p className="font-bold text-[#0B0F19] text-sm leading-tight">{founder.name}</p>
+                      <p className="text-slate-400 text-xs">{founder.role}, {founder.venture}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-[#2563EB] bg-[#2563EB]/8 px-3 py-1.5 rounded-full w-fit">
+                    <TrendingUp className="w-3 h-3" />
+                    {founder.tag}
+                  </div>
+                </div>
+              </motion.div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const sectors = ["All", "SaaS", "AssistiveTech", "EdTech", "Wellness", "HealthTech", "Entertainment", "Consumer"];
 const stages = ["All Stages", "Incubated", "Pre-Incubation"];
@@ -394,6 +485,9 @@ export function EcosystemSection() {
           </div>
         </div>
       </section>
+
+      {/* ── Founder Stories ── */}
+      <FounderStories />
 
       {/* ── Startup Portfolio ── */}
       <section id="startups" aria-labelledby="portfolio-heading" className="py-24 bg-slate-50">
