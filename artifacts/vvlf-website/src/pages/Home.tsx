@@ -212,13 +212,17 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
             {stages.map((s, i) => (
-              <FadeIn key={s.title} delay={i * 0.07}>
-                <div
-                  className={`group relative flex flex-col h-full p-7 rounded-3xl border transition-all duration-300 cursor-default hover:-translate-y-1.5 hover:shadow-2xl ${
+              <FadeIn key={s.title} delay={i * 0.08}>
+                <motion.div
+                  whileHover={{ scale: 1.03, y: -8 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 280, damping: 20 }}
+                  style={{ "--glow-color": s.highlight ? "rgba(37,99,235,0.18)" : "rgba(255,255,255,0.04)" } as Record<string, string>}
+                  className={`group relative flex flex-col h-full p-7 rounded-3xl border cursor-default transition-shadow duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_20px_var(--glow-color)] ${
                     s.highlight
-                      ? "bg-white/5 border-primary/30 hover:border-primary/60 hover:bg-primary/5"
-                      : "bg-white/[0.03] border-white/8 hover:border-white/20 hover:bg-white/[0.06]"
-                  } ${s.glow}`}
+                      ? "bg-white/5 border-primary/30 hover:border-primary/50"
+                      : "bg-white/[0.03] border-white/8 hover:border-white/20"
+                  }`}
                 >
                   {s.highlight && (
                     <div className="absolute top-5 right-5 px-2.5 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-[10px] font-bold uppercase tracking-wider">
@@ -227,20 +231,30 @@ export default function Home() {
                   )}
 
                   <div className="flex items-center gap-3 mb-6">
-                    <div className={`w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center transition-colors group-hover:bg-white/10`}>
-                      <s.icon className={`w-5 h-5 text-white/40 transition-colors ${s.color}`} />
-                    </div>
+                    <motion.div
+                      className={`w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center`}
+                      whileHover={{ scale: 1.15, rotate: -6 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    >
+                      <s.icon className={`w-5 h-5 text-white/40 transition-colors duration-200 ${s.color}`} />
+                    </motion.div>
                     <span className="text-white/20 text-xs font-mono font-bold">{s.stage}</span>
                   </div>
 
                   <p className="text-white/30 text-[10px] font-bold uppercase tracking-wider mb-1">{s.tag}</p>
-                  <h3 className="text-white font-display font-bold text-lg mb-3 leading-snug">{s.title}</h3>
-                  <p className="text-white/40 text-sm leading-relaxed flex-1">{s.desc}</p>
+                  <motion.h3
+                    className="text-white font-display font-bold text-lg mb-3 leading-snug"
+                    whileHover={{ y: -2 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    {s.title}
+                  </motion.h3>
+                  <p className="text-white/40 text-sm leading-relaxed flex-1 group-hover:text-white/60 transition-colors duration-300">{s.desc}</p>
 
-                  <Link href="/programs" className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-white/30 group-hover:text-white/70 transition-colors">
-                    Learn more <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  <Link href="/programs" className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-white/30 group-hover:text-white/80 transition-colors duration-200 group">
+                    Learn more <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
                   </Link>
-                </div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>
@@ -284,41 +298,67 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {ventures.map((v, i) => (
               <FadeIn key={v.name} delay={i * 0.1}>
-                <div className="group relative flex flex-col h-full rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden bg-white">
-
+                <motion.div
+                  whileHover={{
+                    scale: 1.03,
+                    y: -8,
+                    rotateX: 1.5,
+                    rotateY: -1.5,
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 280, damping: 20 }}
+                  className="group relative flex flex-col h-full rounded-3xl border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.12),0_0_20px_rgba(37,99,235,0.12)] overflow-hidden bg-white cursor-default"
+                  style={{ transformStyle: "preserve-3d", perspective: 800 }}
+                >
                   {/* Logo panel */}
                   <div
                     className="w-full h-44 flex items-center justify-center p-8 border-b border-slate-100 relative overflow-hidden"
                     style={{ backgroundColor: v.logoBg }}
                   >
-                    <img
+                    <motion.img
                       src={`${import.meta.env.BASE_URL}images/${v.logo}`}
                       alt={v.name}
-                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      className="max-h-full max-w-full object-contain"
+                      whileHover={{ scale: 1.08 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     />
                     {/* Badge */}
                     <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold uppercase tracking-wider">
                       {v.badge}
                     </div>
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-[#080c14]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <Link href="/startups">
+                        <span className="inline-flex items-center gap-2 bg-white text-[#080c14] font-bold text-xs px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform">
+                          View Startup <ArrowUpRight className="w-3.5 h-3.5" />
+                        </span>
+                      </Link>
+                    </div>
                   </div>
 
                   <div className="p-7 flex flex-col flex-1">
                     <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">{v.category}</p>
-                    <h3 className="text-xl font-display font-bold text-[#080c14] mb-3">{v.name}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed flex-1">{v.desc}</p>
+                    <motion.h3
+                      className="text-xl font-display font-bold text-[#080c14] mb-3"
+                      whileHover={{ y: -2 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                    >
+                      {v.name}
+                    </motion.h3>
+                    <p className="text-slate-500 text-sm leading-relaxed flex-1 group-hover:text-slate-600 transition-colors duration-300">{v.desc}</p>
 
                     <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
                       <span className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">
                         Pre-Incubation Cohort 1.0
                       </span>
                       <Link href="/startups">
-                        <span className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline">
+                        <span className="inline-flex items-center gap-1 text-xs font-bold text-primary group-hover:gap-2 transition-all duration-200 hover:underline">
                           View <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
                       </Link>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>
@@ -401,20 +441,40 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {pillars.map((p, i) => (
-              <FadeIn key={p.title} delay={i * 0.05}>
-                <div className="group p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-xl hover:border-primary/15 hover:-translate-y-1 transition-all duration-300 cursor-default h-full flex flex-col">
-                  <div className="w-10 h-10 rounded-xl bg-primary/8 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                    <p.icon className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-sm font-bold text-[#080c14] mb-2 leading-snug">{p.title}</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed flex-1">{p.desc}</p>
-                  <div className="mt-4 pt-3 border-t border-slate-100 overflow-hidden max-h-0 group-hover:max-h-10 transition-all duration-300">
-                    <p className="text-xs font-semibold text-primary flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+              <FadeIn key={p.title} delay={i * 0.07}>
+                <motion.div
+                  whileHover={{ scale: 1.03, y: -6 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="group p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-[0_16px_32px_rgba(0,0,0,0.08),0_0_16px_rgba(37,99,235,0.10)] hover:border-primary/15 cursor-default h-full flex flex-col"
+                >
+                  <motion.div
+                    className="w-10 h-10 rounded-xl bg-primary/8 text-primary flex items-center justify-center mb-4"
+                    whileHover={{ scale: 1.2, rotate: -8, backgroundColor: "rgba(37,99,235,1)" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  >
+                    <p.icon className="w-5 h-5 group-hover:text-white transition-colors duration-200" />
+                  </motion.div>
+                  <motion.h4
+                    className="text-sm font-bold text-[#080c14] mb-2 leading-snug"
+                    whileHover={{ y: -1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    {p.title}
+                  </motion.h4>
+                  <p className="text-xs text-slate-500 leading-relaxed flex-1 group-hover:text-slate-700 transition-colors duration-200">{p.desc}</p>
+                  <motion.div
+                    className="mt-4 pt-3 border-t border-slate-100 overflow-hidden"
+                    initial={{ height: 0, opacity: 0 }}
+                    whileHover={{ height: "auto", opacity: 1 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                  >
+                    <p className="text-xs font-semibold text-primary flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0" />
                       {p.example}
                     </p>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>
