@@ -31,14 +31,14 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-between bg-[#080c14] overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-between bg-[#0B1121] overflow-hidden"
     >
       {/* ── BACKGROUND LAYERS ── */}
 
       {/* 1. Cinematic image with subtle zoom */}
       <motion.div
         className="absolute inset-0 z-0"
-        initial={{ scale: 1.08 }}
+        initial={{ scale: 1.06 }}
         animate={{ scale: 1 }}
         transition={{ duration: 8, ease: "easeOut" }}
       >
@@ -47,32 +47,32 @@ export function HeroSection() {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover object-center"
-          style={{ filter: "saturate(0.6) brightness(0.45)" }}
+          style={{ filter: "saturate(0.55) brightness(0.38)" }}
         />
       </motion.div>
 
-      {/* 2. Multi-layer dark gradient for text readability */}
+      {/* 2. Refined gradient layers */}
       <div className="absolute inset-0 z-[1]">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080c14]/95 via-[#080c14]/60 to-[#080c14]/20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#080c14]/70 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1121]/92 via-[#0B1121]/55 to-[#0B1121]/15" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1121]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1121] via-[#0B1121]/35 to-transparent" />
       </div>
 
-      {/* 3. Radial vignette */}
+      {/* 3. Subtle vignette */}
       <div
         className="absolute inset-0 z-[2] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 80% at 50% 50%, transparent 30%, rgba(8,12,20,0.65) 100%)",
+            "radial-gradient(ellipse 75% 85% at 50% 50%, transparent 35%, rgba(11,17,33,0.5) 100%)",
         }}
       />
 
-      {/* 4. Subtle blue ambient glow top-right */}
+      {/* 4. Soft blue ambient glow */}
       <div
-        className="absolute top-[-10%] right-[-5%] w-[55vw] h-[55vw] rounded-full z-[2] pointer-events-none"
+        className="absolute top-[-10%] right-[-5%] w-[50vw] h-[50vw] rounded-full z-[2] pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(30,90,255,0.07) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%)",
         }}
       />
 

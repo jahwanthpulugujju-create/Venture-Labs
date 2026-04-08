@@ -31,12 +31,12 @@ const team = [
 ];
 
 const mentors = [
-  { name: "Industry Mentor", title: "Domain Expert · Deep Tech", initials: "DT", color: "bg-blue-100 text-blue-700", borderHover: "hover:border-blue-300", expertise: ["AI/ML", "Robotics"] },
-  { name: "Industry Mentor", title: "Domain Expert · FinTech", initials: "FT", color: "bg-emerald-100 text-emerald-700", borderHover: "hover:border-emerald-300", expertise: ["Finance", "Payments"] },
-  { name: "Industry Mentor", title: "Domain Expert · HealthTech", initials: "HT", color: "bg-rose-100 text-rose-700", borderHover: "hover:border-rose-300", expertise: ["MedTech", "Biotech"] },
-  { name: "Industry Mentor", title: "Domain Expert · EdTech", initials: "ET", color: "bg-purple-100 text-purple-700", borderHover: "hover:border-purple-300", expertise: ["EdTech", "Learning"] },
-  { name: "Industry Mentor", title: "Domain Expert · SaaS", initials: "SA", color: "bg-orange-100 text-orange-700", borderHover: "hover:border-orange-300", expertise: ["SaaS", "B2B"] },
-  { name: "Industry Mentor", title: "Domain Expert · Sustainability", initials: "GR", color: "bg-teal-100 text-teal-700", borderHover: "hover:border-teal-300", expertise: ["CleanTech", "ESG"] },
+  { name: "Industry Mentor", title: "Domain Expert · Deep Tech", initials: "DT", color: "bg-blue-50 text-blue-600 border border-blue-100", borderHover: "hover:border-blue-200", expertise: ["AI/ML", "Robotics"] },
+  { name: "Industry Mentor", title: "Domain Expert · FinTech", initials: "FT", color: "bg-emerald-50 text-emerald-600 border border-emerald-100", borderHover: "hover:border-emerald-200", expertise: ["Finance", "Payments"] },
+  { name: "Industry Mentor", title: "Domain Expert · HealthTech", initials: "HT", color: "bg-rose-50 text-rose-600 border border-rose-100", borderHover: "hover:border-rose-200", expertise: ["MedTech", "Biotech"] },
+  { name: "Industry Mentor", title: "Domain Expert · EdTech", initials: "ET", color: "bg-violet-50 text-violet-600 border border-violet-100", borderHover: "hover:border-violet-200", expertise: ["EdTech", "Learning"] },
+  { name: "Industry Mentor", title: "Domain Expert · SaaS", initials: "SA", color: "bg-orange-50 text-orange-600 border border-orange-100", borderHover: "hover:border-orange-200", expertise: ["SaaS", "B2B"] },
+  { name: "Industry Mentor", title: "Domain Expert · Sustainability", initials: "GR", color: "bg-teal-50 text-teal-600 border border-teal-100", borderHover: "hover:border-teal-200", expertise: ["CleanTech", "ESG"] },
 ];
 
 const advisors = [
@@ -47,55 +47,59 @@ const advisors = [
 
 export function TeamSection() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
 
         {/* ── Board of Directors ── */}
         <div>
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-[#2563EB] font-bold tracking-wider text-sm uppercase mb-2">Leadership</p>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Board of Directors</h2>
-              <p className="text-slate-500 mt-3">Visionaries guiding VVLF's mission and strategy.</p>
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">Leadership</p>
+              <h2 className="font-display font-bold text-[#0B1121] leading-[1.08] mb-3" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}>
+                Board of Directors
+              </h2>
+              <p className="text-slate-500 text-[15px]">Visionaries guiding VVLF's mission and strategy.</p>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {board.map((member, i) => (
-              <FadeIn key={member.name} delay={i * 0.1}>
+              <FadeIn key={member.name} delay={i * 0.08}>
                 <motion.div
-                  whileHover={{ y: -6 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#2563EB]/20 transition-shadow duration-300 cursor-default"
+                  className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-[0_12px_28px_rgba(0,0,0,0.09),0_0_0_1px_rgba(37,99,235,0.08)] transition-shadow duration-300 cursor-default"
                 >
                   {/* Photo */}
-                  <div className="w-full aspect-square bg-slate-100 overflow-hidden">
+                  <div className="w-full aspect-[4/5] bg-slate-100 overflow-hidden">
                     <img
                       src={`${import.meta.env.BASE_URL}images/${member.photo}`}
                       alt={member.name}
                       loading="lazy"
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top group-hover:scale-104 transition-transform duration-500"
+                      style={{ transform: "scale(1)" }}
                     />
                   </div>
 
-                  {/* LinkedIn overlay */}
-                  <div className="absolute inset-0 bg-[#0B0F19]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  {/* LinkedIn hover overlay */}
+                  <div className="absolute inset-0 bg-[#0B1121]/65 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <a
                       href={member.linkedin}
                       aria-label={`${member.name} on LinkedIn`}
                       onClick={(e) => e.stopPropagation()}
-                      className="w-11 h-11 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:scale-110 transition-transform"
+                      className="w-10 h-10 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg"
                     >
-                      <Linkedin className="w-5 h-5" />
+                      <Linkedin className="w-4.5 h-4.5 w-4 h-4" />
                     </a>
                   </div>
 
                   {/* Info */}
                   <div className="p-4">
-                    <h3 className="font-bold text-[#0B0F19] text-sm leading-tight mb-0.5">{member.name}</h3>
-                    <p className="text-[#2563EB] text-xs font-semibold mb-2">{member.title}</p>
+                    <h3 className="font-semibold text-[#0B1121] text-[13.5px] leading-snug mb-0.5">{member.name}</h3>
+                    <p className="text-[#2563EB] text-[11px] font-semibold mb-2.5">{member.title}</p>
                     <div className="flex flex-wrap gap-1">
                       {member.expertise.map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 text-[10px] font-semibold">
+                        <span key={tag} className="px-2 py-0.5 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-[10px] font-medium">
                           {tag}
                         </span>
                       ))}
@@ -110,34 +114,37 @@ export function TeamSection() {
         {/* ── Core Team ── */}
         <div>
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-[#2563EB] font-bold tracking-wider text-sm uppercase mb-2">Core Team</p>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">The People Driving VVLF</h2>
-              <p className="text-slate-500 mt-3">Day-to-day builders of the ecosystem.</p>
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">Core Team</p>
+              <h2 className="font-display font-bold text-[#0B1121] leading-[1.08] mb-3" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}>
+                The People Driving VVLF
+              </h2>
+              <p className="text-slate-500 text-[15px]">Day-to-day builders of the ecosystem.</p>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7 max-w-3xl mx-auto">
             {team.map((member, i) => (
               <FadeIn key={member.name} delay={i * 0.1}>
                 <motion.div
-                  whileHover={{ y: -4 }}
+                  whileHover={{ y: -4, scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-default"
+                  className="group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-[0_16px_32px_rgba(0,0,0,0.09)] transition-shadow duration-300 cursor-default"
                 >
-                  {/* Photo — tall */}
-                  <div className="w-full h-72 bg-slate-100 overflow-hidden relative">
+                  {/* Photo */}
+                  <div className="w-full h-64 bg-slate-100 overflow-hidden relative">
                     <img
                       src={`${import.meta.env.BASE_URL}images/${member.photo}`}
                       alt={member.name}
                       loading="lazy"
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-600"
                     />
                     {/* LinkedIn overlay */}
-                    <div className="absolute inset-0 bg-[#0B0F19]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-[#0B1121]/65 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <a
                         href={member.linkedin}
                         aria-label={`${member.name} on LinkedIn`}
-                        className="inline-flex items-center gap-2 bg-[#0A66C2] text-white font-semibold px-5 py-2.5 rounded-full text-sm hover:scale-105 transition-transform"
+                        className="inline-flex items-center gap-2 bg-[#0A66C2] text-white font-semibold px-5 py-2.5 rounded-full text-sm hover:scale-105 transition-transform shadow-lg"
                       >
                         <Linkedin className="w-4 h-4" /> View LinkedIn
                       </a>
@@ -145,24 +152,22 @@ export function TeamSection() {
                   </div>
 
                   <div className="p-6">
-                    <h3 className="text-xl font-display font-bold text-[#0B0F19] mb-0.5">{member.name}</h3>
-                    <p className="text-[#2563EB] font-semibold text-sm mb-3">{member.title}</p>
-                    <p className="text-slate-500 text-sm leading-relaxed mb-4">{member.bio}</p>
+                    <h3 className="font-display font-bold text-[#0B1121] text-lg mb-0.5">{member.name}</h3>
+                    <p className="text-[#2563EB] font-semibold text-[13px] mb-3">{member.title}</p>
+                    <p className="text-slate-500 text-sm leading-[1.7] mb-4">{member.bio}</p>
 
-                    {/* Achievement badges */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-1.5 mb-3">
                       {member.achievements.map((a) => (
-                        <span key={a} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2563EB]/8 border border-[#2563EB]/15 text-[#2563EB] text-xs font-semibold">
+                        <span key={a} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#2563EB]/8 border border-[#2563EB]/15 text-[#2563EB] text-[11px] font-semibold">
                           <Award className="w-3 h-3" />
                           {a}
                         </span>
                       ))}
                     </div>
 
-                    {/* Expertise tags */}
                     <div className="flex flex-wrap gap-1.5">
                       {member.expertise.map((tag) => (
-                        <span key={tag} className="px-2.5 py-1 rounded-full bg-slate-100 text-slate-500 text-xs font-semibold">
+                        <span key={tag} className="px-2.5 py-1 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-[11px] font-medium">
                           {tag}
                         </span>
                       ))}
@@ -177,44 +182,39 @@ export function TeamSection() {
         {/* ── Mentor Network ── */}
         <div>
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-[#2563EB] font-bold tracking-wider text-sm uppercase mb-2">Mentor Network</p>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Industry Mentors</h2>
-              <p className="text-slate-500 mt-3">Domain experts guiding our startups across every sector — available through each cohort program.</p>
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">Mentor Network</p>
+              <h2 className="font-display font-bold text-[#0B1121] leading-[1.08] mb-3" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}>
+                Industry Mentors
+              </h2>
+              <p className="text-slate-500 text-[15px]">Domain experts guiding our startups across every sector — available through each cohort program.</p>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {mentors.map((m, i) => (
-              <FadeIn key={i} delay={i * 0.08}>
+              <FadeIn key={i} delay={i * 0.06}>
                 <motion.div
                   whileHover={{ y: -4, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className={`group bg-white rounded-2xl p-5 border border-slate-100 hover:shadow-lg transition-all duration-300 cursor-default ${m.borderHover}`}
                 >
-                  <div className="flex items-center gap-4">
-                    <motion.div
-                      whileHover={{ rotate: 8, scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                      className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shrink-0 ${m.color}`}
-                      aria-hidden="true"
-                    >
+                  <div className="flex items-center gap-3.5">
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 ${m.color}`}>
                       {m.initials}
-                    </motion.div>
+                    </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5 mb-0.5">
-                        <Star className="w-3 h-3 text-amber-400" />
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-amber-600">Industry Mentor</p>
+                        <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
+                        <p className="text-[10px] font-semibold uppercase tracking-wider text-amber-600">Industry Mentor</p>
                       </div>
-                      <p className="text-sm font-bold text-[#0B0F19] truncate">{m.name}</p>
-                      <p className="text-slate-500 text-xs">{m.title}</p>
+                      <p className="text-[13px] font-semibold text-[#0B1121]">{m.name}</p>
+                      <p className="text-slate-400 text-[11px]">{m.title}</p>
                     </div>
                   </div>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
+                  <div className="mt-3.5 flex flex-wrap gap-1.5">
                     {m.expertise.map((tag) => (
-                      <span
-                        key={tag}
-                        className={`px-2.5 py-1 rounded-full text-xs font-semibold transition-colors duration-200 ${m.color} opacity-80 group-hover:opacity-100`}
-                      >
+                      <span key={tag} className="px-2.5 py-1 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-[11px] font-medium">
                         {tag}
                       </span>
                     ))}
@@ -224,38 +224,41 @@ export function TeamSection() {
             ))}
           </div>
           <FadeIn>
-            <p className="text-center text-slate-400 text-sm mt-8">
+            <p className="text-center text-slate-400 text-[13px] mt-6">
               + more domain experts across Deep Tech, Semiconductors, and Assistive Technology
             </p>
           </FadeIn>
         </div>
 
-        {/* ── Advisors & Partners ── */}
+        {/* ── Strategic Partners ── */}
         <div>
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-[#2563EB] font-bold tracking-wider text-sm uppercase mb-2">Advisory & Partners</p>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Our Strategic Partners</h2>
-              <p className="text-slate-500 mt-3">The organizations backing VVLF's ecosystem.</p>
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">Advisory & Partners</p>
+              <h2 className="font-display font-bold text-[#0B1121] leading-[1.08] mb-3" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}>
+                Our Strategic Partners
+              </h2>
+              <p className="text-slate-500 text-[15px]">The organizations backing VVLF's ecosystem.</p>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
             {advisors.map((a, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
+              <FadeIn key={i} delay={i * 0.08}>
                 <motion.div
-                  whileHover={{ y: -6, scale: 1.03 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group bg-white rounded-2xl p-8 border border-slate-100 hover:shadow-xl hover:border-[#2563EB]/20 transition-shadow duration-300 flex flex-col items-center text-center cursor-default"
+                  className="group bg-white rounded-2xl p-7 border border-slate-100 hover:shadow-[0_12px_28px_rgba(0,0,0,0.08),0_0_0_1px_rgba(37,99,235,0.08)] transition-shadow duration-300 flex flex-col items-center text-center cursor-default"
                 >
-                  <div className="w-28 h-16 flex items-center justify-center mb-4">
+                  <div className="w-28 h-14 flex items-center justify-center mb-4">
                     <img
                       src={a.logo}
                       alt={a.name}
                       className="max-w-full max-h-full object-contain transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
                     />
                   </div>
-                  <h3 className="font-bold text-[#0B0F19] text-base mb-1">{a.name}</h3>
-                  <p className="text-slate-500 text-xs">{a.title}</p>
+                  <h3 className="font-semibold text-[#0B1121] text-[14px] mb-1">{a.name}</h3>
+                  <p className="text-slate-400 text-[12px]">{a.title}</p>
                 </motion.div>
               </FadeIn>
             ))}

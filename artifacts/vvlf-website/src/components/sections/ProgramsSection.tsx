@@ -198,7 +198,7 @@ function FaqAccordion() {
             className="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none focus:ring-2 focus:ring-[#2563EB]/30 rounded-2xl"
             aria-expanded={open === i}
           >
-            <span className="font-semibold text-[#0B0F19] text-sm pr-4">{item.q}</span>
+            <span className="font-semibold text-[#0B1121] text-sm pr-4">{item.q}</span>
             <motion.div animate={{ rotate: open === i ? 180 : 0 }} transition={{ duration: 0.25 }}>
               <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />
             </motion.div>
@@ -241,11 +241,11 @@ export function ProgramsSection() {
       {/* Innovation Flow Banner — interactive */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <FadeIn>
-          <div className="bg-[#0B0F19] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden relative border border-white/10">
+          <div className="bg-[#0B1121] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden relative border border-white/10">
             <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 80% at 0% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)" }} />
 
             <div className="relative z-10 text-center md:text-left">
-              <p className="text-[#2563EB] font-bold text-xs uppercase tracking-widest mb-2">Your Innovation Journey</p>
+              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-2">Your Innovation Journey</p>
               <h3 className="text-2xl md:text-3xl font-display font-bold text-white">Idea → Prototype → Startup → Scale</h3>
               <p className="text-white/40 text-sm mt-2">Hover each stage to learn what happens there</p>
             </div>
@@ -315,7 +315,7 @@ export function ProgramsSection() {
                         transition={{ duration: 0.4 }}
                         className="relative group rounded-3xl overflow-hidden shadow-2xl"
                       >
-                        <div className="absolute inset-0 bg-[#0B0F19]/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                        <div className="absolute inset-0 bg-[#0B1121]/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                         <img
                           src={`${import.meta.env.BASE_URL}images/${program.img}`}
                           alt={program.imgAlt}
@@ -342,7 +342,7 @@ export function ProgramsSection() {
                     {/* Content */}
                     <div className="w-full lg:w-1/2 space-y-5">
                       <div>
-                        <h2 className="text-3xl font-display font-bold text-[#0B0F19] mb-4">{program.title}</h2>
+                        <h2 className="text-3xl font-display font-bold text-[#0B1121] mb-4">{program.title}</h2>
 
                         {/* What is this */}
                         <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 mb-4">
@@ -357,21 +357,21 @@ export function ProgramsSection() {
                               <UserCheck className="w-3.5 h-3.5 text-[#2563EB]" />
                               <p className="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Who</p>
                             </div>
-                            <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.who}</p>
+                            <p className="text-[#0B1121] font-semibold text-xs leading-snug">{program.who}</p>
                           </div>
                           <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col gap-1">
                             <div className="flex items-center gap-1.5 mb-1">
                               <CalendarDays className="w-3.5 h-3.5 text-slate-400" />
                               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Timeline</p>
                             </div>
-                            <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.timeline}</p>
+                            <p className="text-[#0B1121] font-semibold text-xs leading-snug">{program.timeline}</p>
                           </div>
                           <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col gap-1">
                             <div className="flex items-center gap-1.5 mb-1">
                               <Clock className="w-3.5 h-3.5 text-slate-400" />
                               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Commitment</p>
                             </div>
-                            <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.commitment}</p>
+                            <p className="text-[#0B1121] font-semibold text-xs leading-snug">{program.commitment}</p>
                           </div>
                         </div>
 
@@ -392,7 +392,7 @@ export function ProgramsSection() {
                         <div className="bg-[#22C55E]/8 border border-[#22C55E]/20 rounded-2xl px-5 py-4 flex items-start gap-3">
                           <ArrowUpRight className="w-4 h-4 text-[#22C55E] shrink-0 mt-0.5" />
                           <p className="text-sm text-slate-700 leading-relaxed">
-                            <span className="font-semibold text-[#0B0F19]">What's next: </span>
+                            <span className="font-semibold text-[#0B1121]">What's next: </span>
                             {program.outcome}
                           </p>
                         </div>
@@ -432,7 +432,7 @@ export function ProgramsSection() {
       </div>
 
       {/* Pre-Incubation Highlight */}
-      <div id="pre-incubation" className="bg-[#0B0F19] py-20 relative overflow-hidden">
+      <div id="pre-incubation" className="bg-[#0B1121] py-20 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 100%, rgba(37,99,235,0.1) 0%, transparent 70%)" }} />
         <div className="absolute inset-0 pointer-events-none opacity-[0.025]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -472,7 +472,7 @@ export function ProgramsSection() {
                   </motion.div>
                 </Link>
                 <Link href="/startups">
-                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-[#0B0F19] rounded-full transition-all">
+                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-[#0B1121] rounded-full transition-all">
                     See Cohort 1.0 Startups
                   </Button>
                 </Link>
@@ -514,8 +514,8 @@ export function ProgramsSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Common Questions</p>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">
+              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-3">Common Questions</p>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B1121]">
                 What Founders Ask Before Applying
               </h2>
               <p className="text-slate-500 mt-3">Real answers to the questions we get most often.</p>
@@ -531,7 +531,7 @@ export function ProgramsSection() {
                 <motion.button
                   whileHover={{ scale: 1.04, y: -2 }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2 bg-[#0B0F19] text-white font-bold px-7 py-3.5 rounded-full text-sm shadow-lg"
+                  className="inline-flex items-center gap-2 bg-[#0B1121] text-white font-bold px-7 py-3.5 rounded-full text-sm shadow-lg"
                 >
                   Ask Us Directly
                   <ArrowRight className="w-4 h-4" />

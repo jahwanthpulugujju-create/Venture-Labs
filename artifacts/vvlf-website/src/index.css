@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Space+Grotesk:wght@500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -52,9 +52,10 @@
   --color-destructive-border: hsl(var(--destructive));
 
   --color-navy: hsl(var(--navy));
+  --color-surface: hsl(var(--surface));
 
-  --font-sans: 'DM Sans', sans-serif;
-  --font-display: 'Space Grotesk', sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -63,16 +64,16 @@
 }
 
 :root {
-  --background: 214 100% 98%;
+  --background: 0 0% 100%;
   --foreground: 222 47% 6%;
   
-  --primary: 217 91% 54%;
+  --primary: 221 83% 53%;
   --primary-foreground: 0 0% 100%;
   
   --secondary: 220 65% 27%;
   --secondary-foreground: 0 0% 100%;
   
-  --muted: 214 32% 91%;
+  --muted: 220 14% 95%;
   --muted-foreground: 215 16% 47%;
   
   --accent: 213 97% 69%;
@@ -81,19 +82,22 @@
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
   
-  --border: 214 32% 91%;
-  --input: 214 32% 91%;
-  --ring: 217 91% 54%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 221 83% 53%;
   
   --card: 0 0% 100%;
   --card-foreground: 222 47% 11%;
-  --card-border: 214 32% 91%;
+  --card-border: 220 13% 91%;
   
   --popover: 0 0% 100%;
   --popover-foreground: 222 47% 6%;
-  --popover-border: 214 32% 91%;
+  --popover-border: 220 13% 91%;
   
-  --navy: 216 60% 10%;
+  /* Deep navy — softer than harsh #080c14 */
+  --navy: 222 60% 10%;
+  /* Slightly lighter surface for dark sections */
+  --surface: 224 52% 9%;
   
   --radius: 1rem;
 }
@@ -105,6 +109,9 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv11";
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -117,13 +124,36 @@
   }
 }
 
+/* ── Eyebrow label standard ── */
+.eyebrow {
+  @apply text-[#2563EB] font-semibold uppercase tracking-[0.14em] text-[11px] mb-3;
+}
+
+/* ── Section title standard ── */
+.section-title {
+  font-family: var(--font-display);
+  @apply font-bold tracking-tight;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  line-height: 1.08;
+}
+
+/* ── Premium card base ── */
+.card-base {
+  @apply bg-white rounded-2xl border border-slate-100/80 shadow-sm;
+}
+
+/* ── Gradient text utility ── */
+.gradient-text {
+  @apply text-transparent bg-clip-text;
+  background-image: linear-gradient(90deg, #4f8aff 0%, #7ab3ff 40%, #a0c8ff 70%, #4f8aff 100%);
+  background-size: 200%;
+  animation: gradient 4s ease infinite;
+}
+
 @keyframes gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
-.animate-gradient {
-  animation: gradient 4s ease infinite;
 }
 
 @keyframes marquee {
@@ -135,4 +165,20 @@
 }
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* ── Smooth scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.25);
 }
