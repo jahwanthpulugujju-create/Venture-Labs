@@ -53,8 +53,8 @@ function WhatHappensNext() {
   return (
     <div className="bg-slate-50 rounded-3xl border border-slate-100 p-8 md:p-10">
       <div className="mb-8">
-        <p className="text-[#2563EB] font-bold text-xs uppercase tracking-widest mb-2">The Process</p>
-        <h3 className="text-2xl font-display font-bold text-[#0B0F19]">What happens after you apply?</h3>
+        <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-2">The Process</p>
+        <h3 className="text-2xl font-display font-bold text-[#0B1121]">What happens after you apply?</h3>
         <p className="text-slate-500 text-sm mt-1">No black box. Here's exactly what to expect.</p>
       </div>
 
@@ -79,7 +79,7 @@ function WhatHappensNext() {
 
               <div className="flex-1 pb-1">
                 <div className="flex flex-wrap items-center gap-2 mb-1">
-                  <p className="font-bold text-[#0B0F19] text-sm">{step.title}</p>
+                  <p className="font-bold text-[#0B1121] text-sm">{step.title}</p>
                   <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${step.light}`}>
                     {step.time}
                   </span>
@@ -158,7 +158,7 @@ export function ContactSection() {
 
         {/* Apply CTA Strip */}
         <FadeIn>
-          <div className="bg-[#0B0F19] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden relative border border-white/10">
+          <div className="bg-[#0B1121] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden relative border border-white/10">
             <div
               className="absolute inset-0 pointer-events-none"
               aria-hidden="true"
@@ -170,7 +170,7 @@ export function ContactSection() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]" />
                 </span>
-                <p className="text-[#22C55E] font-bold text-xs uppercase tracking-widest">Cohort 2.0 — Applications Open</p>
+                <p className="text-[#22C55E] font-semibold tracking-[0.14em] text-[11px] uppercase">Cohort 2.0 — Applications Open</p>
               </div>
               <h2 className="text-2xl md:text-3xl font-display font-bold text-white">Ready to Build Your Startup?</h2>
               <p className="text-white/60 text-sm leading-relaxed max-w-md">
@@ -209,7 +209,7 @@ export function ContactSection() {
           {/* ── Form ── */}
           <FadeIn direction="right">
             <div>
-              <h2 className="text-2xl font-display font-bold text-[#0B0F19] mb-2">Send Us a Message</h2>
+              <h2 className="text-2xl font-display font-bold text-[#0B1121] mb-2">Send Us a Message</h2>
               <p className="text-slate-500 mb-8 text-sm">
                 Whether you're a student with an idea, a mentor, or an industry partner — we read every message and reply within 48 hours.
               </p>
@@ -219,7 +219,7 @@ export function ContactSection() {
                   <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mb-5">
                     <CheckCircle2 className="w-9 h-9 text-emerald-600" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#0B0F19] mb-2">Message Sent!</h3>
+                  <h3 className="text-xl font-bold text-[#0B1121] mb-2">Message Sent!</h3>
                   <p className="text-slate-600 text-sm mb-2">
                     Thank you, <strong>{form.firstName}</strong>. We'll reach out at <strong>{form.email}</strong>.
                   </p>
@@ -236,7 +236,7 @@ export function ContactSection() {
 
                   {/* Inquiry Type */}
                   <div className="space-y-2">
-                    <p id="inquiry-label" className="text-sm font-semibold text-[#0B0F19]">How can we help?</p>
+                    <p id="inquiry-label" className="text-sm font-semibold text-[#0B1121]">How can we help?</p>
                     <div role="group" aria-labelledby="inquiry-label" className="flex flex-wrap gap-2">
                       {inquiryTypes.map(({ label }) => (
                         <button
@@ -264,7 +264,7 @@ export function ContactSection() {
                   {/* Name row */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label htmlFor="firstName" className="text-sm font-semibold text-[#0B0F19]">First Name <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
+                      <label htmlFor="firstName" className="text-sm font-semibold text-[#0B1121]">First Name <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                       <Input
                         id="firstName"
                         placeholder="e.g. Arjun"
@@ -281,7 +281,7 @@ export function ContactSection() {
                       )}
                     </div>
                     <div className="space-y-1.5">
-                      <label htmlFor="lastName" className="text-sm font-semibold text-[#0B0F19]">Last Name <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
+                      <label htmlFor="lastName" className="text-sm font-semibold text-[#0B1121]">Last Name <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                       <Input
                         id="lastName"
                         placeholder="e.g. Reddy"
@@ -301,7 +301,7 @@ export function ContactSection() {
 
                   {/* Email */}
                   <div className="space-y-1.5">
-                    <label htmlFor="email" className="text-sm font-semibold text-[#0B0F19]">Email Address <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
+                    <label htmlFor="email" className="text-sm font-semibold text-[#0B1121]">Email Address <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                     <Input
                       id="email"
                       type="email"
@@ -320,7 +320,7 @@ export function ContactSection() {
 
                   {/* Message */}
                   <div className="space-y-1.5">
-                    <label htmlFor="message" className="text-sm font-semibold text-[#0B0F19]">Message <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
+                    <label htmlFor="message" className="text-sm font-semibold text-[#0B1121]">Message <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                     <Textarea
                       id="message"
                       placeholder="Tell us about your startup idea, collaboration proposal, or question..."
@@ -385,7 +385,7 @@ export function ContactSection() {
                     <div className="bg-white rounded-[15px] p-5 flex items-center gap-4">
                       <Instagram className="w-7 h-7 text-pink-500 shrink-0 group-hover:scale-110 transition-transform" aria-hidden="true" />
                       <div>
-                        <p className="font-bold text-[#0B0F19] text-sm">Instagram</p>
+                        <p className="font-bold text-[#0B1121] text-sm">Instagram</p>
                         <p className="text-xs text-slate-500">@vishnuventurelabs</p>
                       </div>
                     </div>
@@ -402,7 +402,7 @@ export function ContactSection() {
                     <div className="bg-white rounded-[15px] p-5 flex items-center gap-4">
                       <Linkedin className="w-7 h-7 text-[#0A66C2] shrink-0 group-hover:scale-110 transition-transform" aria-hidden="true" />
                       <div>
-                        <p className="font-bold text-[#0B0F19] text-sm">LinkedIn</p>
+                        <p className="font-bold text-[#0B1121] text-sm">LinkedIn</p>
                         <p className="text-xs text-slate-500">VVLF Official</p>
                       </div>
                     </div>
@@ -411,7 +411,7 @@ export function ContactSection() {
               </div>
 
               {/* Contact info card */}
-              <div className="bg-[#0B0F19] text-white p-7 rounded-3xl shadow-xl">
+              <div className="bg-[#0B1121] text-white p-7 rounded-3xl shadow-xl">
                 <h3 className="font-display font-bold text-lg mb-5">Contact Information</h3>
                 <ul className="space-y-5">
                   <li className="flex items-start gap-4">
@@ -479,7 +479,7 @@ export function ContactSection() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Open Vishnu Venture Labs in Google Maps"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#2563EB] hover:text-[#0B0F19] transition-colors focus:outline-none focus:underline"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#2563EB] hover:text-[#0B1121] transition-colors focus:outline-none focus:underline"
                   >
                     Open in Maps
                     <ExternalLink className="w-3 h-3" aria-hidden="true" />

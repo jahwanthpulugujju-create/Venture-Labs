@@ -162,7 +162,7 @@ export function TimelineSection() {
               { value: "2025", label: "Year Active" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-3xl font-display font-bold text-[#0B0F19]">{stat.value}</p>
+                <p className="text-3xl font-display font-bold text-[#0B1121]">{stat.value}</p>
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mt-1">{stat.label}</p>
               </div>
             ))}
@@ -177,7 +177,7 @@ export function TimelineSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2563EB] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#2563EB]" />
               </span>
-              <h2 className="text-[#2563EB] font-bold tracking-wider text-sm uppercase">Upcoming Events</h2>
+              <h2 className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase">Upcoming Events</h2>
             </div>
           </FadeIn>
 
@@ -189,14 +189,14 @@ export function TimelineSection() {
                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${typeColors[event.type] || "bg-slate-100 text-slate-600 border-slate-200"} mb-3`}>
                       {event.type}
                     </span>
-                    <h3 className="text-lg font-display font-bold text-[#0B0F19]">{event.title}</h3>
+                    <h3 className="text-lg font-display font-bold text-[#0B1121]">{event.title}</h3>
                   </div>
 
                   <p className="text-slate-500 text-sm leading-relaxed mb-4">{event.desc}</p>
 
                   {/* Outcome callout */}
                   <div className="bg-white/60 border border-slate-200 rounded-xl px-4 py-2.5 mb-4">
-                    <p className="text-xs font-semibold text-[#0B0F19]">
+                    <p className="text-xs font-semibold text-[#0B1121]">
                       <span className="text-[#22C55E] mr-1.5">→</span>{event.outcome}
                     </p>
                   </div>
@@ -254,7 +254,7 @@ export function TimelineSection() {
           <div className="mb-12">
             <div className="text-center mb-10">
               <span className="text-[#2563EB] font-bold tracking-widest text-xs uppercase mb-3 block">Events Timeline</span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19] mb-4">Our Journey & Milestones</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B1121] mb-4">Our Journey & Milestones</h2>
               <p className="text-slate-500 text-lg">A year of building, learning, and launching bold ideas.</p>
             </div>
 
@@ -275,10 +275,10 @@ export function TimelineSection() {
                     key={y}
                     onClick={() => setActiveYear(y)}
                     aria-pressed={activeYear === y}
-                    className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border focus:outline-none focus:ring-2 focus:ring-[#0B0F19]/30 ${
+                    className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border focus:outline-none focus:ring-2 focus:ring-[#0B1121]/30 ${
                       activeYear === y
-                        ? "bg-[#0B0F19] text-white border-[#0B0F19] shadow-md"
-                        : "bg-white text-slate-600 border-slate-200 hover:border-[#0B0F19]/40 hover:text-[#0B0F19]"
+                        ? "bg-[#0B1121] text-white border-[#0B1121] shadow-md"
+                        : "bg-white text-slate-600 border-slate-200 hover:border-[#0B1121]/40 hover:text-[#0B1121]"
                     }`}
                   >
                     {y}
@@ -375,7 +375,7 @@ export function TimelineSection() {
                             </div>
 
                             {/* Title + desc */}
-                            <h3 className="text-lg font-display font-bold text-[#0B0F19] mb-2 leading-snug">{event.title}</h3>
+                            <h3 className="text-lg font-display font-bold text-[#0B1121] mb-2 leading-snug">{event.title}</h3>
                             <p className="text-sm text-slate-500 leading-relaxed mb-3">{event.desc}</p>
 
                             {/* Structured metadata */}
@@ -398,7 +398,7 @@ export function TimelineSection() {
                             <div className="pt-4 border-t border-slate-100">
                               <a
                                 href="#"
-                                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB] hover:text-[#0B0F19] transition-colors group/link focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 rounded"
+                                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB] hover:text-[#0B1121] transition-colors group/link focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 rounded"
                                 aria-label={`View recap of ${event.title}`}
                               >
                                 View Event Recap
@@ -419,7 +419,7 @@ export function TimelineSection() {
                       {/* Date display (opposite side) */}
                       <div className={`hidden lg:flex w-[calc(50%-2rem)] items-center ${isLeft ? "pl-12 justify-start" : "pr-12 justify-end"}`} aria-hidden="true">
                         <div className="text-center">
-                          <div className="text-4xl font-display font-bold text-[#0B0F19]/10">{event.day}</div>
+                          <div className="text-4xl font-display font-bold text-[#0B1121]/10">{event.day}</div>
                           <div className="text-xs font-bold tracking-widest text-slate-400 uppercase">{event.month} {event.year}</div>
                         </div>
                       </div>

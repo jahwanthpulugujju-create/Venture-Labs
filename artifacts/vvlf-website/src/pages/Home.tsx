@@ -8,7 +8,7 @@ import {
   Lightbulb, Hammer, Rocket, TrendingUp,
   Users, FileCheck, Landmark, MessageSquare,
   Target, ShieldCheck,
-  Quote
+  Quote, CheckCircle2
 } from "lucide-react";
 
 // ─── DATA ──────────────────────────────────────────────────────────
@@ -20,7 +20,7 @@ const stages = [
     tag: "Failathon",
     desc: "Turn ambiguous problems into validated startup ideas through guided ideation, design thinking, and structured failure.",
     color: "group-hover:text-yellow-400",
-    glow: "group-hover:shadow-yellow-400/10",
+    highlight: false,
   },
   {
     icon: Hammer,
@@ -29,7 +29,7 @@ const stages = [
     tag: "PIVOT Makeathon",
     desc: "Go from concept to working prototype in 24 hours. Rapid iteration, pitch prep, and resilience under pressure.",
     color: "group-hover:text-blue-400",
-    glow: "group-hover:shadow-blue-400/10",
+    highlight: false,
   },
   {
     icon: Target,
@@ -38,7 +38,7 @@ const stages = [
     tag: "EPICS / SAARTHIS",
     desc: "Build real solutions for real communities. Year-long programs that pair students with underserved problems.",
     color: "group-hover:text-emerald-400",
-    glow: "group-hover:shadow-emerald-400/10",
+    highlight: false,
   },
   {
     icon: Rocket,
@@ -46,10 +46,17 @@ const stages = [
     title: "Launch Stage",
     tag: "Pre-Incubation Cohort",
     desc: "Our flagship program. Resources, mentors, legal support, and an investor network to help you incorporate and scale.",
-    color: "group-hover:text-primary",
-    glow: "group-hover:shadow-primary/10",
+    color: "group-hover:text-[#2563EB]",
     highlight: true,
   },
+];
+
+const journeySteps = [
+  { step: "01", label: "Idea", desc: "Explore & validate" },
+  { step: "02", label: "Build", desc: "Prototype & iterate" },
+  { step: "03", label: "Incubate", desc: "Structure & support" },
+  { step: "04", label: "Launch", desc: "Incorporate & ship" },
+  { step: "05", label: "Scale", desc: "Grow & fundraise" },
 ];
 
 const ventures = [
@@ -126,12 +133,10 @@ export default function Home() {
             {/* Image */}
             <FadeIn direction="right">
               <div className="relative">
-                {/* Accent block */}
-                <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl bg-primary/8 -z-10" />
-                {/* Stat chip */}
-                <div className="absolute -bottom-5 -right-5 z-10 flex items-center gap-3 bg-[#080c14] text-white px-5 py-4 rounded-2xl shadow-2xl">
-                  <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-                    <Rocket className="w-5 h-5 text-primary" />
+                <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl bg-[#2563EB]/8 -z-10" />
+                <div className="absolute -bottom-5 -right-5 z-10 flex items-center gap-3 bg-[#0B1121] text-white px-5 py-4 rounded-2xl shadow-2xl">
+                  <div className="w-10 h-10 rounded-xl bg-[#2563EB]/20 flex items-center justify-center shrink-0">
+                    <Rocket className="w-5 h-5 text-[#2563EB]" />
                   </div>
                   <div>
                     <p className="text-xl font-display font-bold leading-none">4</p>
@@ -150,13 +155,13 @@ export default function Home() {
             <FadeIn direction="left">
               <div className="space-y-7">
                 <div>
-                  <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">
+                  <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">
                     About VVLF
                   </p>
-                  <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1] mb-5">
+                  <h2 className="font-display font-bold text-[#0B1121] leading-[1.08] mb-5" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.75rem)" }}>
                     Where Campus Ideas<br />Become Real Companies
                   </h2>
-                  <p className="text-slate-500 text-lg leading-relaxed">
+                  <p className="text-slate-500 text-[17px] leading-[1.75]">
                     Vishnu Venture Labs Foundation (VVLF) is the incubation center of BV Raju Institute of Technology — a not-for-profit Section 8 company empowering early-stage student startups with world-class infrastructure, mentorship, and investor access.
                   </p>
                 </div>
@@ -168,17 +173,17 @@ export default function Home() {
                     { label: "Cohort 1.0", value: "4 Ventures" },
                     { label: "Community", value: "200+ Innovators" },
                   ].map((item) => (
-                    <div key={item.label} className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{item.label}</p>
-                      <p className="text-sm font-bold text-[#080c14]">{item.value}</p>
+                    <div key={item.label} className="p-4 rounded-2xl bg-slate-50 border border-slate-100/80">
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mb-1">{item.label}</p>
+                      <p className="text-sm font-semibold text-[#0B1121]">{item.value}</p>
                     </div>
                   ))}
                 </div>
 
                 <Link href="/about">
-                  <button className="group inline-flex items-center gap-2 text-sm font-bold text-[#080c14] border-b-2 border-[#080c14]/20 pb-0.5 hover:border-primary hover:text-primary transition-all">
+                  <button className="group inline-flex items-center gap-2 text-[13px] font-semibold text-[#0B1121] border-b border-[#0B1121]/20 pb-0.5 hover:border-[#2563EB] hover:text-[#2563EB] transition-all">
                     Learn Our Story
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </Link>
               </div>
@@ -187,24 +192,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ══ 2.5 INCUBATION JOURNEY ═══════════════════════════════════ */}
+      <section className="py-20 bg-[#F6F8FB] border-y border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center mb-12">
+              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-3">The VVLF Journey</p>
+              <h2 className="font-display font-bold text-[#0B1121]" style={{ fontSize: "clamp(1.5rem, 2.8vw, 2.1rem)" }}>
+                From First Idea to Incorporated Company
+              </h2>
+            </div>
+          </FadeIn>
+
+          <div className="relative flex flex-col md:flex-row items-start md:items-center gap-0">
+            {journeySteps.map((step, i) => (
+              <FadeIn key={step.label} delay={i * 0.08} className="flex-1 w-full">
+                <div className="flex flex-col items-center text-center relative px-2">
+                  {/* Connector line */}
+                  {i < journeySteps.length - 1 && (
+                    <div className="hidden md:block absolute top-6 left-[calc(50%+28px)] right-0 h-px bg-slate-200" style={{ width: "calc(100% - 28px)" }} />
+                  )}
+                  {/* Step circle */}
+                  <div className="w-12 h-12 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center mb-4 shadow-sm relative z-10">
+                    <span className="text-xs font-bold text-[#2563EB] font-mono">{step.step}</span>
+                  </div>
+                  <p className="font-display font-bold text-[#0B1121] text-sm mb-1">{step.label}</p>
+                  <p className="text-slate-500 text-xs">{step.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn delay={0.4}>
+            <div className="text-center mt-12">
+              <Link href="/programs">
+                <button className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#2563EB] hover:text-[#2563EB]/80 transition-colors">
+                  See all programs
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* ══ 3. PROGRAMS ══════════════════════════════════════════════ */}
-      <section className="py-28 bg-[#080c14] relative overflow-hidden">
+      <section className="py-28 bg-[#0B1121] relative overflow-hidden">
         {/* Ambient glow */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(30,90,255,0.06) 0%, transparent 70%)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 70%)" }}
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl mb-16">
-              <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">
+              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">
                 Programs
               </p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-[1.1] mb-4">
+              <h2 className="font-display font-bold text-white leading-[1.08] mb-4" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.75rem)" }}>
                 A Program for Every Stage of Your Journey
               </h2>
-              <p className="text-white/40 text-lg">
+              <p className="text-white/40 text-[17px] leading-[1.7]">
                 From first-time ideators to pre-launch founders — we meet you exactly where you are.
               </p>
             </div>
@@ -217,42 +266,31 @@ export default function Home() {
                   whileHover={{ scale: 1.03, y: -8 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 280, damping: 20 }}
-                  style={{ "--glow-color": s.highlight ? "rgba(37,99,235,0.18)" : "rgba(255,255,255,0.04)" } as Record<string, string>}
-                  className={`group relative flex flex-col h-full p-7 rounded-3xl border cursor-default transition-shadow duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_20px_var(--glow-color)] ${
+                  className={`group relative flex flex-col h-full p-7 rounded-2xl border cursor-default transition-shadow duration-300 ${
                     s.highlight
-                      ? "bg-white/5 border-primary/30 hover:border-primary/50"
-                      : "bg-white/[0.03] border-white/8 hover:border-white/20"
+                      ? "bg-white/[0.06] border-[#2563EB]/35 hover:border-[#2563EB]/55 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_24px_rgba(37,99,235,0.2)]"
+                      : "bg-white/[0.03] border-white/[0.08] hover:border-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_16px_rgba(255,255,255,0.04)]"
                   }`}
                 >
                   {s.highlight && (
-                    <div className="absolute top-5 right-5 px-2.5 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-[10px] font-bold uppercase tracking-wider">
+                    <div className="absolute top-4 right-4 px-2 py-0.5 rounded-full bg-[#2563EB]/20 border border-[#2563EB]/30 text-[#2563EB] text-[10px] font-semibold uppercase tracking-wider">
                       Flagship
                     </div>
                   )}
 
                   <div className="flex items-center gap-3 mb-6">
-                    <motion.div
-                      className={`w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center`}
-                      whileHover={{ scale: 1.15, rotate: -6 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                    >
-                      <s.icon className={`w-5 h-5 text-white/40 transition-colors duration-200 ${s.color}`} />
-                    </motion.div>
-                    <span className="text-white/20 text-xs font-mono font-bold">{s.stage}</span>
+                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                      <s.icon className={`w-4.5 h-4.5 text-white/35 transition-colors duration-200 ${s.color} w-4 h-4`} />
+                    </div>
+                    <span className="text-white/25 text-[10px] font-mono font-semibold tracking-widest">{s.stage}</span>
                   </div>
 
-                  <p className="text-white/30 text-[10px] font-bold uppercase tracking-wider mb-1">{s.tag}</p>
-                  <motion.h3
-                    className="text-white font-display font-bold text-lg mb-3 leading-snug"
-                    whileHover={{ y: -2 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                  >
-                    {s.title}
-                  </motion.h3>
+                  <p className="text-white/30 text-[10px] font-semibold uppercase tracking-wider mb-1.5">{s.tag}</p>
+                  <h3 className="text-white font-display font-bold text-[17px] mb-3 leading-snug">{s.title}</h3>
                   <p className="text-white/40 text-sm leading-relaxed flex-1 group-hover:text-white/60 transition-colors duration-300">{s.desc}</p>
 
-                  <Link href="/programs" className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-white/30 group-hover:text-white/80 transition-colors duration-200 group">
-                    Learn more <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
+                  <Link href="/programs" className="mt-6 inline-flex items-center gap-1.5 text-[11px] font-semibold text-white/30 group-hover:text-white/80 transition-colors duration-200">
+                    Learn more <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform duration-200" />
                   </Link>
                 </motion.div>
               </FadeIn>
@@ -262,10 +300,14 @@ export default function Home() {
           <FadeIn>
             <div className="flex justify-center">
               <Link href="/programs">
-                <button className="group inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-full text-sm shadow-[0_0_32px_rgba(30,90,255,0.3)] hover:-translate-y-0.5 transition-all">
+                <motion.button
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group inline-flex items-center gap-2.5 bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-semibold px-8 py-4 rounded-full text-[13.5px] shadow-[0_0_32px_rgba(37,99,235,0.3)] transition-all duration-200"
+                >
                   View All Programs & Apply
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                </motion.button>
               </Link>
             </div>
           </FadeIn>
@@ -278,82 +320,71 @@ export default function Home() {
           <FadeIn>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
               <div>
-                <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">Portfolio</p>
-                <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
+                <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">Portfolio</p>
+                <h2 className="font-display font-bold text-[#0B1121] leading-[1.08]" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.75rem)" }}>
                   Ventures Built Here
                 </h2>
-                <p className="text-slate-500 mt-3 text-lg max-w-md">
+                <p className="text-slate-500 mt-3 text-[17px] max-w-md leading-[1.7]">
                   From student projects to incorporated companies — proof that the ecosystem works.
                 </p>
               </div>
               <Link href="/startups">
-                <button className="group shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#080c14]/10 text-[#080c14] font-bold text-sm hover:border-primary hover:text-primary transition-all">
+                <motion.button
+                  whileHover={{ scale: 1.02, y: -1 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-200 text-[#0B1121] font-semibold text-[13px] hover:border-[#2563EB]/40 hover:text-[#2563EB] transition-all duration-200"
+                >
                   Full Portfolio
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </button>
+                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </motion.button>
               </Link>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {ventures.map((v, i) => (
               <FadeIn key={v.name} delay={i * 0.1}>
                 <motion.div
-                  whileHover={{
-                    scale: 1.03,
-                    y: -8,
-                    rotateX: 1.5,
-                    rotateY: -1.5,
-                  }}
+                  whileHover={{ scale: 1.02, y: -6 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 280, damping: 20 }}
-                  className="group relative flex flex-col h-full rounded-3xl border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.12),0_0_20px_rgba(37,99,235,0.12)] overflow-hidden bg-white cursor-default"
-                  style={{ transformStyle: "preserve-3d", perspective: 800 }}
+                  className="group relative flex flex-col h-full rounded-2xl border border-slate-100 shadow-sm hover:shadow-[0_16px_40px_rgba(0,0,0,0.10),0_0_20px_rgba(37,99,235,0.08)] overflow-hidden bg-white cursor-default"
                 >
                   {/* Logo panel */}
                   <div
                     className="w-full h-44 flex items-center justify-center p-8 border-b border-slate-100 relative overflow-hidden"
                     style={{ backgroundColor: v.logoBg }}
                   >
-                    <motion.img
+                    <img
                       src={`${import.meta.env.BASE_URL}images/${v.logo}`}
                       alt={v.name}
-                      className="max-h-full max-w-full object-contain"
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-400"
                     />
-                    {/* Badge */}
-                    <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold uppercase tracking-wider">
+                    <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-semibold uppercase tracking-wider">
                       {v.badge}
                     </div>
                     {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-[#080c14]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-[#0B1121]/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <Link href="/startups">
-                        <span className="inline-flex items-center gap-2 bg-white text-[#080c14] font-bold text-xs px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform">
+                        <span className="inline-flex items-center gap-2 bg-white text-[#0B1121] font-semibold text-xs px-5 py-2.5 rounded-full shadow-lg">
                           View Startup <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
                       </Link>
                     </div>
                   </div>
 
-                  <div className="p-7 flex flex-col flex-1">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">{v.category}</p>
-                    <motion.h3
-                      className="text-xl font-display font-bold text-[#080c14] mb-3"
-                      whileHover={{ y: -2 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                    >
-                      {v.name}
-                    </motion.h3>
-                    <p className="text-slate-500 text-sm leading-relaxed flex-1 group-hover:text-slate-600 transition-colors duration-300">{v.desc}</p>
+                  <div className="p-6 flex flex-col flex-1">
+                    <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mb-2">{v.category}</p>
+                    <h3 className="font-display font-bold text-[#0B1121] text-lg mb-2.5">{v.name}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed flex-1">{v.desc}</p>
 
-                    <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">
+                    <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+                      <span className="text-[10px] font-semibold text-slate-300 uppercase tracking-wider">
                         Pre-Incubation Cohort 1.0
                       </span>
                       <Link href="/startups">
-                        <span className="inline-flex items-center gap-1 text-xs font-bold text-primary group-hover:gap-2 transition-all duration-200 hover:underline">
-                          View <ArrowUpRight className="w-3.5 h-3.5" />
+                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#2563EB] hover:opacity-80 transition-opacity">
+                          View <ArrowUpRight className="w-3 h-3" />
                         </span>
                       </Link>
                     </div>
@@ -366,39 +397,33 @@ export default function Home() {
       </section>
 
       {/* ══ 5. TESTIMONIALS ══════════════════════════════════════════ */}
-      <section className="py-28 bg-[#f7f8fa]">
+      <section className="py-28 bg-[#F6F8FB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-xl mx-auto mb-16">
-              <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">Voices from the Ecosystem</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
+              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">Voices from the Ecosystem</p>
+              <h2 className="font-display font-bold text-[#0B1121] leading-[1.08]" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.75rem)" }}>
                 Founders Who Built Here
               </h2>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <motion.div
-                  whileHover={{ y: -6, scale: 1.01 }}
+                  whileHover={{ y: -5, scale: 1.01 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group flex flex-col h-full bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:border-primary/15 transition-shadow duration-300 cursor-default"
+                  className="flex flex-col h-full bg-white rounded-2xl p-7 border border-slate-100 shadow-sm hover:shadow-lg hover:border-[#2563EB]/12 transition-shadow duration-300 cursor-default"
                 >
-                  <motion.div
-                    whileHover={{ rotate: -8, scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                    className="w-fit mb-5"
-                  >
-                    <Quote className="w-8 h-8 text-primary/20" />
-                  </motion.div>
-                  <p className="text-[#080c14] text-base leading-[1.7] flex-1 mb-8 font-medium">
+                  <Quote className="w-7 h-7 text-[#2563EB]/20 mb-5 shrink-0" />
+                  <p className="text-[#0B1121] text-[15px] leading-[1.75] flex-1 mb-6">
                     "{t.quote}"
                   </p>
-                  <div className="flex items-center gap-4 pt-5 border-t border-slate-100">
+                  <div className="flex items-center gap-3.5 pt-5 border-t border-slate-100">
                     {t.logo ? (
                       <div
-                        className="w-11 h-11 rounded-xl border border-slate-100 flex items-center justify-center p-1.5 shrink-0"
+                        className="w-10 h-10 rounded-xl border border-slate-100 flex items-center justify-center p-1.5 shrink-0"
                         style={{ backgroundColor: t.logoBg }}
                       >
                         <img
@@ -408,12 +433,12 @@ export default function Home() {
                         />
                       </div>
                     ) : (
-                      <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center text-sm font-bold text-primary shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/15 flex items-center justify-center text-[11px] font-bold text-[#2563EB] shrink-0">
                         {t.initials}
                       </div>
                     )}
                     <div>
-                      <p className="font-bold text-[#080c14] text-sm leading-tight">{t.name}</p>
+                      <p className="font-semibold text-[#0B1121] text-sm leading-tight">{t.name}</p>
                       <p className="text-slate-400 text-xs mt-0.5">{t.role}</p>
                     </div>
                   </div>
@@ -429,11 +454,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">What You Get</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
+              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">What You Get</p>
+              <h2 className="font-display font-bold text-[#0B1121] leading-[1.08] mb-4" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.75rem)" }}>
                 Everything You Need to Build a Startup
               </h2>
-              <p className="text-slate-500 text-lg leading-relaxed mt-4">
+              <p className="text-slate-500 text-[17px] leading-[1.75]">
                 VVLF removes every excuse not to build. We give student founders the unfair advantage they deserve.
               </p>
             </div>
@@ -443,37 +468,22 @@ export default function Home() {
             {pillars.map((p, i) => (
               <FadeIn key={p.title} delay={i * 0.07}>
                 <motion.div
-                  whileHover={{ scale: 1.03, y: -6 }}
+                  whileHover={{ scale: 1.02, y: -5 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-[0_16px_32px_rgba(0,0,0,0.08),0_0_16px_rgba(37,99,235,0.10)] hover:border-primary/15 cursor-default h-full flex flex-col"
+                  className="group p-6 rounded-2xl border border-slate-100/80 bg-slate-50/60 hover:bg-white hover:shadow-[0_12px_28px_rgba(0,0,0,0.07),0_0_16px_rgba(37,99,235,0.07)] hover:border-[#2563EB]/12 cursor-default h-full flex flex-col transition-shadow duration-200"
                 >
-                  <motion.div
-                    className="w-10 h-10 rounded-xl bg-primary/8 text-primary flex items-center justify-center mb-4"
-                    whileHover={{ scale: 1.2, rotate: -8, backgroundColor: "rgba(37,99,235,1)" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                  >
-                    <p.icon className="w-5 h-5 group-hover:text-white transition-colors duration-200" />
-                  </motion.div>
-                  <motion.h4
-                    className="text-sm font-bold text-[#080c14] mb-2 leading-snug"
-                    whileHover={{ y: -1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                  >
-                    {p.title}
-                  </motion.h4>
-                  <p className="text-xs text-slate-500 leading-relaxed flex-1 group-hover:text-slate-700 transition-colors duration-200">{p.desc}</p>
-                  <motion.div
-                    className="mt-4 pt-3 border-t border-slate-100 overflow-hidden"
-                    initial={{ height: 0, opacity: 0 }}
-                    whileHover={{ height: "auto", opacity: 1 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
-                  >
-                    <p className="text-xs font-semibold text-primary flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0" />
+                  <div className="w-10 h-10 rounded-xl bg-[#2563EB]/8 text-[#2563EB] flex items-center justify-center mb-4 group-hover:bg-[#2563EB] group-hover:text-white transition-all duration-200 shrink-0">
+                    <p.icon className="w-4.5 h-4.5 w-4 h-4" />
+                  </div>
+                  <h4 className="font-display font-bold text-[#0B1121] text-[15px] mb-2 leading-snug">{p.title}</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed flex-1">{p.desc}</p>
+                  <div className="mt-4 pt-3 border-t border-slate-100 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <p className="text-[11px] font-semibold text-[#2563EB] flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                       {p.example}
                     </p>
-                  </motion.div>
+                  </div>
                 </motion.div>
               </FadeIn>
             ))}
@@ -482,60 +492,65 @@ export default function Home() {
       </section>
 
       {/* ══ 7. FINAL CTA ═════════════════════════════════════════════ */}
-      <section className="py-32 bg-[#080c14] relative overflow-hidden">
-        {/* Ambient glow */}
+      <section className="py-32 bg-[#0B1121] relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background:
-              "radial-gradient(ellipse 60% 60% at 50% 100%, rgba(30,90,255,0.12) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 55% 70% at 50% 110%, rgba(37,99,235,0.12) 0%, transparent 70%)",
           }}
         />
-        {/* Grid pattern */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          className="absolute inset-0 pointer-events-none opacity-[0.025]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
+              "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
           }}
         />
 
-        <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
+        <div className="relative z-10 max-w-2xl mx-auto px-4 text-center">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2563EB] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2563EB]" />
               </span>
-              <span className="text-white/50 text-xs font-semibold uppercase tracking-widest">
+              <span className="text-white/50 text-[11px] font-semibold uppercase tracking-[0.14em]">
                 Pre-Incubation Cohort 2.0 — Applications Open
               </span>
             </div>
 
             <h2
               className="font-display font-bold text-white leading-[1.06] mb-5"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)" }}
+              style={{ fontSize: "clamp(1.9rem, 4.5vw, 3.5rem)" }}
             >
               Ready to Turn Your Idea Into a Startup?
             </h2>
 
-            <p className="text-white/45 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="text-white/45 text-[17px] mb-10 leading-[1.7]">
               Join VVLF and get access to mentorship, co-working space, funding connections, and a thriving innovation ecosystem. Limited seats available.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact">
-                <button className="group inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-full text-sm shadow-[0_0_40px_rgba(30,90,255,0.4)] hover:shadow-[0_0_60px_rgba(30,90,255,0.5)] hover:-translate-y-0.5 transition-all">
+                <motion.button
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group inline-flex items-center gap-2.5 bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-semibold px-9 py-4 rounded-full text-[13.5px] shadow-[0_0_40px_rgba(37,99,235,0.35)] transition-all duration-200"
+                >
                   Apply for Incubation
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                </motion.button>
               </Link>
               <Link href="/programs">
-                <button className="group inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm text-white font-semibold text-sm hover:bg-white/10 hover:border-white/25 transition-all">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 text-white font-medium text-[13.5px] hover:bg-white/8 hover:border-white/25 transition-all duration-200"
+                >
                   Explore Programs
-                  <ArrowUpRight className="w-4 h-4 text-white/40 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                </button>
+                  <ArrowUpRight className="w-4 h-4 text-white/40" />
+                </motion.button>
               </Link>
             </div>
           </FadeIn>

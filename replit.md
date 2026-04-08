@@ -100,13 +100,18 @@ Utility scripts package. Each script is a `.ts` file in `src/` with a correspond
 
 React + Vite + Tailwind website for Vishnu Venture Labs Foundation. Key design decisions:
 
-**Design System:**
-- Background: `#0B0F19` (dark navy) for dark sections
-- Primary: `#2563EB` (blue)
-- Accent/Success: `#22C55E` (green)
-- Typography: Space Grotesk (display/headings) + DM Sans (body)
-- Card style: `rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur` on dark, `rounded-2xl border border-slate-100 bg-white` on light
-- All page headers use `PageHero` component for consistency
+**Design System (v2 — Premium Polish):**
+- **Dark navy**: `#0B1121` (all dark sections, footer, hero backgrounds); PageHero uses `#0D1527`
+- **Light section bg**: `#F6F8FB` (alternating light sections)
+- **Primary blue**: `#2563EB`; Accent/Success: `#22C55E`
+- **Typography**: Space Grotesk (`font-display`, headings) + Inter (`font-sans`, body via Google Fonts)
+- **Heading sizes**: `clamp()` fluid sizing + `font-display font-bold text-[#0B1121] leading-[1.08]`
+- **Eyebrow labels**: `text-[11px] font-semibold tracking-[0.14em] uppercase text-[#2563EB]`
+- **Cards (light)**: `rounded-2xl border border-slate-100 shadow-sm`, hover: `shadow-[0_16px_40px_rgba(0,0,0,0.10),0_0_20px_rgba(37,99,235,0.08)]`
+- **Cards (dark)**: `rounded-2xl border border-white/[0.08] bg-white/[0.03]`, hover: `border-white/20`
+- **Motion**: `whileHover={{ scale: 1.02, y: -6 }}`, spring `{ stiffness: 280, damping: 20 }`
+- **Navbar**: Underline active state `h-0.5 rounded-full bg-[#2563EB]`, white bg when scrolled
+- **All page headers**: `PageHero` component for consistent hero treatment
 
 **Pages:** `/` (Home), `/about`, `/programs`, `/startups`, `/events`, `/team`, `/contact`
 
