@@ -34,7 +34,6 @@ export function HeroSection() {
       className="relative min-h-screen flex flex-col justify-between bg-[#0B1121] overflow-hidden"
     >
       {/* ── BACKGROUND LAYERS ── */}
-
       {/* 1. Cinematic image with subtle zoom */}
       <motion.div
         className="absolute inset-0 z-0"
@@ -50,14 +49,12 @@ export function HeroSection() {
           style={{ filter: "saturate(0.55) brightness(0.38)" }}
         />
       </motion.div>
-
       {/* 2. Refined gradient layers */}
       <div className="absolute inset-0 z-[1]">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1121]/92 via-[#0B1121]/55 to-[#0B1121]/15" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1121]/60 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B1121] via-[#0B1121]/35 to-transparent" />
       </div>
-
       {/* 3. Subtle vignette */}
       <div
         className="absolute inset-0 z-[2] pointer-events-none"
@@ -66,7 +63,6 @@ export function HeroSection() {
             "radial-gradient(ellipse 75% 85% at 50% 50%, transparent 35%, rgba(11,17,33,0.5) 100%)",
         }}
       />
-
       {/* 4. Soft blue ambient glow */}
       <div
         className="absolute top-[-10%] right-[-5%] w-[50vw] h-[50vw] rounded-full z-[2] pointer-events-none"
@@ -75,7 +71,6 @@ export function HeroSection() {
             "radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%)",
         }}
       />
-
       {/* ── CONTENT ── */}
       <div className="relative z-10 flex flex-col justify-center flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-36 pb-20">
 
@@ -87,7 +82,7 @@ export function HeroSection() {
         >
           {/* Badge */}
           <motion.div variants={item} className="self-start">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 text-[1px]">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1e5aff] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1e5aff]" />
@@ -179,7 +174,6 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
-
       {/* ── STATS BAR ── */}
       <div className="relative z-10 border-t border-white/8 bg-white/[0.03] backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
