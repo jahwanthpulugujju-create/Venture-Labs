@@ -2,7 +2,8 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { FadeIn } from "@/components/FadeIn";
-import { motion } from "framer-motion";
+import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
+import { useRef } from "react";
 import {
   ArrowRight, ArrowUpRight,
   Lightbulb, Hammer, Rocket, TrendingUp,
@@ -52,33 +53,6 @@ const stages = [
   },
 ];
 
-const ventures = [
-  {
-    name: "OLynk.AI",
-    category: "SaaS · AI Operations",
-    desc: "AI-powered virtual COO that automates operations for Indian D2C brands — reducing overhead and accelerating growth.",
-    logo: "startup-olynk.png",
-    logoBg: "#f5f0eb",
-    badge: "3 Paying Clients",
-  },
-  {
-    name: "Innovable Solutions",
-    category: "AssistiveTech · EdTech",
-    desc: "Award-winning platform delivering inclusive learning tools for children with cognitive and physical disabilities.",
-    logo: "startup-innovable.png",
-    logoBg: "#ffffff",
-    badge: "200+ Users",
-  },
-  {
-    name: "Nirvaha Wellness",
-    category: "Wellness · HealthTech",
-    desc: "Merging ancient Ayurvedic wisdom with modern AI to deliver personalised wellness journeys at scale.",
-    logo: "startup-nirvaha.png",
-    logoBg: "#0d2b2e",
-    badge: "Beta Launched",
-  },
-];
-
 const testimonials = [
   {
     quote: "VVLF gave us the structure to turn a classroom project into a company. The mentorship was world-class and the network opened doors we didn't know existed.",
@@ -102,13 +76,68 @@ const testimonials = [
 ];
 
 const pillars = [
-  { icon: Users, title: "Mentorship", desc: "Weekly 1:1s with industry veterans, domain experts, and serial founders.", example: "50+ startups mentored to date" },
+  { icon: Users, title: "Mentorship", desc: "Weekly 1:1s with industry veterans, domain experts, and serial founders.", example: "10+ startups mentored to date" },
   { icon: MessageSquare, title: "Product Guidance", desc: "Structured critiques, user testing sessions, and live product reviews to sharpen your MVP.", example: "Real users, real feedback, real stakes" },
-  { icon: TrendingUp, title: "Community", desc: "A curated founder network — peer accountability, founder dinners, and alumni access.", example: "200+ innovators in the ecosystem" },
-  { icon: Landmark, title: "Funding Access", desc: "Warm intros to seed funds, angels, and government grant programs across India.", example: "₹2Cr+ in funding enabled" },
+  { icon: TrendingUp, title: "Community", desc: "A curated founder network — peer accountability, founder dinners, and alumni access.", example: "400+ innovators in the ecosystem" },
+  { icon: Landmark, title: "Funding Access", desc: "Warm intros to seed funds, angels, and government grant programs across India.", example: "Connected to national startup programs" },
   { icon: FileCheck, title: "Infrastructure", desc: "Dedicated desks, high-speed internet, maker lab, and server infrastructure on campus.", example: "Available day one, no waiting" },
   { icon: ShieldCheck, title: "Legal & IP Support", desc: "Company incorporation, trademark filings, and legal guidance from vetted professionals.", example: "4 ventures incorporated in Cohort 1.0" },
 ];
+
+const communityPhotos = [
+  { src: "community-group.png", alt: "VVLF Community" },
+  { src: "community-workshop1.png", alt: "Workshop Session" },
+  { src: "community-workshop2.png", alt: "Presentation at BVRIT" },
+  { src: "community-session.png", alt: "Community Gathering" },
+  { src: "community-demoday.png", alt: "Demo Day" },
+];
+
+// ─── PHOTO MARQUEE ─────────────────────────────────────────────────
+function PhotoMarquee() {
+  const xRef = useMotionValue(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const speed = 0.4;
+
+  useAnimationFrame(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const totalWidth = el.scrollWidth / 2;
+    const current = xRef.get();
+    const next = current - speed;
+    xRef.set(next <= -totalWidth ? 0 : next);
+    el.style.transform = `translateX(${xRef.get()}px)`;
+  });
+
+  const doubled = [...communityPhotos, ...communityPhotos];
+
+  return (
+    <div className="relative w-full overflow-hidden rounded-3xl" style={{ height: 420 }}>
+      <div
+        ref={containerRef}
+        className="flex gap-4 absolute top-0 left-0"
+        style={{ willChange: "transform" }}
+      >
+        {doubled.map((photo, i) => (
+          <div
+            key={i}
+            className="shrink-0 rounded-2xl overflow-hidden border border-white/10 shadow-lg"
+            style={{ width: 320, height: 420 }}
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}images/${photo.src}`}
+              alt={photo.alt}
+              className="w-full h-full object-cover"
+              draggable={false}
+            />
+          </div>
+        ))}
+      </div>
+      {/* Edge fades */}
+      <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+    </div>
+  );
+}
 
 // ─── COMPONENT ─────────────────────────────────────────────────────
 export default function Home() {
@@ -119,31 +148,13 @@ export default function Home() {
       <HeroSection />
 
       {/* ══ 2. ABOUT / VALUE PROP ════════════════════════════════════ */}
-      <section className="py-28 bg-white">
+      <section className="py-28 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-            {/* Image */}
+            {/* Rolling photos */}
             <FadeIn direction="right">
-              <div className="relative">
-                {/* Accent block */}
-                <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl bg-primary/8 -z-10" />
-                {/* Stat chip */}
-                <div className="absolute -bottom-5 -right-5 z-10 flex items-center gap-3 bg-[#080c14] text-white px-5 py-4 rounded-2xl shadow-2xl">
-                  <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-                    <Rocket className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-xl font-display font-bold leading-none">4</p>
-                    <p className="text-white/50 text-xs mt-0.5">Incorporated ventures</p>
-                  </div>
-                </div>
-                <img
-                  src={`${import.meta.env.BASE_URL}images/startup-networking.jpg`}
-                  alt="VVLF Startup Ecosystem"
-                  className="w-full rounded-3xl shadow-2xl object-cover aspect-[4/3]"
-                />
-              </div>
+              <PhotoMarquee />
             </FadeIn>
 
             {/* Text */}
@@ -156,8 +167,11 @@ export default function Home() {
                   <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1] mb-5">
                     Where Campus Ideas<br />Become Real Companies
                   </h2>
-                  <p className="text-slate-500 text-lg leading-relaxed">
-                    Vishnu Venture Labs Foundation (VVLF) is the incubation center of BV Raju Institute of Technology — a not-for-profit Section 8 company empowering early-stage student startups with world-class infrastructure, mentorship, and investor access.
+                  <p className="text-slate-500 text-lg leading-relaxed mb-4">
+                    Vishnu Venture Labs Foundation (VVLF) is a not-for-profit Section 8 company — the innovation and entrepreneurship ecosystem of BVRIT — built to empower students to transform bold ideas into viable ventures.
+                  </p>
+                  <p className="text-slate-500 text-base leading-relaxed">
+                    We bridge the gap between classroom learning and real-world impact by offering structured programs, expert mentorship, infrastructure, and a vibrant community of 400+ innovators. From your first spark of curiosity to your company's first customer, VVLF walks the journey with you.
                   </p>
                 </div>
 
@@ -166,7 +180,7 @@ export default function Home() {
                     { label: "Founded", value: "BVRIT Campus" },
                     { label: "Structure", value: "Section 8 Company" },
                     { label: "Cohort 1.0", value: "4 Ventures" },
-                    { label: "Community", value: "200+ Innovators" },
+                    { label: "Community", value: "400+ Innovators" },
                   ].map((item) => (
                     <div key={item.label} className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
                       <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{item.label}</p>
@@ -272,100 +286,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ 4. VENTURES / PROOF ══════════════════════════════════════ */}
-      <section className="py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
-              <div>
-                <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">Portfolio</p>
-                <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
-                  Ventures Built Here
-                </h2>
-                <p className="text-slate-500 mt-3 text-lg max-w-md">
-                  From student projects to incorporated companies — proof that the ecosystem works.
-                </p>
-              </div>
-              <Link href="/startups">
-                <button className="group shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#080c14]/10 text-[#080c14] font-bold text-sm hover:border-primary hover:text-primary transition-all">
-                  Full Portfolio
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </button>
-              </Link>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {ventures.map((v, i) => (
-              <FadeIn key={v.name} delay={i * 0.1}>
-                <motion.div
-                  whileHover={{
-                    scale: 1.03,
-                    y: -8,
-                    rotateX: 1.5,
-                    rotateY: -1.5,
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 280, damping: 20 }}
-                  className="group relative flex flex-col h-full rounded-3xl border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.12),0_0_20px_rgba(37,99,235,0.12)] overflow-hidden bg-white cursor-default"
-                  style={{ transformStyle: "preserve-3d", perspective: 800 }}
-                >
-                  {/* Logo panel */}
-                  <div
-                    className="w-full h-44 flex items-center justify-center p-8 border-b border-slate-100 relative overflow-hidden"
-                    style={{ backgroundColor: v.logoBg }}
-                  >
-                    <motion.img
-                      src={`${import.meta.env.BASE_URL}images/${v.logo}`}
-                      alt={v.name}
-                      className="max-h-full max-w-full object-contain"
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    />
-                    {/* Badge */}
-                    <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold uppercase tracking-wider">
-                      {v.badge}
-                    </div>
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-[#080c14]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Link href="/startups">
-                        <span className="inline-flex items-center gap-2 bg-white text-[#080c14] font-bold text-xs px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform">
-                          View Startup <ArrowUpRight className="w-3.5 h-3.5" />
-                        </span>
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className="p-7 flex flex-col flex-1">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">{v.category}</p>
-                    <motion.h3
-                      className="text-xl font-display font-bold text-[#080c14] mb-3"
-                      whileHover={{ y: -2 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                    >
-                      {v.name}
-                    </motion.h3>
-                    <p className="text-slate-500 text-sm leading-relaxed flex-1 group-hover:text-slate-600 transition-colors duration-300">{v.desc}</p>
-
-                    <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">
-                        Pre-Incubation Cohort 1.0
-                      </span>
-                      <Link href="/startups">
-                        <span className="inline-flex items-center gap-1 text-xs font-bold text-primary group-hover:gap-2 transition-all duration-200 hover:underline">
-                          View <ArrowUpRight className="w-3.5 h-3.5" />
-                        </span>
-                      </Link>
-                    </div>
-                  </div>
-                </motion.div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 5. TESTIMONIALS ══════════════════════════════════════════ */}
+      {/* ══ 4. TESTIMONIALS ══════════════════════════════════════════ */}
       <section className="py-28 bg-[#f7f8fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
@@ -424,7 +345,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ 6. BUILDING BLOCKS ═══════════════════════════════════════ */}
+      {/* ══ 5. BUILDING BLOCKS ═══════════════════════════════════════ */}
       <section className="py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
@@ -456,7 +377,7 @@ export default function Home() {
                     <p.icon className="w-5 h-5 group-hover:text-white transition-colors duration-200" />
                   </motion.div>
                   <motion.h4
-                    className="text-sm font-bold text-[#080c14] mb-2 leading-snug"
+                    className="font-display font-bold text-[#080c14] text-base mb-2"
                     whileHover={{ y: -1 }}
                     transition={{ type: "spring", stiffness: 400, damping: 20 }}
                   >
@@ -481,7 +402,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ 7. FINAL CTA ═════════════════════════════════════════════ */}
+      {/* ══ 6. FINAL CTA ═════════════════════════════════════════════ */}
       <section className="py-32 bg-[#080c14] relative overflow-hidden">
         {/* Ambient glow */}
         <div
