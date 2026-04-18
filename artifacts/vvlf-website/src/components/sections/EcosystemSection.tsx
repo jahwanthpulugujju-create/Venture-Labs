@@ -187,8 +187,8 @@ function FounderStories() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="max-w-2xl mb-12">
-            <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-3">Founder Stories</p>
-            <h2 id="founder-stories-heading" className="text-3xl md:text-4xl font-display font-bold text-[#0B1121] leading-tight">
+            <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Founder Stories</p>
+            <h2 id="founder-stories-heading" className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19] leading-tight">
               In their own words
             </h2>
             <p className="text-slate-500 mt-3 text-base">
@@ -213,7 +213,7 @@ function FounderStories() {
                   <Quote className="w-7 h-7 text-[#2563EB]/20" />
                 </motion.div>
 
-                <p className="text-[#0B1121] text-sm leading-[1.8] flex-1 mb-6 font-medium">
+                <p className="text-[#0B0F19] text-sm leading-[1.8] flex-1 mb-6 font-medium">
                   "{founder.story}"
                 </p>
 
@@ -223,7 +223,7 @@ function FounderStories() {
                       {founder.initials}
                     </div>
                     <div>
-                      <p className="font-bold text-[#0B1121] text-sm leading-tight">{founder.name}</p>
+                      <p className="font-bold text-[#0B0F19] text-sm leading-tight">{founder.name}</p>
                       <p className="text-slate-400 text-xs">{founder.role}, {founder.venture}</p>
                     </div>
                   </div>
@@ -322,10 +322,10 @@ function StickyFilters({
               key={s}
               onClick={() => setActiveStage(s)}
               aria-pressed={activeStage === s}
-              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border focus:outline-none focus:ring-2 focus:ring-[#0B1121]/30 ${
+              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border focus:outline-none focus:ring-2 focus:ring-[#0B0F19]/30 ${
                 activeStage === s
-                  ? "bg-[#0B1121] text-white border-[#0B1121] shadow-md scale-105"
-                  : "bg-white text-slate-600 border-slate-200 hover:border-[#0B1121]/40 hover:text-[#0B1121] hover:scale-105"
+                  ? "bg-[#0B0F19] text-white border-[#0B0F19] shadow-md scale-105"
+                  : "bg-white text-slate-600 border-slate-200 hover:border-[#0B0F19]/40 hover:text-[#0B0F19] hover:scale-105"
               }`}
             >
               {s}
@@ -371,7 +371,7 @@ function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number
             className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
           />
           <div
-            className="absolute inset-0 bg-[#0B1121]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3"
+            className="absolute inset-0 bg-[#0B0F19]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3"
             aria-hidden="true"
           >
             <a
@@ -386,7 +386,7 @@ function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number
               href="#"
               onClick={(e) => e.stopPropagation()}
               aria-label={`${startup.name} website`}
-              className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B1121] hover:scale-110 transition-transform"
+              className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B0F19] hover:scale-110 transition-transform"
             >
               <ExternalLink className="w-4 h-4" />
             </a>
@@ -404,13 +404,13 @@ function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number
             </span>
           </div>
 
-          <h3 className="text-lg font-bold text-[#0B1121] leading-snug mb-1">{startup.name}</h3>
+          <h3 className="text-lg font-bold text-[#0B0F19] leading-snug mb-1">{startup.name}</h3>
           <p className="text-sm text-slate-500 flex-1 mb-4">{startup.desc}</p>
 
           <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
             <div>
               <p className="text-xs text-slate-400 mb-0.5">Team</p>
-              <p className="text-xs font-semibold text-[#0B1121]">{startup.founder}</p>
+              <p className="text-xs font-semibold text-[#0B0F19]">{startup.founder}</p>
             </div>
             <div className="flex items-center gap-1.5 text-xs font-semibold text-[#2563EB] bg-[#2563EB]/10 px-3 py-1.5 rounded-full">
               <TrendingUp className="w-3 h-3" aria-hidden="true" />
@@ -439,7 +439,7 @@ export function EcosystemSection() {
   return (
     <>
       {/* ── Ecosystem Groups ── */}
-      <section id="facilities" aria-labelledby="ecosystem-heading" className="py-24 bg-[#0B1121] relative overflow-hidden">
+      <section id="facilities" aria-labelledby="ecosystem-heading" className="py-24 bg-[#0B0F19] relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(37,99,235,0.07) 0%, transparent 70%)" }}
@@ -448,7 +448,7 @@ export function EcosystemSection() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl mb-16">
-              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-3">What We Offer</p>
+              <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">What We Offer</p>
               <h2 id="ecosystem-heading" className="text-4xl md:text-5xl font-display font-bold text-white leading-[1.1] mb-4">
                 Everything Founders Need at Each Stage
               </h2>
@@ -499,8 +499,8 @@ export function EcosystemSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="mb-6">
-              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-3">Portfolio</p>
-              <h2 id="portfolio-heading" className="text-4xl md:text-5xl font-display font-bold text-[#0B1121] leading-[1.1]">
+              <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Portfolio</p>
+              <h2 id="portfolio-heading" className="text-4xl md:text-5xl font-display font-bold text-[#0B0F19] leading-[1.1]">
                 Startups Built by Our Founders
               </h2>
               <p className="text-slate-500 mt-3 text-lg max-w-xl">
@@ -535,7 +535,7 @@ export function EcosystemSection() {
                           className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
                         />
                         <div
-                          className="absolute inset-0 bg-[#0B1121]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3"
+                          className="absolute inset-0 bg-[#0B0F19]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3"
                           aria-hidden="true"
                         >
                           <a
@@ -550,7 +550,7 @@ export function EcosystemSection() {
                             href="#"
                             onClick={(e) => e.stopPropagation()}
                             aria-label={`${startup.name} website`}
-                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B1121] hover:scale-110 transition-transform"
+                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B0F19] hover:scale-110 transition-transform"
                           >
                             <ExternalLink className="w-4 h-4" />
                           </a>
@@ -567,13 +567,13 @@ export function EcosystemSection() {
                           </span>
                         </div>
 
-                        <h3 className="text-lg font-bold text-[#0B1121] leading-snug mb-1">{startup.name}</h3>
+                        <h3 className="text-lg font-bold text-[#0B0F19] leading-snug mb-1">{startup.name}</h3>
                         <p className="text-sm text-slate-500 flex-1 mb-4">{startup.desc}</p>
 
                         <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                           <div>
                             <p className="text-xs text-slate-400 mb-0.5">Team</p>
-                            <p className="text-xs font-semibold text-[#0B1121]">{startup.founder}</p>
+                            <p className="text-xs font-semibold text-[#0B0F19]">{startup.founder}</p>
                           </div>
                           <div className="flex items-center gap-1.5 text-xs font-semibold text-[#2563EB] bg-[#2563EB]/10 px-3 py-1.5 rounded-full">
                             <TrendingUp className="w-3 h-3" aria-hidden="true" />

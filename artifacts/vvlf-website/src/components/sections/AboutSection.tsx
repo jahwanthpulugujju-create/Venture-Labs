@@ -8,10 +8,10 @@ import tgtfLogo from "@assets/tgtf-logo-_1775501124736.png";
 
 export function AboutSection() {
   const thrustAreas = [
-    { icon: Cpu, title: "Deep Tech", desc: "AI, IoT, Robotics, and emerging technologies shaping tomorrow.", color: "text-blue-500", bg: "bg-blue-50 border-blue-100", hover: "hover:border-blue-200 hover:shadow-blue-100/60" },
-    { icon: Microchip, title: "Semiconductors", desc: "Hardware innovation and chip design for India's tech future.", color: "text-violet-500", bg: "bg-violet-50 border-violet-100", hover: "hover:border-violet-200 hover:shadow-violet-100/60" },
-    { icon: UserCheck, title: "Assistive Technology", desc: "Inclusive solutions for persons with disabilities — by students, for everyone.", color: "text-emerald-500", bg: "bg-emerald-50 border-emerald-100", hover: "hover:border-emerald-200 hover:shadow-emerald-100/60" },
-    { icon: Leaf, title: "Sustainability", desc: "Green tech and climate-focused innovations aligned with global SDGs.", color: "text-amber-500", bg: "bg-amber-50 border-amber-100", hover: "hover:border-amber-200 hover:shadow-amber-100/60" }
+    { icon: Cpu, title: "Deep Tech", desc: "AI, IoT, Robotics, and emerging technologies shaping tomorrow.", color: "text-blue-400", bg: "bg-blue-500/10 border-blue-500/20", glow: "hover:border-blue-400/40 hover:shadow-blue-400/10" },
+    { icon: Microchip, title: "Semiconductors", desc: "Hardware innovation and chip design for India's tech future.", color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/20", glow: "hover:border-purple-400/40 hover:shadow-purple-400/10" },
+    { icon: UserCheck, title: "Assistive Technology", desc: "Inclusive solutions for persons with disabilities — by students, for everyone.", color: "text-emerald-400", bg: "bg-emerald-500/10 border-emerald-500/20", glow: "hover:border-emerald-400/40 hover:shadow-emerald-400/10" },
+    { icon: Leaf, title: "Sustainability", desc: "Green tech and climate-focused innovations aligned with global SDGs.", color: "text-yellow-400", bg: "bg-yellow-500/10 border-yellow-500/20", glow: "hover:border-yellow-400/40 hover:shadow-yellow-400/10" }
   ];
 
   const partners = [
@@ -56,19 +56,19 @@ export function AboutSection() {
   ];
 
   return (
-    <section id="about" className="bg-white relative">
-
-      {/* ── About 2-Col Layout ── */}
-      <div className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-32">
+    <section id="about" className="py-24 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* About 2-Col Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
           <FadeIn direction="right">
             <div className="relative">
-              <div className="absolute inset-0 bg-[#2563EB]/8 rounded-3xl translate-x-4 translate-y-4 -z-10" />
+              <div className="absolute inset-0 bg-[#2563EB]/10 rounded-3xl translate-x-4 translate-y-4 -z-10" />
               <img 
                 src={`${import.meta.env.BASE_URL}images/startup-networking.jpg`} 
                 alt="VVLF Startup Ecosystem" 
                 loading="lazy"
-                className="w-full rounded-2xl shadow-xl object-cover aspect-square"
+                className="w-full rounded-3xl shadow-xl object-cover aspect-square"
               />
             </div>
           </FadeIn>
@@ -76,37 +76,37 @@ export function AboutSection() {
           <FadeIn direction="left">
             <div className="space-y-8">
               <div>
-                <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">About VVLF</p>
-                <h2 className="font-display font-bold text-[#0B1121] leading-[1.08] mb-5" style={{ fontSize: "clamp(1.8rem, 3.2vw, 2.6rem)" }}>
-                  A Foundation That Opens Doors
+                <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">About VVLF</p>
+                <h2 className="text-4xl font-display font-bold text-[#0B0F19] leading-tight mb-5">
+                  Building the Next Generation of Founders
                 </h2>
-                <p className="text-slate-500 text-[16px] leading-[1.8]">
+                <p className="text-slate-600 leading-relaxed">
                   Vishnu Venture Labs Foundation is a not-for-profit innovation ecosystem at BVRIT, helping student founders validate, build, and launch ventures — with real mentorship, infrastructure, and industry access.
                 </p>
               </div>
 
-              <div className="space-y-3">
-                <div className="bg-[#F6F8FB] p-5 rounded-2xl border border-slate-100/80">
+              <div className="space-y-4">
+                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-xl bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] shrink-0">
-                      <Target className="w-3.5 h-3.5" />
+                    <div className="w-9 h-9 rounded-xl bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] shrink-0">
+                      <Target className="w-4 h-4" />
                     </div>
-                    <h3 className="text-[15px] font-semibold text-[#0B1121]">Our Vision</h3>
+                    <h3 className="text-base font-bold text-[#0B0F19]">Our Vision</h3>
                   </div>
-                  <p className="text-slate-500 text-[14px] leading-[1.75]">A world-class, purpose-driven innovation ecosystem that nurtures inclusive, sustainable, and deep tech ventures — contributing to economic growth and UN SDGs.</p>
+                  <p className="text-slate-600 text-sm leading-relaxed">A world-class, purpose-driven innovation ecosystem that nurtures inclusive, sustainable, and deep tech ventures — contributing to economic growth and UN SDGs.</p>
                 </div>
 
-                <div className="bg-[#F6F8FB] p-5 rounded-2xl border border-slate-100/80">
+                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-xl bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] shrink-0">
-                      <Lightbulb className="w-3.5 h-3.5" />
+                    <div className="w-9 h-9 rounded-xl bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] shrink-0">
+                      <Lightbulb className="w-4 h-4" />
                     </div>
-                    <h3 className="text-[15px] font-semibold text-[#0B1121]">Our Mission</h3>
+                    <h3 className="text-base font-bold text-[#0B0F19]">Our Mission</h3>
                   </div>
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-2">
                     {missionPoints.map((point) => (
-                      <li key={point} className="flex items-start gap-2.5 text-slate-500 text-[14px] leading-[1.6]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                      <li key={point} className="flex items-start gap-2.5 text-slate-600 text-sm leading-relaxed">
+                        <CheckCircle2 className="w-4 h-4 text-[#22C55E] shrink-0 mt-0.5" />
                         {point}
                       </li>
                     ))}
@@ -117,28 +117,23 @@ export function AboutSection() {
           </FadeIn>
         </div>
 
-        {/* ── Ecosystem Partners ── */}
-        <div className="mb-28">
-          <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">Ecosystem Partners</p>
-              <h2 className="font-display font-bold text-[#0B1121] leading-[1.08] mb-3" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}>
-                Built on Strong Partnerships
-              </h2>
-              <p className="text-slate-500 text-[15px] leading-[1.7]">Backed by academia, industry, and government — so our founders have every door open.</p>
-            </div>
-          </FadeIn>
+        {/* Ecosystem Partners */}
+        <FadeIn>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Ecosystem Partners</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Built on Strong Partnerships</h2>
+            <p className="text-slate-500 mt-3">Backed by academia, industry, and government — so our founders have every door open.</p>
+          </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-32">
             {partners.map((partner, i) => (
-              <FadeIn key={partner.name} delay={i * 0.08}>
+              <FadeIn key={partner.name} delay={i * 0.1}>
                 <motion.div
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-[0_12px_28px_rgba(0,0,0,0.08),0_0_16px_rgba(37,99,235,0.06)] hover:border-[#2563EB]/15 transition-shadow duration-300 flex flex-col items-center text-center h-full cursor-default"
+                  className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#2563EB]/20 transition-shadow duration-300 flex flex-col items-center text-center h-full cursor-default"
                 >
-                  <div className={`w-full h-20 rounded-xl flex items-center justify-center mb-5 ${partner.logoBg} border border-slate-100 p-4 overflow-hidden`}>
+                  <div className={`w-full h-24 rounded-xl flex items-center justify-center mb-5 ${partner.logoBg} border border-slate-100 p-4 overflow-hidden relative`}>
                     <img
                       src={partner.logo}
                       alt={partner.fullName}
@@ -146,48 +141,50 @@ export function AboutSection() {
                       className="max-h-full max-w-full object-contain transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
                     />
                   </div>
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#2563EB]/8 text-[#2563EB] text-[10px] font-semibold uppercase tracking-wider mb-2.5">
-                    {partner.role}
-                  </span>
-                  <h3 className="text-[14px] font-semibold text-[#0B1121] mb-1.5 leading-snug">{partner.fullName}</h3>
-                  <p className="text-slate-400 text-[12px] leading-relaxed">{partner.desc}</p>
+                  <div className="mb-2">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#2563EB]/8 text-[#2563EB] text-[10px] font-bold uppercase tracking-wider mb-2">
+                      {partner.role}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-bold text-[#0B0F19] mb-1">{partner.fullName}</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">{partner.desc}</p>
                 </motion.div>
               </FadeIn>
             ))}
           </div>
-        </div>
+        </FadeIn>
 
-        {/* ── Thrust Areas ── */}
-        <div>
-          <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <p className="text-[#2563EB] font-semibold tracking-[0.14em] text-[11px] uppercase mb-4">Key Thrust Areas</p>
-              <h2 className="font-display font-bold text-[#0B1121] leading-[1.08] mb-3" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}>
-                Domains We Focus On
-              </h2>
-              <p className="text-slate-500 text-[15px] leading-[1.7]">Strategically chosen areas where student innovation can create real-world impact.</p>
-            </div>
-          </FadeIn>
+        {/* Thrust Areas */}
+        <FadeIn>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Key Thrust Areas</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Domains We Focus On</h2>
+            <p className="text-slate-500 mt-3">Strategically chosen areas where student innovation can create real-world impact.</p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {thrustAreas.map((area, i) => (
-              <FadeIn key={area.title} delay={i * 0.08}>
+              <FadeIn key={area.title} delay={i * 0.1}>
                 <motion.div
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className={`group bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-all duration-300 h-full cursor-default ${area.hover}`}
+                  className={`group bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-xl transition-all duration-300 h-full cursor-default ${area.glow}`}
                 >
-                  <div className={`w-10 h-10 rounded-xl border flex items-center justify-center mb-5 transition-all duration-200 group-hover:scale-110 ${area.bg}`}>
-                    <area.icon className={`w-4.5 h-4.5 ${area.color} w-4 h-4`} />
-                  </div>
-                  <h3 className="font-display font-bold text-[#0B1121] text-[15px] mb-2">{area.title}</h3>
+                  <motion.div
+                    whileHover={{ rotate: 8, scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className={`w-11 h-11 rounded-xl border flex items-center justify-center mb-5 ${area.bg}`}
+                  >
+                    <area.icon className={`w-5 h-5 ${area.color}`} />
+                  </motion.div>
+                  <h3 className="text-base font-bold text-[#0B0F19] mb-2">{area.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed">{area.desc}</p>
                 </motion.div>
               </FadeIn>
             ))}
           </div>
-        </div>
+        </FadeIn>
+
       </div>
     </section>
   );
