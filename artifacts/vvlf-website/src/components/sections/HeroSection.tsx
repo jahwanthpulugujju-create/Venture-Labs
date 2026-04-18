@@ -144,9 +144,7 @@ export function HeroSection() {
 
           {/* Trust line + proof logos */}
           <motion.div variants={item} className="flex flex-col sm:flex-row sm:items-center gap-5">
-            <p className="text-white/35 text-xs font-semibold uppercase tracking-widest shrink-0">
-              Ventures launched here
-            </p>
+            <p className="text-white/35 text-xs font-semibold uppercase tracking-widest shrink-0">Ventures launched</p>
             <div className="flex items-center gap-3">
               {proofLogos.map((l, i) => (
                 <motion.div
