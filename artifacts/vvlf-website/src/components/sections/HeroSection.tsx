@@ -4,17 +4,9 @@ import CountUp from "react-countup";
 import { motion } from "framer-motion";
 
 const stats = [
-  { end: 50, suffix: "+", label: "Startups Built", sub: "From idea to incorporated" },
-  { end: 200, suffix: "+", label: "Innovators Trained", sub: "Students → Founders" },
-  { end: 4, suffix: "", label: "Cohort Ventures", sub: "Pre-Incubation 1.0" },
-  { end: 2, prefix: "₹", suffix: "Cr+", label: "Funding Enabled", sub: "Seed & grants facilitated" },
-];
-
-const proofLogos = [
-  { name: "OLynk.AI", logo: "startup-olynk.png", bg: "bg-[#f5f0eb]" },
-  { name: "Innovable Solutions", logo: "startup-innovable.png", bg: "bg-white" },
-  { name: "Nirvaha Wellness", logo: "startup-nirvaha.png", bg: "bg-[#0d2b2e]" },
-  { name: "MXC Ignite", logo: "startup-mxc.png", bg: "bg-white" },
+  { end: 400, suffix: "+", label: "Innovators", sub: "Students turned founders" },
+  { end: 10, suffix: "+", label: "Startups", sub: "From idea to incorporated" },
+  { end: 4, suffix: "", label: "Cohorts", sub: "Pre-Incubation programs" },
 ];
 
 const container = {
@@ -35,44 +27,29 @@ export function HeroSection() {
     >
       {/* ── BACKGROUND LAYERS ── */}
 
-      {/* 1. Cinematic image with subtle zoom */}
-      <motion.div
-        className="absolute inset-0 z-0"
-        initial={{ scale: 1.08 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 8, ease: "easeOut" }}
-      >
-        <img
-          src={`${import.meta.env.BASE_URL}images/cohort-milestone.jpg`}
-          alt=""
-          aria-hidden="true"
-          className="w-full h-full object-cover object-center"
-          style={{ filter: "saturate(0.6) brightness(0.45)" }}
-        />
-      </motion.div>
-
-      {/* 2. Multi-layer dark gradient for text readability */}
-      <div className="absolute inset-0 z-[1]">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080c14]/95 via-[#080c14]/60 to-[#080c14]/20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#080c14]/70 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/40 to-transparent" />
-      </div>
-
-      {/* 3. Radial vignette */}
+      {/* Royal blue ambient glow */}
       <div
-        className="absolute inset-0 z-[2] pointer-events-none"
+        className="absolute top-[-15%] right-[-10%] w-[65vw] h-[65vw] rounded-full z-[1] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 80% at 50% 50%, transparent 30%, rgba(8,12,20,0.65) 100%)",
+            "radial-gradient(circle, rgba(30,90,255,0.12) 0%, transparent 65%)",
         }}
       />
-
-      {/* 4. Subtle blue ambient glow top-right */}
       <div
-        className="absolute top-[-10%] right-[-5%] w-[55vw] h-[55vw] rounded-full z-[2] pointer-events-none"
+        className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full z-[1] pointer-events-none"
         style={{
           background:
             "radial-gradient(circle, rgba(30,90,255,0.07) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none opacity-[0.025]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
         }}
       />
 
@@ -85,26 +62,13 @@ export function HeroSection() {
           animate="show"
           className="flex flex-col"
         >
-          {/* Badge */}
-          <motion.div variants={item} className="self-start">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1e5aff] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1e5aff]" />
-              </span>
-              <span className="text-white/70 text-xs font-semibold uppercase tracking-[0.15em]">
-                Incubation Center · BV Raju Institute of Technology
-              </span>
-            </div>
-          </motion.div>
-
           {/* Headline */}
           <motion.h1
             variants={item}
             className="font-display font-bold text-white leading-[1.04] tracking-tight mb-6 max-w-3xl"
             style={{ fontSize: "clamp(2.6rem, 6vw, 5rem)" }}
           >
-            Build Real Startups.
+            Where Student Founders
             <br />
             <span
               className="text-transparent bg-clip-text"
@@ -114,7 +78,7 @@ export function HeroSection() {
                 animation: "gradient 4s ease infinite",
               }}
             >
-              Not Just Ideas.
+              Become Entrepreneurs.
             </span>
           </motion.h1>
 
@@ -146,44 +110,13 @@ export function HeroSection() {
               </motion.button>
             </Link>
           </motion.div>
-
-          {/* Trust line + proof logos */}
-          <motion.div variants={item} className="flex flex-col sm:flex-row sm:items-center gap-5">
-            <p className="text-white/35 text-xs font-semibold uppercase tracking-widest shrink-0">
-              Ventures launched here
-            </p>
-            <div className="flex items-center gap-3">
-              {proofLogos.map((l, i) => (
-                <motion.div
-                  key={l.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.8 + i * 0.08, duration: 0.4 }}
-                  whileHover={{ scale: 1.12, y: -2 }}
-                  className={`w-10 h-10 rounded-xl ${l.bg} flex items-center justify-center border border-white/10 shadow-md p-1.5 cursor-default`}
-                  title={l.name}
-                >
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/${l.logo}`}
-                    alt={l.name}
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </motion.div>
-              ))}
-              <Link href="/startups">
-                <span className="text-white/40 text-xs font-semibold hover:text-white/70 transition-colors cursor-pointer">
-                  + 3 more →
-                </span>
-              </Link>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
 
       {/* ── STATS BAR ── */}
       <div className="relative z-10 border-t border-white/8 bg-white/[0.03] backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-white/10">
+          <div className="grid grid-cols-3 gap-0 divide-x divide-white/10">
             {stats.map((stat) => (
               <motion.div
                 key={stat.label}
@@ -196,7 +129,6 @@ export function HeroSection() {
                   className="font-display font-bold text-white mb-0.5 tabular-nums"
                   style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
                 >
-                  {stat.prefix && <span>{stat.prefix}</span>}
                   <CountUp end={stat.end} duration={2.2} enableScrollSpy scrollSpyOnce />
                   {stat.suffix}
                 </div>
