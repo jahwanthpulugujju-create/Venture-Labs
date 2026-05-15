@@ -198,7 +198,63 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* ══ 4. TESTIMONIALS ══════════════════════════════════════════ */}
+      {/* ══ 4. BUILDING BLOCKS ═══════════════════════════════════════ */}
+      <section className="py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <p className="text-primary tracking-wider uppercase mb-3 text-[19px] font-extrabold bg-[transparent]">What You Get</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
+                Everything You Need to Build a Startup
+              </h2>
+              <p className="text-slate-500 text-lg leading-relaxed mt-4">
+                VVLF removes every excuse not to build. We give student founders the unfair advantage they deserve.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {pillars.map((p, i) => (
+              <FadeIn key={p.title} delay={i * 0.07}>
+                <motion.div
+                  whileHover={{ scale: 1.03, y: -6 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="group p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-[0_16px_32px_rgba(0,0,0,0.08),0_0_16px_rgba(37,99,235,0.10)] hover:border-primary/15 cursor-default h-full flex flex-col"
+                >
+                  <motion.div
+                    className="w-10 h-10 rounded-xl bg-primary/8 text-primary flex items-center justify-center mb-4"
+                    whileHover={{ scale: 1.2, rotate: -8, backgroundColor: "rgba(37,99,235,1)" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  >
+                    <p.icon className="w-5 h-5 group-hover:text-white transition-colors duration-200" />
+                  </motion.div>
+                  <motion.h4
+                    className="font-display font-bold text-[#080c14] text-base mb-2"
+                    whileHover={{ y: -1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    {p.title}
+                  </motion.h4>
+                  <p className="text-xs text-slate-500 leading-relaxed flex-1 group-hover:text-slate-700 transition-colors duration-200">{p.desc}</p>
+                  <motion.div
+                    className="mt-4 pt-3 border-t border-slate-100 overflow-hidden"
+                    initial={{ height: 0, opacity: 0 }}
+                    whileHover={{ height: "auto", opacity: 1 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                  >
+                    <p className="text-xs font-semibold text-primary flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0" />
+                      {p.example}
+                    </p>
+                  </motion.div>
+                </motion.div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* ══ 5. TESTIMONIALS ══════════════════════════════════════════ */}
       <section className="py-28 bg-[#f7f8fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
@@ -250,62 +306,6 @@ export default function Home() {
                       <p className="text-slate-400 text-xs mt-0.5">{t.role}</p>
                     </div>
                   </div>
-                </motion.div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* ══ 5. BUILDING BLOCKS ═══════════════════════════════════════ */}
-      <section className="py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-primary tracking-wider uppercase mb-3 text-[19px] font-extrabold bg-[transparent]">What You Get</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
-                Everything You Need to Build a Startup
-              </h2>
-              <p className="text-slate-500 text-lg leading-relaxed mt-4">
-                VVLF removes every excuse not to build. We give student founders the unfair advantage they deserve.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {pillars.map((p, i) => (
-              <FadeIn key={p.title} delay={i * 0.07}>
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -6 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-[0_16px_32px_rgba(0,0,0,0.08),0_0_16px_rgba(37,99,235,0.10)] hover:border-primary/15 cursor-default h-full flex flex-col"
-                >
-                  <motion.div
-                    className="w-10 h-10 rounded-xl bg-primary/8 text-primary flex items-center justify-center mb-4"
-                    whileHover={{ scale: 1.2, rotate: -8, backgroundColor: "rgba(37,99,235,1)" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                  >
-                    <p.icon className="w-5 h-5 group-hover:text-white transition-colors duration-200" />
-                  </motion.div>
-                  <motion.h4
-                    className="font-display font-bold text-[#080c14] text-base mb-2"
-                    whileHover={{ y: -1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                  >
-                    {p.title}
-                  </motion.h4>
-                  <p className="text-xs text-slate-500 leading-relaxed flex-1 group-hover:text-slate-700 transition-colors duration-200">{p.desc}</p>
-                  <motion.div
-                    className="mt-4 pt-3 border-t border-slate-100 overflow-hidden"
-                    initial={{ height: 0, opacity: 0 }}
-                    whileHover={{ height: "auto", opacity: 1 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
-                  >
-                    <p className="text-xs font-semibold text-primary flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0" />
-                      {p.example}
-                    </p>
-                  </motion.div>
                 </motion.div>
               </FadeIn>
             ))}
