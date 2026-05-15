@@ -28,7 +28,7 @@ export function Footer() {
         <div className="border-b border-white/[0.08] py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-white font-bold text-xl">Ready to build your startup at VVLF?</p>
-            <p className="text-white/50 text-sm mt-1">Turning student ideas into scalable ventures since 2024.</p>
+            <p className="text-white/50 text-sm mt-1">Turning ideas into scalable ventures.</p>
           </div>
           <Link href="/contact">
             <button
