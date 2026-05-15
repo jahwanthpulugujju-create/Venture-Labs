@@ -341,11 +341,11 @@ export default function Home() {
               { img: "partner-bvrit.png", name: "BV Raju Institute of Technology", tag: "Academic Partner", tagColor: "text-blue-600 bg-blue-50 border-blue-100" },
               { img: "partner-kaiteki.png", name: "Kaiteki Innovations", tag: "Industry Partner", tagColor: "text-primary bg-blue-50 border-blue-100" },
               { img: "partner-tgic.png", name: "Telangana Government Innovation Council", tag: "Government Partner", tagColor: "text-emerald-600 bg-emerald-50 border-emerald-100" },
-              { img: null, name: "The Good Talk Factory Foundation", tag: "Storytelling Partner", tagColor: "text-orange-600 bg-orange-50 border-orange-100", initials: "TGF" },
+              { img: "partner-tgf.png", name: "The Good Talk Factory Foundation", tag: "Storytelling Partner", tagColor: "text-orange-600 bg-orange-50 border-orange-100" },
               { img: "partner-bvrit.png", name: "BV Raju Institute of Technology", tag: "Academic Partner", tagColor: "text-blue-600 bg-blue-50 border-blue-100" },
               { img: "partner-kaiteki.png", name: "Kaiteki Innovations", tag: "Industry Partner", tagColor: "text-primary bg-blue-50 border-blue-100" },
               { img: "partner-tgic.png", name: "Telangana Government Innovation Council", tag: "Government Partner", tagColor: "text-emerald-600 bg-emerald-50 border-emerald-100" },
-              { img: null, name: "The Good Talk Factory Foundation", tag: "Storytelling Partner", tagColor: "text-orange-600 bg-orange-50 border-orange-100", initials: "TGF" },
+              { img: "partner-tgf.png", name: "The Good Talk Factory Foundation", tag: "Storytelling Partner", tagColor: "text-orange-600 bg-orange-50 border-orange-100" },
             ].map((p, i) => (
               <div
                 key={i}
