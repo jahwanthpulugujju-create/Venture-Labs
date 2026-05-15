@@ -344,13 +344,6 @@ export function ProgramsSection() {
                             </div>
                             <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.who}</p>
                           </div>
-                          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col gap-1">
-                            <div className="flex items-center gap-1.5 mb-1">
-                              <CalendarDays className="w-3.5 h-3.5 text-slate-400" />
-                              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Timeline</p>
-                            </div>
-                            <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.timeline}</p>
-                          </div>
                         </div>
 
                         {/* What you get */}
