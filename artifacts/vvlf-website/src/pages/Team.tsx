@@ -7,7 +7,7 @@ export default function Team() {
     <Layout>
       <PageHero
         eyebrow="Our People"
-        headline="Meet the People Behind VVLF"
+        headline="Meet the Team"
         sub="Visionaries, directors, mentors, and partners driving the VVLF ecosystem forward."
         image={`/images/startup-meet.jpg`}
       />
