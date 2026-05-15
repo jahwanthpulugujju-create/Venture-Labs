@@ -136,14 +136,22 @@ export function Footer() {
                   Vishnupur, Narsapur,<br />Medak — 502313
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#2563EB] shrink-0" aria-hidden="true" />
-                <a
-                  href="mailto:vvlf@bvrit.ac.in"
-                  className="text-white/65 text-sm hover:text-white transition-colors focus:outline-none focus:underline"
-                >
-                  vvlf@bvrit.ac.in
-                </a>
+              <li className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" aria-hidden="true" />
+                <div className="flex flex-col gap-1">
+                  <a
+                    href="mailto:vvlf@bvrit.ac.in"
+                    className="text-white/65 text-sm hover:text-white transition-colors focus:outline-none focus:underline"
+                  >
+                    vvlf@bvrit.ac.in
+                  </a>
+                  <a
+                    href="mailto:rohith.s@bvrit.ac.in"
+                    className="text-white/65 text-sm hover:text-white transition-colors focus:outline-none focus:underline"
+                  >
+                    rohith.s@bvrit.ac.in
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
