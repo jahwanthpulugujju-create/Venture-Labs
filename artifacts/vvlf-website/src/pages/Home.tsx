@@ -9,7 +9,8 @@ import {
   Lightbulb, Hammer, Rocket, TrendingUp,
   Users, FileCheck, Landmark, MessageSquare,
   Target, ShieldCheck,
-  Quote
+  Quote,
+  Cpu, Layers, UserCheck, Leaf
 } from "lucide-react";
 
 // ─── DATA ──────────────────────────────────────────────────────────
@@ -82,6 +83,37 @@ const pillars = [
   { icon: Landmark, title: "Funding Access", desc: "Warm intros to seed funds, angels, and government grant programs across India.", example: "Connected to national startup programs" },
   { icon: FileCheck, title: "Infrastructure", desc: "Dedicated desks, high-speed internet, maker lab, and server infrastructure on campus.", example: "Available day one, no waiting" },
   { icon: ShieldCheck, title: "Legal & IP Support", desc: "Company incorporation, trademark filings, and legal guidance from vetted professionals.", example: "4 ventures incorporated in Cohort 1.0" },
+];
+
+const thrustAreas = [
+  {
+    icon: Cpu,
+    title: "Deep Tech",
+    desc: "AI, IoT, Robotics, and emerging technologies shaping tomorrow.",
+    color: "text-blue-500",
+    bg: "bg-blue-50",
+  },
+  {
+    icon: Layers,
+    title: "Semiconductors",
+    desc: "Hardware innovation and chip design for India's tech future.",
+    color: "text-purple-500",
+    bg: "bg-purple-50",
+  },
+  {
+    icon: UserCheck,
+    title: "Assistive Technology",
+    desc: "Inclusive solutions for persons with disabilities — by students, for everyone.",
+    color: "text-emerald-500",
+    bg: "bg-emerald-50",
+  },
+  {
+    icon: Leaf,
+    title: "Sustainability",
+    desc: "Green tech and climate-focused innovations aligned with global SDGs.",
+    color: "text-yellow-500",
+    bg: "bg-yellow-50",
+  },
 ];
 
 const communityPhotos = [
@@ -254,7 +286,39 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* ══ 5. TESTIMONIALS ══════════════════════════════════════════ */}
+      {/* ══ 5. KEY THRUST AREAS ══════════════════════════════════════ */}
+      <section className="py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">Key Thrust Areas</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1] mb-4">
+                Domains We Focus On
+              </h2>
+              <p className="text-slate-500 text-lg leading-relaxed">
+                Strategically chosen areas where student innovation can create real-world impact.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {thrustAreas.map((area, i) => (
+              <FadeIn key={area.title} delay={i * 0.08}>
+                <div className="flex flex-col gap-4">
+                  <div className={`w-12 h-12 rounded-2xl ${area.bg} flex items-center justify-center`}>
+                    <area.icon className={`w-6 h-6 ${area.color}`} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#080c14] text-base mb-1">{area.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{area.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* ══ 6. TESTIMONIALS ══════════════════════════════════════════ */}
       <section className="py-28 bg-[#f7f8fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
