@@ -306,32 +306,10 @@ export function ProgramsSection() {
             return (
               <div key={program.id} id={program.id}>
                 <FadeIn direction={isLeft ? "right" : "left"}>
-                  <div className={`flex flex-col lg:flex-row gap-12 items-center ${isLeft ? "" : "lg:flex-row-reverse"}`}>
-
-                    {/* Image */}
-                    <div className="w-full lg:w-1/2">
-                      <motion.div
-                        whileHover={{ scale: 1.01 }}
-                        transition={{ duration: 0.4 }}
-                        className="relative group rounded-3xl overflow-hidden shadow-2xl"
-                      >
-                        <div className="absolute inset-0 bg-[#0B0F19]/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                        <img
-                          src={`${import.meta.env.BASE_URL}images/${program.img}`}
-                          alt={program.imgAlt}
-                          loading="lazy"
-                          className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-                          <span className={`px-3 py-1.5 rounded-full text-xs font-bold ${program.tagColor}`}>
-                            {program.tag}
-                          </span>
-                        </div>
-                      </motion.div>
-                    </div>
+                  <div className="flex flex-col">
 
                     {/* Content */}
-                    <div className="w-full lg:w-1/2 space-y-5">
+                    <div className="w-full space-y-5">
                       <div>
                         <h2 className="text-3xl font-display font-bold text-[#0B0F19] mb-4">{program.title}</h2>
 
