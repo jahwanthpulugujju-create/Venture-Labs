@@ -121,7 +121,7 @@ const events = [
 ];
 
 const years = ["All Years", "2025"];
-const types = ["All Types", "Milestone", "Program", "Workshop", "Community"];
+const types = ["All Types", "Program", "Workshop", "Community"];
 
 const typeColors: Record<string, string> = {
   Milestone: "bg-[#2563EB]/10 text-[#2563EB] border-[#2563EB]/20",
@@ -237,7 +237,7 @@ export function TimelineSection() {
         <FadeIn>
           <div className="mb-12">
             <div className="text-center mb-10">
-              <span className="text-[#2563EB] font-bold tracking-widest text-xs uppercase mb-3 block">Events Timeline</span>
+              <span className="text-[#2563EB] font-bold tracking-widest uppercase mb-3 block text-[30px]">Events Timeline</span>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19] mb-4">Our Journey & Milestones</h2>
               <p className="text-slate-500 text-lg">A year of building, learning, and launching bold ideas.</p>
             </div>
