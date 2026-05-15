@@ -159,7 +159,7 @@ export default function Home() {
             <FadeIn direction="left">
               <div className="space-y-7">
                 <div>
-                  <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">
+                  <p className="text-primary tracking-wider uppercase mb-3 text-[30px] font-extrabold">
                     About VVLF
                   </p>
                   <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1] mb-5">
@@ -259,7 +259,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-xl mx-auto mb-16">
-              <p className="text-primary font-bold tracking-wider uppercase mb-3 text-[30px]">What You Get</p>
+              <p className="text-primary tracking-wider uppercase mb-3 text-[30px] font-extrabold">What You Get</p>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
                 Founders Who Built Here
               </h2>
