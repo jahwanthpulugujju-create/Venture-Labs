@@ -134,7 +134,7 @@ export function Footer() {
                   aria-label="Open VVLF location in Google Maps"
                   className="text-white/65 text-sm leading-relaxed hover:text-white transition-colors focus:outline-none focus:underline"
                 >
-                  Vishnupur, Narsapur,<br />Suryapaget — 502313
+                  Vishnupur, Narsapur,<br />Medak — 502313
                 </a>
               </li>
               <li className="flex items-center gap-3">
