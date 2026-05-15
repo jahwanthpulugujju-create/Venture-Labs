@@ -239,69 +239,6 @@ export function TimelineSection() {
               <p className="text-slate-500 text-lg">A year of building, learning, and launching bold ideas.</p>
             </div>
 
-            {/* Filters */}
-            <div className="flex flex-wrap gap-3 items-center justify-center">
-              <div className="flex items-center gap-2 text-slate-500 text-sm font-semibold" aria-hidden="true">
-                <Filter className="w-4 h-4" />
-              </div>
-
-              {/* aria-live for count */}
-              <div aria-live="polite" aria-atomic="true" className="sr-only">
-                {filtered.length} event{filtered.length !== 1 ? "s" : ""} shown
-              </div>
-
-              <div role="group" aria-label="Filter by year" className="flex gap-2">
-                {years.map((y) => (
-                  <button
-                    key={y}
-                    onClick={() => setActiveYear(y)}
-                    aria-pressed={activeYear === y}
-                    className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border focus:outline-none focus:ring-2 focus:ring-[#0B0F19]/30 ${
-                      activeYear === y
-                        ? "bg-[#0B0F19] text-white border-[#0B0F19] shadow-md"
-                        : "bg-white text-slate-600 border-slate-200 hover:border-[#0B0F19]/40 hover:text-[#0B0F19]"
-                    }`}
-                  >
-                    {y}
-                  </button>
-                ))}
-              </div>
-
-              <div className="w-px h-5 bg-slate-200" aria-hidden="true" />
-
-              <div role="group" aria-label="Filter by type" className="flex flex-wrap gap-2">
-                {types.map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => setActiveType(t)}
-                    aria-pressed={activeType === t}
-                    className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all border focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 ${
-                      activeType === t
-                        ? "bg-[#2563EB] text-white border-[#2563EB] shadow-md shadow-[#2563EB]/20"
-                        : "bg-white text-slate-600 border-slate-200 hover:border-[#2563EB]/40 hover:text-[#2563EB]"
-                    }`}
-                  >
-                    {t}
-                  </button>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-2 ml-2">
-                {filtersActive && (
-                  <button
-                    onClick={() => { setActiveYear("All Years"); setActiveType("All Types"); }}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-slate-400 hover:text-[#2563EB] transition-colors focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 rounded-full px-2 py-1"
-                    aria-label="Clear all filters"
-                  >
-                    <X className="w-3 h-3" aria-hidden="true" />
-                    Clear
-                  </button>
-                )}
-                <span className="text-xs text-slate-400 font-medium" aria-hidden="true">
-                  {filtered.length} event{filtered.length !== 1 ? "s" : ""}
-                </span>
-              </div>
-            </div>
           </div>
         </FadeIn>
 
