@@ -68,7 +68,7 @@ export function HeroSection() {
             className="font-display font-bold text-white leading-[1.04] tracking-tight mb-6 max-w-3xl"
             style={{ fontSize: "clamp(2.6rem, 6vw, 5rem)" }}
           >
-            Where Student Founders
+            Where innovative Founders
             <br />
             <span
               className="text-transparent bg-clip-text"
