@@ -418,16 +418,6 @@ export default function Home() {
 
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-              </span>
-              <span className="text-white/50 text-xs font-semibold uppercase tracking-widest">
-                Pre-Incubation Cohort 2.0 — Applications Open
-              </span>
-            </div>
-
             <h2
               className="font-display font-bold text-white leading-[1.06] mb-5"
               style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)" }}
