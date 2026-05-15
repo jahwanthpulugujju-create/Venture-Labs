@@ -383,22 +383,6 @@ export function ProgramsSection() {
                         </div>
                       </div>
 
-                      {/* CTAs */}
-                      <div className="flex flex-wrap gap-3">
-                        <button
-                          onClick={() => setNotifyOpen(notifyOpen === program.id ? null : program.id)}
-                          aria-label={`Get notified when ${program.title} applications open`}
-                          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-slate-200 text-slate-600 text-sm font-semibold hover:border-[#2563EB] hover:text-[#2563EB] transition-colors focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40"
-                        >
-                          <Bell className="w-4 h-4" />
-                          Notify Me
-                        </button>
-                      </div>
-                      {notifyOpen === program.id && (
-                        <div className="bg-[#2563EB]/5 border border-[#2563EB]/20 rounded-2xl p-4 text-sm text-[#2563EB] font-medium">
-                          ✓ You'll be notified when {program.title} applications open. Add vvlf@bvrit.ac.in to your contacts.
-                        </div>
-                      )}
                     </div>
                   </div>
                 </FadeIn>
