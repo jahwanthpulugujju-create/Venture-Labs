@@ -306,15 +306,55 @@ export function ProgramsSection() {
             return (
               <div key={program.id} id={program.id}>
                 <FadeIn direction={isLeft ? "right" : "left"}>
-                  <div className="flex flex-col">
+                  <div className={`flex flex-col lg:flex-row gap-12 items-center ${isLeft ? "" : "lg:flex-row-reverse"}`}>
+
+                    {/* Image */}
+                    <div className="w-full lg:w-1/2">
+                      <motion.div
+                        whileHover={{ scale: 1.01 }}
+                        transition={{ duration: 0.4 }}
+                        className="relative group rounded-3xl overflow-hidden shadow-2xl"
+                      >
+                        <div className="absolute inset-0 bg-[#0B0F19]/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                        <img
+                          src={`${import.meta.env.BASE_URL}images/${program.img}`}
+                          alt={program.imgAlt}
+                          loading="lazy"
+                          className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+                          <span className={`px-3 py-1.5 rounded-full text-xs font-bold ${program.tagColor}`}>
+                            {program.tag}
+                          </span>
+                        </div>
+                        <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full">
+                          <Clock className="w-3.5 h-3.5 text-slate-500" />
+                          <span className="text-xs font-semibold text-slate-700">{program.timeline}</span>
+                        </div>
+                      </motion.div>
+                    </div>
 
                     {/* Content */}
-                    <div className="w-full space-y-5">
+                    <div className="w-full lg:w-1/2 space-y-5">
                       <div>
                         <h2 className="text-3xl font-display font-bold text-[#0B0F19] mb-4">{program.title}</h2>
 
                         {/* Eligibility row — 3 cells */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                          <div className="bg-[#2563EB]/5 rounded-2xl p-4 border border-[#2563EB]/15 flex flex-col gap-1">
+                            <div className="flex items-center gap-1.5 mb-1">
+                              <UserCheck className="w-3.5 h-3.5 text-[#2563EB]" />
+                              <p className="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Who</p>
+                            </div>
+                            <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.who}</p>
+                          </div>
+                          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col gap-1">
+                            <div className="flex items-center gap-1.5 mb-1">
+                              <CalendarDays className="w-3.5 h-3.5 text-slate-400" />
+                              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Timeline</p>
+                            </div>
+                            <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.timeline}</p>
+                          </div>
                           <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col gap-1">
                             <div className="flex items-center gap-1.5 mb-1">
                               <Clock className="w-3.5 h-3.5 text-slate-400" />
