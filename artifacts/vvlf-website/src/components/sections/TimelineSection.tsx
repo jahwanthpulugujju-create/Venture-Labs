@@ -152,22 +152,6 @@ export function TimelineSection() {
     <section id="events" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Stats strip */}
-        <FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20 bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
-            {[
-              { value: `${events.length}`, label: "Total Events" },
-              { value: "2", label: "Upcoming" },
-              { value: "4", label: "Programs Run" },
-              { value: "2025", label: "Year Active" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="text-3xl font-display font-bold text-[#0B0F19]">{stat.value}</p>
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mt-1">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
 
         {/* Upcoming Events */}
         <div className="mb-24">
