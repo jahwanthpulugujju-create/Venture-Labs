@@ -309,17 +309,6 @@ export function TimelineSection() {
                               {event.outcome}
                             </div>
 
-                            {/* Single primary CTA */}
-                            <div className="pt-4 border-t border-slate-100">
-                              <a
-                                href="#"
-                                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB] hover:text-[#0B0F19] transition-colors group/link focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 rounded"
-                                aria-label={`View recap of ${event.title}`}
-                              >
-                                View Event Recap
-                                <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" aria-hidden="true" />
-                              </a>
-                            </div>
                           </div>
                         </article>
                       </div>
