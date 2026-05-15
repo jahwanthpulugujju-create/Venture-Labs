@@ -131,7 +131,7 @@ export function Navbar() {
 
         {/* ── CTA + Mobile Toggle ── */}
         <div className="flex items-center gap-3">
-          <Link href="/contact">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVdqSv6MBAmUJatiOsjqBrhx825IRaHbHx3HKZG4Np1CrmrQ/viewform" target="_blank" rel="noreferrer">
             <button
               className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all hover:-translate-y-0.5 ${
                 transparent
@@ -141,7 +141,7 @@ export function Navbar() {
             >
               Apply Now
             </button>
-          </Link>
+          </a>
 
           <button
             className={`lg:hidden p-2 rounded-xl transition-colors ${
@@ -178,11 +178,11 @@ export function Navbar() {
               </Link>
             ))}
             <div className="pt-3 mt-1 border-t border-slate-100">
-              <Link href="/contact">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVdqSv6MBAmUJatiOsjqBrhx825IRaHbHx3HKZG4Np1CrmrQ/viewform" target="_blank" rel="noreferrer" className="block">
                 <button className="w-full bg-[#080c14] text-white font-bold py-3.5 rounded-xl text-sm">
                   Apply Now
                 </button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

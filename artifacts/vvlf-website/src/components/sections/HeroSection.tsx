@@ -89,7 +89,7 @@ export function HeroSection() {
 
           {/* CTAs */}
           <motion.div variants={item} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-10">
-            <Link href="/contact">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVdqSv6MBAmUJatiOsjqBrhx825IRaHbHx3HKZG4Np1CrmrQ/viewform" target="_blank" rel="noreferrer">
               <motion.button
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
@@ -98,7 +98,7 @@ export function HeroSection() {
                 Apply Now
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </motion.button>
-            </Link>
+            </a>
             <Link href="/programs">
               <motion.button
                 whileHover={{ scale: 1.04, y: -2 }}

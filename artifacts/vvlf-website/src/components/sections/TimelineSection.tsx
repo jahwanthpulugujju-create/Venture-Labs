@@ -219,7 +219,7 @@ export function TimelineSection() {
 
                   {/* Single primary CTA + secondary notify */}
                   <div className="flex gap-3">
-                    <Link href="/contact">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVdqSv6MBAmUJatiOsjqBrhx825IRaHbHx3HKZG4Np1CrmrQ/viewform" target="_blank" rel="noreferrer">
                       <Button
                         size="sm"
                         className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white rounded-full px-5 text-xs font-semibold group"
@@ -228,7 +228,7 @@ export function TimelineSection() {
                         {event.cta}
                         <ArrowRight className="ml-1 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
                       </Button>
-                    </Link>
+                    </a>
                     <button
                       onClick={() => setNotified(notified === event.title ? null : event.title)}
                       aria-pressed={notified === event.title}
