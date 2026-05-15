@@ -357,91 +357,51 @@ export function TimelineSection() {
           <FadeIn>
             <div className="text-center py-16 text-slate-400">
               <p className="text-lg font-semibold">No events match this filter.</p>
-              <button
-                onClick={() => { setActiveYear("All Years"); setActiveType("All Types"); }}
-                className="mt-4 text-[#2563EB] font-semibold hover:underline text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 rounded"
-              >
-                Clear all filters
-              </button>
             </div>
           </FadeIn>
         ) : (
-          <div className="relative">
-            <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#2563EB]/40 via-slate-200 to-slate-200" aria-hidden="true" />
-            <div className="space-y-12">
-              {filtered.map((event, i) => {
-                const isLeft = i % 2 === 0;
-                return (
-                  <FadeIn key={i} direction={isLeft ? "right" : "left"} delay={0.05}>
-                    <div className={`relative flex flex-col lg:flex-row items-stretch gap-0 ${isLeft ? "" : "lg:flex-row-reverse"}`}>
+          <div className="space-y-6">
+            {filtered.map((event, i) => {
+              const isLeft = i % 2 === 0;
+              return (
+                <FadeIn key={i} direction={isLeft ? "right" : "left"} delay={0.05}>
+                  <article className={`bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:border-[#2563EB]/20 transition-all duration-300 overflow-hidden flex flex-col md:flex-row group ${!isLeft ? "md:flex-row-reverse" : ""}`}>
 
-                      {/* Card */}
-                      <div className={`w-full lg:w-[calc(50%-2rem)] ${isLeft ? "lg:pr-8" : "lg:pl-8"}`}>
-                        <article className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:border-[#2563EB]/20 hover:-translate-y-1 transition-all duration-300 overflow-hidden h-full flex flex-col group">
+                    {/* Image */}
+                    <div className="w-full md:w-2/5 shrink-0 overflow-hidden bg-slate-100 min-h-[220px]">
+                      <img
+                        src={`${import.meta.env.BASE_URL}images/${event.img}`}
+                        alt={event.imgAlt}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
 
-                          {/* Image */}
-                          <div className="w-full aspect-video overflow-hidden bg-slate-100 shrink-0">
-                            <img
-                              src={`${import.meta.env.BASE_URL}images/${event.img}`}
-                              alt={event.imgAlt}
-                              loading="lazy"
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                          </div>
-
-                          {/* Content */}
-                          <div className="p-6 flex flex-col flex-1">
-                            {/* Date */}
-                            <div className="flex flex-wrap items-center gap-2 mb-3">
-                              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-500 font-semibold text-xs rounded-full border border-slate-200">
-                                <Calendar className="w-3 h-3" aria-hidden="true" />
-                                {event.date}
-                              </span>
-                            </div>
-
-                            {/* Title + desc */}
-                            <h3 className="text-lg font-display font-bold text-[#0B0F19] mb-2 leading-snug">{event.title}</h3>
-                            <p className="text-sm text-slate-500 leading-relaxed mb-3">{event.desc}</p>
-
-                            {/* Structured metadata */}
-                            <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3">
-                              <span className="flex items-center gap-1 text-xs text-slate-400">
-                                <MapPin className="w-3 h-3" aria-hidden="true" />{event.location}
-                              </span>
-                              <span className="flex items-center gap-1 text-xs text-slate-400">
-                                <Users className="w-3 h-3" aria-hidden="true" />{event.audience}
-                              </span>
-                            </div>
-
-                            {/* Outcome line */}
-                            <div className="flex items-center gap-1.5 text-xs font-semibold text-[#22C55E] mb-4 flex-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] shrink-0" aria-hidden="true" />
-                              {event.outcome}
-                            </div>
-
-                          </div>
-                        </article>
+                    {/* Content */}
+                    <div className="flex-1 p-6 flex flex-col justify-center">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-500 font-semibold text-xs rounded-full border border-slate-200 w-fit mb-3">
+                        <Calendar className="w-3 h-3" aria-hidden="true" />
+                        {event.date}
+                      </span>
+                      <h3 className="text-xl font-display font-bold text-[#0B0F19] mb-2 leading-snug">{event.title}</h3>
+                      <p className="text-sm text-slate-500 leading-relaxed mb-4">{event.desc}</p>
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3">
+                        <span className="flex items-center gap-1 text-xs text-slate-400">
+                          <MapPin className="w-3 h-3" aria-hidden="true" />{event.location}
+                        </span>
+                        <span className="flex items-center gap-1 text-xs text-slate-400">
+                          <Users className="w-3 h-3" aria-hidden="true" />{event.audience}
+                        </span>
                       </div>
-
-                      {/* Timeline node */}
-                      <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10" aria-hidden="true">
-                        <div className="w-10 h-10 rounded-full bg-white border-2 border-[#2563EB] shadow-md shadow-[#2563EB]/20 flex items-center justify-center">
-                          <div className="w-3 h-3 bg-[#2563EB] rounded-full" />
-                        </div>
-                      </div>
-
-                      {/* Date display (opposite side) */}
-                      <div className={`hidden lg:flex w-[calc(50%-2rem)] items-center ${isLeft ? "pl-12 justify-start" : "pr-12 justify-end"}`} aria-hidden="true">
-                        <div className="text-center">
-                          <div className="text-4xl font-display font-bold text-[#0B0F19]/10">{event.day}</div>
-                          <div className="text-xs font-bold tracking-widest text-slate-400 uppercase">{event.month} {event.year}</div>
-                        </div>
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-[#22C55E]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] shrink-0" aria-hidden="true" />
+                        {event.outcome}
                       </div>
                     </div>
-                  </FadeIn>
-                );
-              })}
-            </div>
+                  </article>
+                </FadeIn>
+              );
+            })}
           </div>
         )}
       </div>
