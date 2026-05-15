@@ -31,6 +31,17 @@ const upcomingEvents = [
 
 const events = [
   {
+    date: "MAR 23–24, 2026", month: "MAR", day: "23", year: "2026",
+    type: "Program",
+    title: "Project SAARTHIS Session 5",
+    desc: "Continued session focusing on inclusive innovation, refining solutions, and advancing student-led impact projects.",
+    outcome: "Solutions refined · Student-led impact projects advanced",
+    location: "BVRIT Innovation Lab",
+    audience: "SAARTHIS Cohort — All years",
+    img: "saarthis-session.jpg",
+    imgAlt: "Students collaborating and presenting ideas during Project SAARTHIS Session 5",
+  },
+  {
     date: "MAR 16, 2026", month: "MAR", day: "16", year: "2026",
     type: "Program",
     title: "Project SAARTHIS Session 4",
