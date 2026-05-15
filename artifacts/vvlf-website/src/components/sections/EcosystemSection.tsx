@@ -227,10 +227,6 @@ function FounderStories() {
                       <p className="text-slate-400 text-xs">{founder.role}, {founder.venture}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-[#2563EB] bg-[#2563EB]/8 px-3 py-1.5 rounded-full w-fit">
-                    <TrendingUp className="w-3 h-3" />
-                    {founder.tag}
-                  </div>
                 </div>
               </motion.div>
             </FadeIn>
