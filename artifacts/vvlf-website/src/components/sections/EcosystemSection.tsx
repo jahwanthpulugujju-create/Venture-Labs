@@ -438,59 +438,6 @@ export function EcosystemSection() {
 
   return (
     <>
-      {/* ── Ecosystem Groups ── */}
-      <section id="facilities" aria-labelledby="ecosystem-heading" className="py-24 bg-[#0B0F19] relative overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(37,99,235,0.07) 0%, transparent 70%)" }}
-          aria-hidden="true"
-        />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-2xl mb-16">
-              <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">What We Offer</p>
-              <h2 id="ecosystem-heading" className="text-4xl md:text-5xl font-display font-bold text-white leading-[1.1] mb-4">
-                Everything Founders Need at Each Stage
-              </h2>
-              <p className="text-white/40 text-lg leading-relaxed">
-                Four pillars that give student founders an unfair advantage — from day one to incorporation.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {ecosystemGroups.map((group, gi) => (
-              <FadeIn key={group.id} delay={gi * 0.08}>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-7 h-full hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300">
-                  {/* Group header */}
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 ${group.iconBg}`} aria-hidden="true">
-                      <group.icon className={`w-5 h-5 ${group.color}`} />
-                    </div>
-                    <h3 className={`text-xl font-display font-bold ${group.color}`}>{group.title}</h3>
-                  </div>
-
-                  {/* Items */}
-                  <ul className="space-y-4">
-                    {group.items.map((item) => (
-                      <li key={item.title} className="flex gap-4">
-                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
-                          <item.icon className="w-4 h-4 text-white/40" />
-                        </div>
-                        <div>
-                          <p className="text-white font-semibold text-sm leading-snug mb-0.5">{item.title}</p>
-                          <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Founder Stories ── */}
       <FounderStories />
 
