@@ -177,7 +177,7 @@ export default function Home() {
                   {[
                     { label: "Founded", value: "BVRIT Campus" },
                     { label: "Structure", value: "Section 8 Company" },
-                    { label: "Cohort 1.0", value: "4 Ventures" },
+                    { label: "Cohorts", value: "4 Ventures" },
                     { label: "Community", value: "400+ Innovators" },
                   ].map((item) => (
                     <div key={item.label} className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
