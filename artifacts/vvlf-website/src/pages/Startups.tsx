@@ -8,7 +8,7 @@ export default function Startups() {
       <PageHero
         eyebrow="Startup Ecosystem"
         headline="Innovator-Led Ventures, Built to Scale"
-        sub="From campus ideation to incorporated companies — explore the VVLF portfolio and the support system behind every founder."
+        sub="From ideation to incorporated companies — explore the VVLF portfolio and the support system behind every founder."
         image={`/images/startup-networking.jpg`}
       />
       <EcosystemSection />
