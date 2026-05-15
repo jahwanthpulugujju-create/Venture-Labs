@@ -24,22 +24,7 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "vvlf-website"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
 args = "api-server"
-
-[[workflows.workflow]]
-name = "vvlf-website"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "webview"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "PORT=19464 BASE_PATH=/ pnpm --filter @workspace/vvlf-website run dev"
 
 [[workflows.workflow]]
 name = "api-server"
