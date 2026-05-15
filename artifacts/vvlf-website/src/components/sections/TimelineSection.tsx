@@ -31,6 +31,83 @@ const upcomingEvents = [
 
 const events = [
   {
+    date: "MAR 15, 2026", month: "MAR", day: "15", year: "2026",
+    type: "Program",
+    title: "Walking Trail Hackathon",
+    desc: "A hardware-focused build sprint where teams used 3D printing, rapid prototyping, and maker tools to go from sketch to physical prototype in one session.",
+    outcome: "Teams built working hardware prototypes · Maker skills unlocked",
+    location: "BVRIT Maker Lab",
+    audience: "All years · Maker & hardware track",
+    img: "walking-trail-hackathon.png",
+    imgAlt: "3D printer running at the Walking Trail Hackathon",
+  },
+  {
+    date: "FEB 7, 2026", month: "FEB", day: "7", year: "2026",
+    type: "Community",
+    title: "Failathon — Celebrate the Stumble",
+    desc: "A unique event celebrating entrepreneurial failure. Founders pitched their failed ideas, shared raw lessons, and turned setbacks into a room full of energy and resilience.",
+    outcome: "200+ students attended · Culture of learning from failure seeded",
+    location: "BVRIT Campus, Narsapur",
+    audience: "All BVRIT students & founders",
+    img: "failathon.jpg",
+    imgAlt: "200+ students gathered at the VVLF Failathon event",
+  },
+  {
+    date: "DEC 10, 2025", month: "DEC", day: "10", year: "2025",
+    type: "Program",
+    title: "EPICS Cohort — Demo Day",
+    desc: "EPICS teams presented their community-impact projects to faculty, mentors, and industry judges — a culmination of months of purpose-driven engineering.",
+    outcome: "49 teams presented · Top solutions recognised and awarded",
+    location: "BVRIT Auditorium",
+    audience: "EPICS Cohort teams, faculty & judges",
+    img: "community-demoday.png",
+    imgAlt: "EPICS Cohort Demo Day at BVRIT with teams holding certificates",
+  },
+  {
+    date: "NOV 15, 2025", month: "NOV", day: "15", year: "2025",
+    type: "Program",
+    title: "PIVOT Makeathon 1.0",
+    desc: "The first edition of VVLF's signature 24-hour makeathon. Teams moved from idea to working prototype overnight, pitching their builds to a panel of mentors and industry experts.",
+    outcome: "First PIVOT cohort completed · 3 teams fast-tracked to pre-incubation",
+    location: "BVRIT Innovation Hub",
+    audience: "2nd & 3rd Year Teams of 2–4",
+    img: "pivot.jpg",
+    imgAlt: "Teams presenting at PIVOT Makeathon 1.0 at BVRIT",
+  },
+  {
+    date: "SEP 20, 2025", month: "SEP", day: "20", year: "2025",
+    type: "Community",
+    title: "Startup Networking Meet",
+    desc: "Cohort 1.0 founders connected with faculty, investors, and industry mentors in an informal networking session — sharing progress, challenges, and early traction.",
+    outcome: "Cohort startups introduced to mentor network · New collaborations formed",
+    location: "BVRIT Innovation Lab",
+    audience: "Cohort 1.0 founders, mentors & faculty",
+    img: "startup-networking.jpg",
+    imgAlt: "Founders and mentors networking at BVRIT with startup demo on screen",
+  },
+  {
+    date: "SEP 5, 2025", month: "SEP", day: "5", year: "2025",
+    type: "Community",
+    title: "Startup Meet — Founders & Mentors",
+    desc: "An open session connecting aspiring student founders with the VVLF team and BVRIT mentors — covering the startup journey, program details, and real stories from early founders.",
+    outcome: "50+ students engaged · Multiple Pre-Incubation applications followed",
+    location: "BVRIT Seminar Hall",
+    audience: "All BVRIT students with startup ideas",
+    img: "startup-meet.jpg",
+    imgAlt: "VVLF and BVRIT team presenting at Startup Meet session",
+  },
+  {
+    date: "AUG 20, 2025", month: "AUG", day: "20", year: "2025",
+    type: "Program",
+    title: "Project SAARTHIS — Session 2",
+    desc: "The second SAARTHIS session deepened student understanding of user research and empathy mapping — teams refined their assistive tech concepts through direct community interaction.",
+    outcome: "Teams iterated prototypes · User research frameworks applied",
+    location: "BVRIT Innovation Lab",
+    audience: "SAARTHIS Cohort — All years",
+    img: "saarthis-session2.jpg",
+    imgAlt: "Students in SAARTHIS Session 2 workshop discussing inclusive technology",
+  },
+  {
     date: "AUG 4, 2025", month: "AUG", day: "4", year: "2025",
     type: "Milestone",
     title: "Cohort 1.0 — Venture Incorporation",
@@ -120,7 +197,7 @@ const events = [
   },
 ];
 
-const years = ["All Years", "2025"];
+const years = ["All Years", "2026", "2025"];
 const types = ["All Types", "Program", "Workshop", "Community"];
 
 const typeColors: Record<string, string> = {
