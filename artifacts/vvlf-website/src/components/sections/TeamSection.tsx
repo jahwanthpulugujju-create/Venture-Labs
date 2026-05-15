@@ -112,7 +112,7 @@ export function TeamSection() {
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <p className="text-[#2563EB] font-bold tracking-wider text-sm uppercase mb-2">Core Team</p>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">The People Driving VVLF</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Meet the Team</h2>
               <p className="text-slate-500 mt-3">Day-to-day builders of the ecosystem.</p>
             </div>
           </FadeIn>
