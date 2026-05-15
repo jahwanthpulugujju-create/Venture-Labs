@@ -400,12 +400,6 @@ function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number
           <h3 className="text-lg font-bold text-[#0B0F19] leading-snug mb-1">{startup.name}</h3>
           <p className="text-sm text-slate-500 flex-1 mb-4">{startup.desc}</p>
 
-          <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-            <div>
-              <p className="text-xs text-slate-400 mb-0.5">Team</p>
-              <p className="text-xs font-semibold text-[#0B0F19]">{startup.founder}</p>
-            </div>
-          </div>
         </div>
       </motion.div>
     </FadeIn>
