@@ -235,7 +235,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-primary tracking-wider uppercase mb-3 text-[19px] font-extrabold bg-[transparent]">WHAT YOU GET</p>
+              <p className="text-primary tracking-wider uppercase mb-3 font-extrabold bg-[transparent] text-[30px]">WHAT YOU GET</p>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">We provide to Build a Startup</h2>
               <p className="text-slate-500 text-lg leading-relaxed mt-4">
                 VVLF removes every excuse not to build. We give student founders the unfair advantage they deserve.
