@@ -24,23 +24,6 @@ export function Footer() {
     <footer className="bg-[#080c14] border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Top strip — CTA */}
-        <div className="border-b border-white/[0.08] py-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <p className="text-white font-bold text-xl">Ready to build your startup at VVLF?</p>
-            <p className="text-white/50 text-sm mt-1">Turning ideas into scalable ventures.</p>
-          </div>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVdqSv6MBAmUJatiOsjqBrhx825IRaHbHx3HKZG4Np1CrmrQ/viewform" target="_blank" rel="noreferrer">
-            <button
-              className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-bold px-7 py-3.5 rounded-full text-sm shadow-[0_0_24px_rgba(37,99,235,0.3)] hover:-translate-y-0.5 transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-white/30"
-              aria-label="Apply Now — opens application form"
-            >
-              Apply Now
-              <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
-            </button>
-          </a>
-        </div>
-
         {/* Main grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
 
