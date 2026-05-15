@@ -422,7 +422,7 @@ export function ContactSection() {
                       <p className="font-semibold text-sm mb-0.5">Visit Us</p>
                       <p className="text-slate-300 text-sm leading-relaxed">
                         Vishnu Venture Labs Foundation<br />
-                        Vishnupur, Narsapur, Suryapaget — 502313
+                        Vishnupur, Narsapur, Medak — 502313
                       </p>
                     </div>
                   </li>
