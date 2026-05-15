@@ -395,9 +395,6 @@ function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number
             <span className={`px-2.5 py-1 text-xs font-bold rounded-full ${sectorColors[startup.sector] || "bg-slate-100 text-slate-600"}`}>
               {startup.sector}
             </span>
-            <span className={`px-2.5 py-1 text-xs font-bold rounded-full ${startup.stage === "Incubated" ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-600"}`}>
-              {startup.stage}
-            </span>
           </div>
 
           <h3 className="text-lg font-bold text-[#0B0F19] leading-snug mb-1">{startup.name}</h3>
