@@ -465,12 +465,12 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVdqSv6MBAmUJatiOsjqBrhx825IRaHbHx3HKZG4Np1CrmrQ/viewform" target="_blank" rel="noreferrer">
                 <button className="group inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-full text-sm shadow-[0_0_40px_rgba(30,90,255,0.4)] hover:shadow-[0_0_60px_rgba(30,90,255,0.5)] hover:-translate-y-0.5 transition-all">
                   Apply
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
-              </Link>
+              </a>
               <Link href="/programs">
                 <button className="group inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm text-white font-semibold text-sm hover:bg-white/10 hover:border-white/25 transition-all">
                   Explore Programs

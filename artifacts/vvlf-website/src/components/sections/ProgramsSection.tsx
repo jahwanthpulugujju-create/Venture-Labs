@@ -176,11 +176,11 @@ function ScarcityBanner() {
             </p>
           </div>
         </div>
-        <Link href="/contact" className="shrink-0 w-full sm:w-auto">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVdqSv6MBAmUJatiOsjqBrhx825IRaHbHx3HKZG4Np1CrmrQ/viewform" target="_blank" rel="noreferrer" className="shrink-0 w-full sm:w-auto">
           <Button size="sm" className="bg-amber-500 hover:bg-amber-600 text-white rounded-full px-6 shadow-md font-semibold w-full sm:w-auto">
             Apply Now →
           </Button>
-        </Link>
+        </a>
       </div>
     </div>
   );
@@ -400,14 +400,14 @@ export function ProgramsSection() {
 
                       {/* CTAs */}
                       <div className="flex flex-wrap gap-3">
-                        <Link href="/contact">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVdqSv6MBAmUJatiOsjqBrhx825IRaHbHx3HKZG4Np1CrmrQ/viewform" target="_blank" rel="noreferrer">
                           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                             <Button className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white rounded-full px-7 shadow-lg shadow-[#2563EB]/20 group">
                               Apply for {program.title}
                               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Button>
                           </motion.div>
-                        </Link>
+                        </a>
                         <button
                           onClick={() => setNotifyOpen(notifyOpen === program.id ? null : program.id)}
                           aria-label={`Get notified when ${program.title} applications open`}
@@ -463,14 +463,14 @@ export function ProgramsSection() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVdqSv6MBAmUJatiOsjqBrhx825IRaHbHx3HKZG4Np1CrmrQ/viewform" target="_blank" rel="noreferrer">
                   <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
                     <Button size="lg" className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white rounded-full px-8 shadow-lg shadow-[#2563EB]/30 group">
                       Apply for Cohort 2.0
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </motion.div>
-                </Link>
+                </a>
                 <Link href="/startups">
                   <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-[#0B0F19] rounded-full transition-all">
                     See Cohort 1.0 Startups
