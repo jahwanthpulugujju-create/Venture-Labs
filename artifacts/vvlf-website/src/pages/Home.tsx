@@ -203,7 +203,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-primary tracking-wider uppercase mb-3 text-[19px] font-extrabold bg-[transparent]">What You Get</p>
+              <p className="text-primary tracking-wider uppercase mb-3 text-[19px] font-extrabold bg-[transparent]">WHAT YOU GET</p>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
                 Everything You Need to Build a Startup
               </h2>
