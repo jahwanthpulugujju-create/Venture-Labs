@@ -170,9 +170,6 @@ export function TimelineSection() {
               <FadeIn key={i} delay={i * 0.1}>
                 <div className={`rounded-2xl border-2 p-6 hover:shadow-lg transition-all duration-300 ${typeUpcomingColors[event.type] || "border-slate-200 bg-white"}`}>
                   <div className="mb-4">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${typeColors[event.type] || "bg-slate-100 text-slate-600 border-slate-200"} mb-3`}>
-                      {event.type}
-                    </span>
                     <h3 className="text-lg font-display font-bold text-[#0B0F19]">{event.title}</h3>
                   </div>
 
