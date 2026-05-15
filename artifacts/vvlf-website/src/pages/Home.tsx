@@ -259,7 +259,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-xl mx-auto mb-16">
-              <p className="text-primary tracking-wider uppercase mb-3 text-[30px] font-extrabold">WHAT YOU GET</p>
+              <p className="text-primary tracking-wider uppercase mb-3 text-[30px] font-extrabold">Voices from the Ecosystem</p>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
                 Founders Who Built Here
               </h2>
