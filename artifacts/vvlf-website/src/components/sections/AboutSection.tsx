@@ -65,7 +65,7 @@ export function AboutSection() {
           <FadeIn direction="left">
             <div className="space-y-8 max-w-3xl mx-auto">
               <div>
-                <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">About VVLF</p>
+                <p className="text-[#2563EB] font-bold tracking-wider uppercase mb-3 text-[25px]">About VVLF</p>
                 <h2 className="text-4xl font-display font-bold text-[#0B0F19] leading-tight mb-5">
                   Building the Next Generation of Founders
                 </h2>
@@ -110,7 +110,7 @@ export function AboutSection() {
 
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Ecosystem Partners</p>
+            <p className="text-[#2563EB] font-bold tracking-wider uppercase mb-3 text-[25px]">Ecosystem Partners</p>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Built on Strong Partnerships</h2>
             <p className="text-slate-500 mt-3">Backed by academia, industry, and government — so our founders have every door open.</p>
           </div>
@@ -147,7 +147,7 @@ export function AboutSection() {
         {/* Thrust Areas */}
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Key Thrust Areas</p>
+            <p className="text-[#2563EB] font-bold tracking-wider uppercase mb-3 text-[25px]">Key Thrust Areas</p>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Domains We Focus On</h2>
             <p className="text-slate-500 mt-3">Strategically chosen areas where student innovation can create real-world impact.</p>
           </div>
