@@ -59,7 +59,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com/vishnuventurelabsfoundation/"
+                href="https://www.instagram.com/vishnu_venture_labs_foundation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noreferrer"
                 aria-label="VVLF on Instagram"
