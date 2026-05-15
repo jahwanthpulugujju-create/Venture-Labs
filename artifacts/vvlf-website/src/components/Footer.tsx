@@ -55,7 +55,7 @@ export function Footer() {
             </div>
             <p className="text-white/55 text-sm leading-relaxed max-w-xs">
               Incubation center of BV Raju Institute of Technology.<br />
-              Building the next generation of student founders.
+              Building the next generation of founders.
             </p>
             <div className="flex gap-3">
               <a
