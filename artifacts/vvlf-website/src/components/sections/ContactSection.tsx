@@ -447,7 +447,10 @@ export function ContactSection() {
                       <a href="mailto:vvlf@bvrit.ac.in" className="text-slate-300 text-sm hover:text-white transition-colors focus:outline-none focus:underline">
                         vvlf@bvrit.ac.in
                       </a>
-                      <p className="text-slate-500 text-xs">We reply within 24–48 hours</p>
+                      <a href="mailto:rohith.s@bvrit.ac.in" className="block text-slate-300 text-sm hover:text-white transition-colors focus:outline-none focus:underline mt-0.5">
+                        rohith.s@bvrit.ac.in
+                      </a>
+                      <p className="text-slate-500 text-xs mt-1">We reply within 24–48 hours</p>
                     </div>
                   </li>
                 </ul>
