@@ -281,11 +281,8 @@ export function TimelineSection() {
 
                           {/* Content */}
                           <div className="p-6 flex flex-col flex-1">
-                            {/* Type + Date */}
+                            {/* Date */}
                             <div className="flex flex-wrap items-center gap-2 mb-3">
-                              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-semibold text-xs border ${typeColors[event.type] || "bg-slate-100 text-slate-600 border-slate-200"}`}>
-                                {event.type}
-                              </span>
                               <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-500 font-semibold text-xs rounded-full border border-slate-200">
                                 <Calendar className="w-3 h-3" aria-hidden="true" />
                                 {event.date}
