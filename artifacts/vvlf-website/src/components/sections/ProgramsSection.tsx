@@ -335,16 +335,6 @@ export function ProgramsSection() {
                       <div>
                         <h2 className="text-3xl font-display font-bold text-[#0B0F19] mb-4">{program.title}</h2>
 
-                        {/* Eligibility row — 3 cells */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
-                          <div className="bg-[#2563EB]/5 rounded-2xl p-4 border border-[#2563EB]/15 flex flex-col gap-1">
-                            <div className="flex items-center gap-1.5 mb-1">
-                              <UserCheck className="w-3.5 h-3.5 text-[#2563EB]" />
-                              <p className="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Who</p>
-                            </div>
-                            <p className="text-[#0B0F19] font-semibold text-xs leading-snug">{program.who}</p>
-                          </div>
-                        </div>
 
                         {/* What you get */}
                         <div className="mb-4">
