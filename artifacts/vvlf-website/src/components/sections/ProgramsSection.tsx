@@ -327,10 +327,6 @@ export function ProgramsSection() {
                             {program.tag}
                           </span>
                         </div>
-                        <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full">
-                          <Clock className="w-3.5 h-3.5 text-slate-500" />
-                          <span className="text-xs font-semibold text-slate-700">{program.timeline}</span>
-                        </div>
                       </motion.div>
                     </div>
 
