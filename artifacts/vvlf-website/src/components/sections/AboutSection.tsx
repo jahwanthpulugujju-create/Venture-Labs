@@ -50,9 +50,10 @@ export function AboutSection() {
   ];
 
   const missionPoints = [
-    "Foster cross-sector collaboration between academia and industry.",
-    "Equip innovators with essential skills, tools, and networks.",
-    "Build solutions strictly aligned with UN Sustainable Development Goals.",
+    "To incubate and accelerate early-stage, tech-led startups working in critical sectors.",
+    "To foster cross-sector collaboration between academia, industry, and government.",
+    "To equip young innovators with the skills, tools, and networks to build ventures that matter.",
+    "To catalyze solutions aligned with SDGs and national innovation priorities.",
   ];
 
   return (
