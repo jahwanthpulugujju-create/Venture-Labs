@@ -127,7 +127,7 @@ export function CommunitySection() {
                 <div>
                   <h2 className="text-3xl font-display font-bold text-navy mb-8">Stay Connected</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-                    <a href="https://www.instagram.com/vishnuventurelabsfoundation/" target="_blank" rel="noreferrer" className="block group">
+                    <a href="https://www.instagram.com/vishnu_venture_labs_foundation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" className="block group">
                       <div className="bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 p-px rounded-2xl">
                         <div className="bg-white rounded-[15px] p-6 h-full flex flex-col items-center justify-center text-center gap-4">
                           <Instagram className="w-10 h-10 text-pink-500 group-hover:scale-110 transition-transform" />

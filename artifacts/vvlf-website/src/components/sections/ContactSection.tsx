@@ -375,7 +375,7 @@ export function ContactSection() {
               {/* Social cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <a
-                  href="https://www.instagram.com/vishnuventurelabsfoundation/"
+                  href="https://www.instagram.com/vishnu_venture_labs_foundation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Follow VVLF on Instagram — @vishnuventurelabs"
