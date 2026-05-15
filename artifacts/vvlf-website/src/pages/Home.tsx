@@ -348,7 +348,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact">
                 <button className="group inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-full text-sm shadow-[0_0_40px_rgba(30,90,255,0.4)] hover:shadow-[0_0_60px_rgba(30,90,255,0.5)] hover:-translate-y-0.5 transition-all">
-                  Apply for Incubation
+                  Apply
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </Link>
