@@ -170,7 +170,7 @@ export function ContactSection() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]" />
                 </span>
-                <p className="text-[#22C55E] font-bold text-xs uppercase tracking-widest">Cohort 2.0 — Applications Open</p>
+                <p className="text-[#22C55E] font-bold text-xs uppercase tracking-widest">Applications Open</p>
               </div>
               <h2 className="text-2xl md:text-3xl font-display font-bold text-white">Ready to Build Your Startup?</h2>
               <p className="text-white/60 text-sm leading-relaxed max-w-md">
