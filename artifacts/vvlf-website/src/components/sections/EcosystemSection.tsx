@@ -405,10 +405,6 @@ function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number
               <p className="text-xs text-slate-400 mb-0.5">Team</p>
               <p className="text-xs font-semibold text-[#0B0F19]">{startup.founder}</p>
             </div>
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-[#2563EB] bg-[#2563EB]/10 px-3 py-1.5 rounded-full">
-              <TrendingUp className="w-3 h-3" aria-hidden="true" />
-              {startup.traction}
-            </div>
           </div>
         </div>
       </motion.div>
