@@ -60,22 +60,10 @@ export function AboutSection() {
     <section id="about" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* About 2-Col Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
-          <FadeIn direction="right">
-            <div className="relative">
-              <div className="absolute inset-0 bg-[#2563EB]/10 rounded-3xl translate-x-4 translate-y-4 -z-10" />
-              <img 
-                src={`${import.meta.env.BASE_URL}images/startup-networking.jpg`} 
-                alt="VVLF Startup Ecosystem" 
-                loading="lazy"
-                className="w-full rounded-3xl shadow-xl object-cover aspect-square"
-              />
-            </div>
-          </FadeIn>
-          
+        {/* About Layout */}
+        <div className="mb-32">
           <FadeIn direction="left">
-            <div className="space-y-8">
+            <div className="space-y-8 max-w-3xl mx-auto">
               <div>
                 <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">About VVLF</p>
                 <h2 className="text-4xl font-display font-bold text-[#0B0F19] leading-tight mb-5">
@@ -119,6 +107,7 @@ export function AboutSection() {
         </div>
 
         {/* Ecosystem Partners */}
+
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Ecosystem Partners</p>
