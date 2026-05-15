@@ -143,10 +143,8 @@ function PhotoMarquee() {
 export default function Home() {
   return (
     <Layout>
-
       {/* ══ 1. HERO ══════════════════════════════════════════════════ */}
       <HeroSection />
-
       {/* ══ 2. ABOUT / VALUE PROP ════════════════════════════════════ */}
       <section className="py-28 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -200,7 +198,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ══ 3. PROGRAMS ══════════════════════════════════════════════ */}
       <section className="py-28 bg-[#080c14] relative overflow-hidden">
         {/* Ambient glow */}
@@ -285,7 +282,6 @@ export default function Home() {
           </FadeIn>
         </div>
       </section>
-
       {/* ══ 4. TESTIMONIALS ══════════════════════════════════════════ */}
       <section className="py-28 bg-[#f7f8fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -344,13 +340,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ══ 5. BUILDING BLOCKS ═══════════════════════════════════════ */}
       <section className="py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">What You Get</p>
+              <p className="text-primary tracking-wider uppercase mb-3 text-[19px] font-extrabold bg-[transparent]">What You Get</p>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1]">
                 Everything You Need to Build a Startup
               </h2>
@@ -401,7 +396,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ══ 6. FINAL CTA ═════════════════════════════════════════════ */}
       <section className="py-32 bg-[#080c14] relative overflow-hidden">
         {/* Ambient glow */}
@@ -462,7 +456,6 @@ export default function Home() {
           </FadeIn>
         </div>
       </section>
-
     </Layout>
   );
 }
