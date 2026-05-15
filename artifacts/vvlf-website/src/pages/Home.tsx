@@ -318,7 +318,62 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* ══ 6. TESTIMONIALS ══════════════════════════════════════════ */}
+      {/* ══ 6. ECOSYSTEM PARTNERS ════════════════════════════════════ */}
+      <section className="py-24 bg-[#f7f8fa] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <p className="text-primary font-bold tracking-wider text-xs uppercase mb-3">Ecosystem Partners</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#080c14] leading-[1.1] mb-4">
+                Built on Strong Partnerships
+              </h2>
+              <p className="text-slate-500 text-lg leading-relaxed">
+                Backed by academia, industry, and government — so our founders have every door open.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+
+        {/* Rolling strip */}
+        <div className="relative">
+          <div className="flex gap-6 animate-partners-scroll w-max px-6">
+            {[
+              { img: "partner-bvrit.png", name: "BV Raju Institute of Technology", tag: "Academic Partner", tagColor: "text-blue-600 bg-blue-50 border-blue-100" },
+              { img: "partner-kaiteki.png", name: "Kaiteki Innovations", tag: "Industry Partner", tagColor: "text-primary bg-blue-50 border-blue-100" },
+              { img: "partner-tgic.png", name: "Telangana Government Innovation Council", tag: "Government Partner", tagColor: "text-emerald-600 bg-emerald-50 border-emerald-100" },
+              { img: null, name: "The Good Talk Factory Foundation", tag: "Storytelling Partner", tagColor: "text-orange-600 bg-orange-50 border-orange-100", initials: "TGF" },
+              { img: "partner-bvrit.png", name: "BV Raju Institute of Technology", tag: "Academic Partner", tagColor: "text-blue-600 bg-blue-50 border-blue-100" },
+              { img: "partner-kaiteki.png", name: "Kaiteki Innovations", tag: "Industry Partner", tagColor: "text-primary bg-blue-50 border-blue-100" },
+              { img: "partner-tgic.png", name: "Telangana Government Innovation Council", tag: "Government Partner", tagColor: "text-emerald-600 bg-emerald-50 border-emerald-100" },
+              { img: null, name: "The Good Talk Factory Foundation", tag: "Storytelling Partner", tagColor: "text-orange-600 bg-orange-50 border-orange-100", initials: "TGF" },
+            ].map((p, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-64 bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex flex-col gap-4"
+              >
+                <div className="h-20 flex items-center justify-center">
+                  {p.img ? (
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/${p.img}`}
+                      alt={p.name}
+                      className="max-h-16 max-w-[180px] w-auto object-contain"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 rounded-xl bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-lg">
+                      {p.initials}
+                    </div>
+                  )}
+                </div>
+                <span className={`self-start text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${p.tagColor}`}>
+                  {p.tag}
+                </span>
+                <p className="font-bold text-[#080c14] text-sm leading-snug">{p.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* ══ 7. TESTIMONIALS ══════════════════════════════════════════ */}
       <section className="py-28 bg-[#f7f8fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
