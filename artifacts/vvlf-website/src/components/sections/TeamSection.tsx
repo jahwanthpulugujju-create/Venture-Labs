@@ -77,18 +77,6 @@ export function TeamSection() {
                     />
                   </div>
 
-                  {/* LinkedIn overlay */}
-                  <div className="absolute inset-0 bg-[#0B0F19]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <a
-                      href={member.linkedin}
-                      aria-label={`${member.name} on LinkedIn`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="w-11 h-11 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:scale-110 transition-transform"
-                    >
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  </div>
-
                   {/* Info */}
                   <div className="p-4">
                     <h3 className="font-bold text-[#0B0F19] text-sm leading-tight mb-0.5">{member.name}</h3>
