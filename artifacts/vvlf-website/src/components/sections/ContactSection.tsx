@@ -142,7 +142,8 @@ export function ContactSection() {
     const ve = validate();
     if (Object.keys(ve).length > 0) { setErrors(ve); return; }
     setFormState("loading");
-    await new Promise((r) => setTimeout(r, 1600));
+    await new Promise((r) => setTimeout(r, 800));
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdVdqSv6MBAmUJatiOsjqBrhx825IRaHbHx3HKZG4Np1CrmrQ/viewform", "_blank");
     setFormState("success");
   };
 
