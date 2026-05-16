@@ -181,7 +181,7 @@ const events = [
     outcome: "Participants left with a validated idea canvas and financial model",
     location: "BVRIT Seminar Hall",
     audience: "Final year students & early-stage founders",
-    img: "business-launch-workshop.jpg",
+    img: "business-launch-workshop.png",
     imgAlt: "Students at business launch workshop learning idea validation frameworks",
   },
   {
