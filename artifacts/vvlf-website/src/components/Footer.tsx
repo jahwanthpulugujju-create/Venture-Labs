@@ -60,8 +60,8 @@ export function Footer() {
                 <Linkedin className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
-                href="mailto:vvlf@bvrit.ac.in"
-                aria-label="Email VVLF at vvlf@bvrit.ac.in"
+                href="mailto:rohith.s@bvrit.ac.in"
+                aria-label="Email VVLF at rohith.s@bvrit.ac.in"
                 className="w-9 h-9 rounded-full bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/55 hover:text-white hover:border-white/40 hover:bg-white/10 transition-all focus:outline-none focus:ring-2 focus:ring-white/30"
               >
                 <Mail className="w-4 h-4" aria-hidden="true" />
