@@ -71,7 +71,7 @@ const events = [
     outcome: "Teams built working prototypes · Hardware skills unlocked",
     location: "BVRIT Maker Lab",
     audience: "All years · Maker & hardware track",
-    img: "walking-trail-hackathon.png",
+    img: "walking-trail-hackathon-new.jpeg",
     imgAlt: "Participants collaborating during a 36-hour hackathon focused on innovative solutions",
   },
   {
