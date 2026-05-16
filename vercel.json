@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/vvlf-website run build",
-  "outputDirectory": "artifacts/vvlf-website/dist/public",
+  "outputDirectory": "artifacts/vvlf-website/dist",
   "installCommand": "pnpm install",
   "framework": null
 }
