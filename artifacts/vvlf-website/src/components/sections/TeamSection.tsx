@@ -17,7 +17,7 @@ const team = [
     bio: "Leading VVLF's innovation initiatives and guiding the startup ecosystem with deep technical and entrepreneurial expertise. Over 15 years in academia and industry.",
     expertise: ["Deep Tech", "Entrepreneurship", "Mentorship"],
     achievements: ["15+ Years Experience", "50+ Startups Mentored"],
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/dr-m-k-kaushik-a6580b33/",
   },
   {
     name: "Rohith Sirpa",
@@ -26,7 +26,7 @@ const team = [
     bio: "Driving day-to-day operations, startup outreach, and program management across VVLF's growing portfolio of ventures.",
     expertise: ["Program Management", "Startup Ops", "Community"],
     achievements: ["Cohort 1.0 Lead", "4 Incorporated Startups"],
-    linkedin: "#",
+    linkedin: "https://in.linkedin.com/in/rohith-sirpa-539b0b97",
   },
 ];
 
