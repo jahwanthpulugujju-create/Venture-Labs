@@ -38,7 +38,7 @@ const events = [
     outcome: "Solutions refined · Student-led impact projects advanced",
     location: "BVRIT Innovation Lab",
     audience: "SAARTHIS Cohort — All years",
-    img: "saarthis-session.jpg",
+    img: "saarthis-session5.jpeg",
     imgAlt: "Students collaborating and presenting ideas during Project SAARTHIS Session 5",
   },
   {
