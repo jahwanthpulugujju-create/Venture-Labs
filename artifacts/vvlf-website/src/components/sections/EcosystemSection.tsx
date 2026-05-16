@@ -81,7 +81,8 @@ const allStartups = [
     stage: "Pre-Incubation",
     founder: "BVRIT Student Team",
     traction: "Community Growing",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/company/mxcignite",
+    website: "https://mxcignite.com/",
     featured: false,
   },
   {
@@ -94,7 +95,8 @@ const allStartups = [
     stage: "Incubated",
     founder: "BVRIT Student Team",
     traction: "Beta launched",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/company/soulverse23/",
+    website: "https://nirvaha.org/",
     featured: true,
   },
   {
@@ -107,7 +109,8 @@ const allStartups = [
     stage: "Incubated",
     founder: "BVRIT Student Team",
     traction: "3 paying clients",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/company/olynkai",
+    website: "https://www.olynkai.com/",
     featured: true,
   },
   {
@@ -121,6 +124,7 @@ const allStartups = [
     founder: "BVRIT Student Team",
     traction: "MVP in progress",
     linkedin: "#",
+    website: "https://www.saloapp.in/customer",
     featured: false,
   },
   {
@@ -133,7 +137,8 @@ const allStartups = [
     stage: "Incubated",
     founder: "BVRIT Student Team",
     traction: "2 productions delivered",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/company/studentertainments",
+    website: "#",
     featured: false,
   },
   {
@@ -372,6 +377,8 @@ function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number
           >
             <a
               href={startup.linkedin}
+              target="_blank"
+              rel="noreferrer"
               onClick={(e) => e.stopPropagation()}
               aria-label={`${startup.name} on LinkedIn`}
               className="w-10 h-10 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:scale-110 transition-transform"
@@ -379,7 +386,9 @@ function StartupCard({ startup, i }: { startup: typeof allStartups[0]; i: number
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href={startup.website || "#"}
+              target="_blank"
+              rel="noreferrer"
               onClick={(e) => e.stopPropagation()}
               aria-label={`${startup.name} website`}
               className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B0F19] hover:scale-110 transition-transform"
