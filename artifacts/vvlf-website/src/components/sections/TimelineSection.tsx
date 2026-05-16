@@ -170,7 +170,7 @@ const events = [
     outcome: "Student teams onboarded to year-long SAARTHIS journey",
     location: "BVRIT Innovation Lab",
     audience: "All years · Assistive tech focus",
-    img: "saarthis-session.jpg",
+    img: "saarthis-be-the-change.jpeg",
     imgAlt: "SAARTHIS session with students co-designing inclusive technology",
   },
   {
