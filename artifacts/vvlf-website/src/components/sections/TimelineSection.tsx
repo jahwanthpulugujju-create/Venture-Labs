@@ -64,17 +64,6 @@ const events = [
     imgAlt: "Participants sharing startup experiences and learnings during Failathon 2026 event",
   },
   {
-    date: "JAN 12, 2026", month: "JAN", day: "12", year: "2026",
-    type: "Workshop",
-    title: "Vishnu Walking Trail Ideathon",
-    desc: "Ideathon focused on generating innovative solutions and ideas for enhancing the Vishnu Walking Trail experience.",
-    outcome: "Best ideas shortlisted for the Walking Trail Hackathon",
-    location: "BVRIT Campus, Narsapur",
-    audience: "All years · Open to all students",
-    img: "pivot.jpg",
-    imgAlt: "Students brainstorming ideas during Vishnu Walking Trail Ideathon session",
-  },
-  {
     date: "JAN 9–10, 2026", month: "JAN", day: "9", year: "2026",
     type: "Program",
     title: "Vishnu Walking Trail Hackathon",
