@@ -162,62 +162,6 @@ export function TeamSection() {
           </div>
         </div>
 
-        {/* ── Mentor Network ── */}
-        <div>
-          <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-[#2563EB] font-bold tracking-wider text-sm uppercase mb-2">Mentor Network</p>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#0B0F19]">Industry Mentors</h2>
-              <p className="text-slate-500 mt-3">Domain experts guiding our startups across every sector — available through each cohort program.</p>
-            </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {mentors.map((m, i) => (
-              <FadeIn key={i} delay={i * 0.08}>
-                <motion.div
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className={`group bg-white rounded-2xl p-5 border border-slate-100 hover:shadow-lg transition-all duration-300 cursor-default ${m.borderHover}`}
-                >
-                  <div className="flex items-center gap-4">
-                    <motion.div
-                      whileHover={{ rotate: 8, scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                      className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shrink-0 ${m.color}`}
-                      aria-hidden="true"
-                    >
-                      {m.initials}
-                    </motion.div>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5 mb-0.5">
-                        <Star className="w-3 h-3 text-amber-400" />
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-amber-600">Industry Mentor</p>
-                      </div>
-                      <p className="text-sm font-bold text-[#0B0F19] truncate">{m.name}</p>
-                      <p className="text-slate-500 text-xs">{m.title}</p>
-                    </div>
-                  </div>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {m.expertise.map((tag) => (
-                      <span
-                        key={tag}
-                        className={`px-2.5 py-1 rounded-full text-xs font-semibold transition-colors duration-200 ${m.color} opacity-80 group-hover:opacity-100`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              </FadeIn>
-            ))}
-          </div>
-          <FadeIn>
-            <p className="text-center text-slate-400 text-sm mt-8">
-              + more domain experts across Deep Tech, Semiconductors, and Assistive Technology
-            </p>
-          </FadeIn>
-        </div>
-
         {/* ── Advisors & Partners ── */}
         <div>
           <FadeIn>
