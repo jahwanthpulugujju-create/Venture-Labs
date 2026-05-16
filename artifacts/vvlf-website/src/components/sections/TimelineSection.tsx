@@ -137,7 +137,7 @@ const events = [
     outcome: "50+ students engaged · Pre-Incubation applications followed",
     location: "BVRIT Campus, Narsapur",
     audience: "All BVRIT students with startup ideas",
-    img: "startup-networking.jpg",
+    img: "startup-meet-sep.png",
     imgAlt: "Participants interacting during a startup meet event focused on networking and collaboration",
   },
   {
