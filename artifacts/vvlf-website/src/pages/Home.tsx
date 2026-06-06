@@ -347,7 +347,7 @@ export default function Home() {
             ].map((p, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-64 bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex flex-col gap-4"
+                className="flex-shrink-0 w-64 bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex flex-col gap-4 items-center text-center"
               >
                 <div className="h-20 flex items-center justify-center">
                   {p.img ? (
