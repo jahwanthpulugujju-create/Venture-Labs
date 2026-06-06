@@ -29,7 +29,6 @@ export function PageHero({ eyebrow, headline, sub, image }: PageHeroProps) {
           >
             {headline}
           </h1>
-          <p className="text-white/45 text-lg max-w-xl leading-relaxed">{sub}</p>
         </FadeIn>
       </div>
     </div>
