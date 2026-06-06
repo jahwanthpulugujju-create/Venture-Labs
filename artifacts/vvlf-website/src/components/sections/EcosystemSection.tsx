@@ -218,13 +218,6 @@ function FounderStories() {
                   <Quote className="w-7 h-7 text-[#2563EB]/20" />
                 </motion.div>
 
-                <div className="pt-5 border-t border-slate-100 space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-xl ${founder.color} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
-                      {founder.initials}
-                    </div>
-                  </div>
-                </div>
               </motion.div>
             </FadeIn>
           ))}
