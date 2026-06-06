@@ -20,7 +20,7 @@ export function PageHero({ eyebrow, headline, sub, image }: PageHeroProps) {
       />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <p className="text-[#2563EB] font-bold uppercase tracking-[0.18em] text-xs mb-4">
+          <p className="text-[#2563EB] font-bold uppercase tracking-[0.18em] mb-4 text-[21px]">
             {eyebrow}
           </p>
           <h1
