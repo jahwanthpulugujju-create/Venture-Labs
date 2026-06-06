@@ -130,24 +130,6 @@ export function TeamSection() {
                     <p className="text-[#2563EB] font-semibold text-sm mb-3">{member.title}</p>
                     <p className="text-slate-500 text-sm leading-relaxed mb-4">{member.bio}</p>
 
-                    {/* Achievement badges */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {member.achievements.map((a) => (
-                        <span key={a} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2563EB]/8 border border-[#2563EB]/15 text-[#2563EB] text-xs font-semibold">
-                          <Award className="w-3 h-3" />
-                          {a}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Expertise tags */}
-                    <div className="flex flex-wrap gap-1.5">
-                      {member.expertise.map((tag) => (
-                        <span key={tag} className="px-2.5 py-1 rounded-full bg-slate-100 text-slate-500 text-xs font-semibold">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </motion.div>
               </FadeIn>
