@@ -438,9 +438,7 @@ export function EcosystemSection() {
               <p className="text-[#2563EB] font-bold tracking-wider text-xs uppercase mb-3">Portfolio</p>
               <h2 id="portfolio-heading" className="text-4xl md:text-5xl font-display font-bold text-[#0B0F19] leading-[1.1]">Startups
 </h2>
-              <p className="text-slate-500 mt-3 text-lg max-w-xl">
-                From student ideas to incorporated companies — these are the ventures born at VVLF.
-              </p>
+              <p className="text-slate-500 mt-3 text-lg max-w-xl">From ideas to incorporated companies — these are the ventures born at VVLF.</p>
             </div>
           </FadeIn>
 
@@ -474,7 +472,6 @@ export function EcosystemSection() {
           )}
         </div>
       </section>
-
       {/* ── Founder Stories ── */}
       <FounderStories />
     </>
