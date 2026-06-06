@@ -223,9 +223,6 @@ function FounderStories() {
                     <div className={`w-10 h-10 rounded-xl ${founder.color} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
                       {founder.initials}
                     </div>
-                    <div>
-                      <p className="font-bold text-[#0B0F19] text-sm leading-tight">{founder.name}</p>
-                    </div>
                   </div>
                 </div>
               </motion.div>
