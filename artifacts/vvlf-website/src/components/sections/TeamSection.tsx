@@ -81,13 +81,6 @@ export function TeamSection() {
                   <div className="p-4">
                     <h3 className="font-bold text-[#0B0F19] text-sm leading-tight mb-0.5">{member.name}</h3>
                     <p className="text-[#2563EB] text-xs font-semibold mb-2">{member.title}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {member.expertise.map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 text-[10px] font-semibold">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </motion.div>
               </FadeIn>
