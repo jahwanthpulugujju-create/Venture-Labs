@@ -225,7 +225,6 @@ function FounderStories() {
                     </div>
                     <div>
                       <p className="font-bold text-[#0B0F19] text-sm leading-tight">{founder.name}</p>
-                      <p className="text-slate-400 text-xs">{founder.role}, {founder.venture}</p>
                     </div>
                   </div>
                 </div>
