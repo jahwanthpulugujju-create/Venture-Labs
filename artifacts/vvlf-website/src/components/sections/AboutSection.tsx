@@ -131,11 +131,6 @@ export function AboutSection() {
                       className="max-h-full max-w-full object-contain transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
                     />
                   </div>
-                  <div className="mb-2">
-                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#2563EB]/8 text-[#2563EB] text-[10px] font-bold uppercase tracking-wider mb-2">
-                      {partner.role}
-                    </span>
-                  </div>
                   <h3 className="text-base font-bold text-[#0B0F19] mb-1">{partner.fullName}</h3>
                   <p className="text-slate-500 text-xs leading-relaxed">{partner.desc}</p>
                 </motion.div>
