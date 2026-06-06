@@ -362,9 +362,6 @@ export default function Home() {
                     </div>
                   )}
                 </div>
-                <span className={`self-start text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${p.tagColor}`}>
-                  {p.tag}
-                </span>
                 <p className="font-bold text-[#080c14] text-sm leading-snug">{p.name}</p>
               </div>
             ))}
